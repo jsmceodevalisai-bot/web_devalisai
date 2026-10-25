@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Inicializar validación de formularios
   initFormValidation();
+  initHeaderToggle();
 
   // Activar los efectos "sf-fx-scroll-*" al entrar en pantalla
   initScrollEffects();
@@ -147,6 +148,16 @@ function loadEmailJS() {
     s.onload = function () { resolve(window.emailjs); };
     s.onerror = function () { reject(new Error('No se pudo cargar EmailJS')); };
     document.head.appendChild(s);
+  });
+}
+
+// Menú responsive: el botón ☰ abre y cierra la navegación (el onclick inline se pierde al guardar).
+function initHeaderToggle() {
+  document.querySelectorAll('.sf-hdr-toggle').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var hdr = btn.closest('.sf-hdr');
+      if (hdr) hdr.classList.toggle('is-open');
+    });
   });
 }
 

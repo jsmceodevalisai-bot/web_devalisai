@@ -5,7 +5,6 @@ Sitio Web Exportado - SiteForge
 Este paquete contiene un sitio web estático listo para desplegar.
 
 PÁGINAS INCLUIDAS:
-- Contacto: contacto.html
 - Inicio: Inicio (index.html)
 
 ESTRUCTURA DEL ARCHIVO:
