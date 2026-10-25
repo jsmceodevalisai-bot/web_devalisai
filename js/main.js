@@ -138,6 +138,18 @@ function initGalleries() {
   });
 }
 
+// EmailJS: carga el SDK del navegador solo cuando un formulario lo necesita.
+function loadEmailJS() {
+  if (window.emailjs) return Promise.resolve(window.emailjs);
+  return new Promise(function (resolve, reject) {
+    var s = document.createElement('script');
+    s.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
+    s.onload = function () { resolve(window.emailjs); };
+    s.onerror = function () { reject(new Error('No se pudo cargar EmailJS')); };
+    document.head.appendChild(s);
+  });
+}
+
 function initFormValidation() {
   document.querySelectorAll('form.contact-form').forEach(form => {
     form.querySelectorAll('[required]').forEach(input => {
@@ -158,6 +170,36 @@ function initFormValidation() {
       e.preventDefault();
       if (successDiv) successDiv.style.display = 'none';
       if (errorDiv) errorDiv.style.display = 'none';
+
+      // Envío con EmailJS (si el formulario tiene Service ID, Template ID y Public Key).
+      var ejsService = form.getAttribute('data-emailjs-service') || '';
+      var ejsTemplate = form.getAttribute('data-emailjs-template') || '';
+      var ejsKey = form.getAttribute('data-emailjs-key') || '';
+      if (ejsService && ejsTemplate && ejsKey) {
+        var btn = form.querySelector('button[type="submit"]');
+        if (btn) btn.disabled = true;
+        var fields = {};
+        new FormData(form).forEach(function (value, key) {
+          if (key.charAt(0) !== '_') fields[key] = value;
+        });
+        // Alias para que la plantilla funcione con cualquiera de estos nombres.
+        fields.correo = fields.email || '';
+        fields.from_name = fields.nombre || '';
+        fields.reply_to = fields.email || '';
+        loadEmailJS().then(function (ejs) {
+          ejs.init({ publicKey: ejsKey });
+          return ejs.send(ejsService, ejsTemplate, fields);
+        }).then(function () {
+          if (successDiv) { successDiv.textContent = successMessage; successDiv.style.display = 'block'; }
+          form.reset();
+        }).catch(function (error) {
+          console.error('Error enviando con EmailJS:', error);
+          if (errorDiv) errorDiv.style.display = 'block';
+        }).finally(function () {
+          if (btn) btn.disabled = false;
+        });
+        return;
+      }
 
       if (!webhookUrl) {
         console.warn('Formulario sin webhook configurado: el envío no se realizó. Configura la URL del webhook en el editor (panel Ajustes del formulario).');
