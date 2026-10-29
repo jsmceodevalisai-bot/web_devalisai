@@ -281,12 +281,12 @@ export const ContactSection: React.FC = () => {
                   <h4 className="font-display text-lg font-bold text-[#F8FAFC]">
                     Develisai Chile
                   </h4>
-                  <div className="text-xs text-[#00f0ff]">Partner Tecnológico & IA</div>
+                  <div className="text-xs text-[#00f0ff]">{t.contact.partnerTag || 'Partner Tecnológico & IA'}</div>
                 </div>
               </div>
 
               <p className="text-xs text-[#94A3B8] leading-relaxed">
-                Empresa de software y consultoría tecnológica radicada en Santiago de Chile. Acompañamos a organizaciones en su diseño web, desarrollo a medida y adopción de inteligencia artificial.
+                {t.contact.companyBio || 'Empresa de software y consultoría tecnológica radicada en Santiago de Chile. Acompañamos a organizaciones en su diseño web, desarrollo a medida y adopción de inteligencia artificial.'}
               </p>
 
               <div className="space-y-3 pt-2 text-xs">
@@ -317,7 +317,7 @@ export const ContactSection: React.FC = () => {
                   className="btn-interactive flex items-center justify-center gap-2 rounded-lg border border-[#10B981]/50 bg-[#10B981]/10 py-2.5 px-4 text-xs font-semibold text-[#10B981] hover:bg-[#10B981]/20 w-full"
                 >
                   <MessageCircle className="h-4 w-4" />
-                  <span>Atención directa vía WhatsApp</span>
+                  <span>{t.contact.directWhatsApp || 'Atención directa vía WhatsApp'}</span>
                 </a>
               </div>
             </div>
@@ -327,7 +327,7 @@ export const ContactSection: React.FC = () => {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2 text-xs font-bold text-[#F8FAFC]">
                   <Navigation className="h-4 w-4 text-[#00f0ff]" />
-                  <span>Ubicación de nuestras oficinas</span>
+                  <span>{t.contact.mapTitle || 'Ubicación de nuestras oficinas'}</span>
                 </div>
                 <a
                   href={directionsUrl}
@@ -335,7 +335,7 @@ export const ContactSection: React.FC = () => {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#00f0ff] hover:underline"
                 >
-                  <span>Cómo llegar</span>
+                  <span>{t.contact.directions || 'Cómo llegar'}</span>
                   <ExternalLink className="h-3 w-3" />
                 </a>
               </div>
@@ -356,10 +356,10 @@ export const ContactSection: React.FC = () => {
               </div>
 
               <div className="flex items-center justify-between text-[11px] text-[#64748B] pt-1">
-                <span>Providencia, Región Metropolitana</span>
+                <span>{t.contact.region || 'Providencia, Región Metropolitana'}</span>
                 <span className="flex items-center gap-1 text-[#10B981]">
                   <ShieldCheck className="h-3 w-3" />
-                  <span>Dirección corporativa verificada</span>
+                  <span>{t.contact.verifiedAddress || 'Dirección corporativa verificada'}</span>
                 </span>
               </div>
             </div>

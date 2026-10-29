@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { LandingPageContent } from '../../types';
 import { useContactModal } from '../../context/ContactModalContext';
+import { useLanguage } from '../../context/LanguageContext';
 import { COMPANY_INFO } from '../../data/landingData';
 import {
   ArrowRight,
@@ -102,15 +103,19 @@ const ICON_COMPONENT_MAP: Record<string, React.ReactNode> = {
 
 export const ServiceLandingTemplate: React.FC<Props> = ({ content }) => {
   const { openModal } = useContactModal();
+  const { t, language } = useLanguage();
+  const isEn = language === 'en';
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
-  const whatsappMessage = `Hola Develisai, deseo cotizar el servicio de ${content.serviceName}. Me gustaría coordinar una propuesta técnica.`;
+  const whatsappMessage = isEn
+    ? `Hello Develisai, I would like to inquire about ${content.serviceName}. Let's discuss a technical proposal.`
+    : `Hola Develisai, deseo cotizar el servicio de ${content.serviceName}. Me gustaría coordinar una propuesta técnica.`;
 
   const handleOpenProposal = () => {
     openModal({
       product: content.serviceName,
       plan: content.pricingSection.highlightPlan?.name || content.serviceName,
-      price: content.pricingSection.highlightPlan?.price || 'A convenir',
+      price: content.pricingSection.highlightPlan?.price || (isEn ? 'Custom scope' : 'A convenir'),
       origin: content.slug,
     });
   };
@@ -150,7 +155,7 @@ export const ServiceLandingTemplate: React.FC<Props> = ({ content }) => {
                   onClick={handleOpenProposal}
                   className="btn-interactive w-full sm:w-auto flex items-center justify-center gap-2 rounded-lg bg-[#00838f] dark:bg-[#00f0ff] px-7 py-3.5 text-xs font-bold text-white dark:text-[#060e20] shadow-[0_0_20px_rgba(0,240,255,0.3)] hover:bg-[#006b75] dark:hover:bg-[#7df4ff] cursor-pointer"
                 >
-                  <span>Solicitar propuesta gratis</span>
+                  <span>{isEn ? 'Request free proposal' : 'Solicitar propuesta gratis'}</span>
                   <ArrowRight className="h-4 w-4" />
                 </button>
 
@@ -161,7 +166,7 @@ export const ServiceLandingTemplate: React.FC<Props> = ({ content }) => {
                   className="btn-interactive w-full sm:w-auto flex items-center justify-center gap-2 rounded-lg border border-[#10B981]/50 bg-[#10B981]/10 px-6 py-3.5 text-xs font-bold text-[#10B981] hover:bg-[#10B981]/20 cursor-pointer"
                 >
                   <MessageCircle className="h-4 w-4" />
-                  <span>Cotizar por WhatsApp</span>
+                  <span>{isEn ? 'Quote via WhatsApp' : 'Cotizar por WhatsApp'}</span>
                 </a>
               </div>
             </div>
@@ -260,10 +265,10 @@ export const ServiceLandingTemplate: React.FC<Props> = ({ content }) => {
           
           <div className="text-center max-w-2xl mx-auto mb-14 space-y-2">
             <div className="text-xs font-bold uppercase tracking-wider text-[#00f0ff]">
-              Beneficios Clave
+              {isEn ? 'Key Benefits' : 'Beneficios Clave'}
             </div>
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#F8FAFC]">
-              ¿Por qué elegir nuestra solución de {content.serviceName}?
+              {isEn ? `Why choose our ${content.serviceName} solution?` : `¿Por qué elegir nuestra solución de ${content.serviceName}?`}
             </h2>
           </div>
 
@@ -425,14 +430,14 @@ export const ServiceLandingTemplate: React.FC<Props> = ({ content }) => {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div>
               <div className="text-xs font-bold uppercase tracking-wider text-[#00f0ff]">
-                Portafolio de Especialidad
+                {isEn ? 'Specialized Portfolio' : 'Portafolio de Especialidad'}
               </div>
               <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#F8FAFC] mt-1">
-                Demostraciones y proyectos de {content.serviceName}
+                {isEn ? `Demonstrations & projects of ${content.serviceName}` : `Demostraciones y proyectos de ${content.serviceName}`}
               </h2>
             </div>
             <p className="text-xs text-[#94A3B8] max-w-sm">
-              Casos reales y modelos de referencia tecnológica creados por nuestro equipo.
+              {isEn ? 'Real-world cases and reference architectures built by our engineering team.' : 'Casos reales y modelos de referencia tecnológica creados por nuestro equipo.'}
             </p>
           </div>
 
@@ -452,7 +457,7 @@ export const ServiceLandingTemplate: React.FC<Props> = ({ content }) => {
                   <div className="absolute top-3 left-3">
                     <span className="inline-flex items-center gap-1 rounded-md bg-[#0C1527]/90 px-2.5 py-1 text-[10px] font-bold text-[#00f0ff] border border-[#2A3F66] backdrop-blur-md">
                       {p.isDemo ? <FlaskConical className="h-3 w-3" /> : <CheckCircle2 className="h-3 w-3" />}
-                      <span>{p.isDemo ? 'Solución Demostrativa' : 'Caso Real'}</span>
+                      <span>{p.isDemo ? (t.projects.demoBadge || (isEn ? 'Demo Solution' : 'Solución Demostrativa')) : (t.projects.verifiedBadge || (isEn ? 'Verified Project' : 'Caso Real'))}</span>
                     </span>
                   </div>
                 </div>
@@ -497,7 +502,7 @@ export const ServiceLandingTemplate: React.FC<Props> = ({ content }) => {
               onClick={handleOpenProposal}
               className="btn-interactive flex items-center justify-center gap-2 rounded-lg bg-[#00838f] dark:bg-[#00f0ff] px-7 py-3.5 text-xs font-bold text-white dark:text-[#060e20] shadow-[0_0_20px_rgba(0,240,255,0.3)] hover:bg-[#006b75] dark:hover:bg-[#7df4ff] cursor-pointer"
             >
-              <span>Solicitar propuesta gratis</span>
+              <span>{isEn ? 'Request free proposal' : 'Solicitar propuesta gratis'}</span>
               <ArrowRight className="h-4 w-4" />
             </button>
 
@@ -508,7 +513,7 @@ export const ServiceLandingTemplate: React.FC<Props> = ({ content }) => {
               className="btn-interactive flex items-center justify-center gap-2 rounded-lg border border-[#10B981]/50 bg-[#10B981]/10 px-6 py-3.5 text-xs font-bold text-[#10B981] hover:bg-[#10B981]/20"
             >
               <MessageCircle className="h-4 w-4" />
-              <span>Hablar por WhatsApp</span>
+              <span>{isEn ? 'Chat via WhatsApp' : 'Hablar por WhatsApp'}</span>
             </a>
           </div>
         </div>
@@ -521,10 +526,10 @@ export const ServiceLandingTemplate: React.FC<Props> = ({ content }) => {
           <div className="text-center mb-12 space-y-2">
             <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#00f0ff]">
               <HelpCircle className="h-3.5 w-3.5" />
-              <span>Preguntas Frecuentes</span>
+              <span>{isEn ? 'Frequently Asked Questions' : 'Preguntas Frecuentes'}</span>
             </div>
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#F8FAFC]">
-              Resolvemos tus dudas sobre {content.serviceName}
+              {isEn ? `Frequently asked questions about ${content.serviceName}` : `Resolvemos tus dudas sobre ${content.serviceName}`}
             </h2>
           </div>
 

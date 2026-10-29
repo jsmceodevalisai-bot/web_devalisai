@@ -17,11 +17,12 @@ export const PricingSection: React.FC = () => {
   const expandedFeatures = features.slice(8);
 
   const handleOpenProposal = () => {
+    const planTitle = t.pricing.planName || 'Plan Básico';
     openModal({
-      product: 'Plan Básico',
-      plan: `Plan Básico (${t.pricing.priceAmount})`,
+      product: planTitle,
+      plan: `${planTitle} (${t.pricing.priceAmount})`,
       price: t.pricing.priceAmount,
-      origin: 'Sección Precios Home',
+      origin: t.pricing.title || 'Sección Precios Home',
     });
   };
 
@@ -116,7 +117,7 @@ export const PricingSection: React.FC = () => {
                   aria-controls="expanded-features-list"
                   className="btn-interactive inline-flex items-center gap-1.5 text-xs font-semibold text-[#00f0ff] hover:text-[#7df4ff] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00f0ff] rounded px-2 py-1 cursor-pointer"
                 >
-                  <span>{isExpanded ? '▲' : '▼ (+6)'}</span>
+                  <span>{isExpanded ? (t.pricing.toggleLess || '▲ Menos') : (t.pricing.toggleMore || '▼ (+6)')}</span>
                   {isExpanded ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
                 </button>
               </div>

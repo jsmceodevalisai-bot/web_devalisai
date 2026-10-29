@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useCookies } from '../../context/CookieContext';
+import { useLanguage } from '../../context/LanguageContext';
 import { X, ShieldCheck, Check } from 'lucide-react';
 
 export const CookiePreferencesModal: React.FC = () => {
+  const { t } = useLanguage();
   const {
     showPreferencesModal,
     closePreferencesModal,
@@ -76,10 +78,10 @@ export const CookiePreferencesModal: React.FC = () => {
           </div>
           <div>
             <h2 id="cookie-preferences-title" className="font-display text-xl font-bold text-[#F8FAFC]">
-              Centro de Preferencias de Cookies
+              {t.cookies.preferencesTitle || 'Centro de Preferencias de Cookies'}
             </h2>
             <p className="text-xs text-[#94A3B8] mt-0.5">
-              Administra tu consentimiento según la Ley N.° 19.628 y preparación Ley N.° 21.719 de Chile.
+              {t.cookies.preferencesSubtitle || 'Administra tu consentimiento según la Ley N.° 19.628 y preparación Ley N.° 21.719 de Chile.'}
             </p>
           </div>
         </div>
@@ -92,13 +94,15 @@ export const CookiePreferencesModal: React.FC = () => {
             <div className="flex items-center justify-between gap-4">
               <div>
                 <div className="flex items-center gap-2">
-                  <h3 className="text-xs font-bold text-[#F8FAFC]">1. Cookies Técnicas Necesarias</h3>
+                  <h3 className="text-xs font-bold text-[#F8FAFC]">
+                    {t.cookies.catNecessaryTitle || '1. Cookies Técnicas Necesarias'}
+                  </h3>
                   <span className="rounded bg-[#1E2D4A] px-2 py-0.5 text-[10px] font-semibold text-[#00f0ff]">
-                    Siempre Activas
+                    {t.cookies.catNecessaryBadge || 'Siempre Activas'}
                   </span>
                 </div>
                 <p className="mt-1 text-xs text-[#94A3B8] leading-relaxed">
-                  Esenciales para la navegación, seguridad de sesión, selector de tema claro/oscuro y registro del propio consentimiento de cookies. No pueden desactivarse.
+                  {t.cookies.catNecessaryDesc || 'Esenciales para la navegación, seguridad de sesión, selector de tema claro/oscuro y registro del propio consentimiento de cookies. No pueden desactivarse.'}
                 </p>
               </div>
               <div className="shrink-0 flex items-center justify-center h-5 w-5 rounded bg-[#00f0ff]/20 text-[#00f0ff]">
@@ -111,9 +115,11 @@ export const CookiePreferencesModal: React.FC = () => {
           <div className="rounded-xl border border-[#1E2D4A] bg-[#111C35] p-4">
             <div className="flex items-start justify-between gap-4">
               <div className="space-y-1">
-                <h3 className="text-xs font-bold text-[#F8FAFC]">2. Cookies de Analítica (Google Analytics 4)</h3>
+                <h3 className="text-xs font-bold text-[#F8FAFC]">
+                  {t.cookies.catAnalyticsTitle || '2. Cookies de Analítica (Google Analytics 4)'}
+                </h3>
                 <p className="text-xs text-[#94A3B8] leading-relaxed">
-                  Permiten recopilar datos agregados y anónimos sobre el rendimiento y páginas más consultadas para mejorar la calidad del software.
+                  {t.cookies.catAnalyticsDesc || 'Permiten recopilar datos agregados y anónimos sobre el rendimiento y páginas más consultadas para mejorar la calidad del software.'}
                 </p>
               </div>
               <label className="relative inline-flex items-center cursor-pointer shrink-0 mt-1">
@@ -132,9 +138,11 @@ export const CookiePreferencesModal: React.FC = () => {
           <div className="rounded-xl border border-[#1E2D4A] bg-[#111C35] p-4">
             <div className="flex items-start justify-between gap-4">
               <div className="space-y-1">
-                <h3 className="text-xs font-bold text-[#F8FAFC]">3. Cookies Publicitarias (Google Ads & Meta)</h3>
+                <h3 className="text-xs font-bold text-[#F8FAFC]">
+                  {t.cookies.catMarketingTitle || '3. Cookies Publicitarias (Google Ads & Meta)'}
+                </h3>
                 <p className="text-xs text-[#94A3B8] leading-relaxed">
-                  Utilizadas para medir la efectividad de las campañas comerciales de Develisai en motores de búsqueda y redes profesionales.
+                  {t.cookies.catMarketingDesc || 'Utilizadas para medir la efectividad de las campañas comerciales de Develisai en motores de búsqueda y redes profesionales.'}
                 </p>
               </div>
               <label className="relative inline-flex items-center cursor-pointer shrink-0 mt-1">
@@ -153,9 +161,11 @@ export const CookiePreferencesModal: React.FC = () => {
           <div className="rounded-xl border border-[#1E2D4A] bg-[#111C35] p-4">
             <div className="flex items-start justify-between gap-4">
               <div className="space-y-1">
-                <h3 className="text-xs font-bold text-[#F8FAFC]">4. Preferencias y Contenido Externo (Mapas / Recursos)</h3>
+                <h3 className="text-xs font-bold text-[#F8FAFC]">
+                  {t.cookies.catPreferencesTitle || '4. Preferencias y Contenido Externo (Mapas / Recursos)'}
+                </h3>
                 <p className="text-xs text-[#94A3B8] leading-relaxed">
-                  Permite enriquecer la experiencia visual interactiva (como mapas de ubicación de oficinas y tipografías externas optimizadas).
+                  {t.cookies.catPreferencesDesc || 'Permite enriquecer la experiencia visual interactiva (como mapas de ubicación de oficinas y tipografías externas optimizadas).'}
                 </p>
               </div>
               <label className="relative inline-flex items-center cursor-pointer shrink-0 mt-1">
@@ -181,7 +191,7 @@ export const CookiePreferencesModal: React.FC = () => {
             }}
             className="text-[11px] text-[#00f0ff] hover:underline"
           >
-            Consultar la Política de Cookies completa
+            {t.cookies.fullPolicyLink || 'Consultar la Política de Cookies completa'}
           </button>
         </div>
 
@@ -191,7 +201,7 @@ export const CookiePreferencesModal: React.FC = () => {
             onClick={rejectOptional}
             className="btn-interactive rounded-lg border border-[#1E2D4A] bg-[#060A12] px-4 py-2.5 text-xs font-semibold text-[#dae2fd] hover:bg-[#111C35]"
           >
-            Rechazar todas las opcionales
+            {t.cookies.rejectAllOptional || 'Rechazar todas las opcionales'}
           </button>
 
           <div className="flex items-center gap-2.5">
@@ -199,13 +209,13 @@ export const CookiePreferencesModal: React.FC = () => {
               onClick={acceptAll}
               className="btn-interactive rounded-lg border border-[#2A3F66] bg-[#111C35] px-4 py-2.5 text-xs font-semibold text-[#dae2fd] hover:bg-[#162343]"
             >
-              Aceptar todas
+              {t.cookies.acceptAll || 'Aceptar todas'}
             </button>
             <button
               onClick={handleSave}
               className="btn-interactive rounded-lg bg-[#00838f] dark:bg-[#00f0ff] px-5 py-2.5 text-xs font-bold text-white dark:text-[#060e20] shadow-[0_0_15px_rgba(0,240,255,0.25)] hover:bg-[#006b75] dark:hover:bg-[#7df4ff] cursor-pointer"
             >
-              Guardar preferencias
+              {t.cookies.savePreferences || 'Guardar preferencias'}
             </button>
           </div>
         </div>

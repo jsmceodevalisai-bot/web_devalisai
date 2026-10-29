@@ -157,6 +157,8 @@ export interface TranslationSchema {
     planBadge?: string;
     planName?: string;
     planSubtitle?: string;
+    toggleMore?: string;
+    toggleLess?: string;
     priceAmount: string;
     priceNote: string;
     includedTitle: string;
@@ -185,6 +187,13 @@ export interface TranslationSchema {
     badge: string;
     title: string;
     subtitle: string;
+    partnerTag?: string;
+    companyBio?: string;
+    directWhatsApp?: string;
+    mapTitle?: string;
+    directions?: string;
+    verifiedAddress?: string;
+    region?: string;
     name: string;
     namePlaceholder: string;
     email: string;
@@ -229,9 +238,52 @@ export interface TranslationSchema {
     acceptAll: string;
     rejectNonEssential: string;
     configure: string;
+    preferencesTitle?: string;
+    preferencesSubtitle?: string;
+    catNecessaryTitle?: string;
+    catNecessaryBadge?: string;
+    catNecessaryDesc?: string;
+    catAnalyticsTitle?: string;
+    catAnalyticsDesc?: string;
+    catMarketingTitle?: string;
+    catMarketingDesc?: string;
+    catPreferencesTitle?: string;
+    catPreferencesDesc?: string;
+    fullPolicyLink?: string;
+    rejectAllOptional?: string;
+    savePreferences?: string;
+    policyTitle?: string;
+    policySubtitle?: string;
   };
   whatsapp: {
     defaultText: string;
+  };
+  chat?: {
+    launcherAria?: string;
+    title?: string;
+    status?: string;
+    tooltip?: string;
+    welcome?: string;
+    placeholder?: string;
+    sendAria?: string;
+    quick1?: string;
+    quick2?: string;
+    quick3?: string;
+    quick4?: string;
+    ansBasic?: string;
+    ansBasicAction?: string;
+    ansStore?: string;
+    ansStoreAction?: string;
+    ansSaas?: string;
+    ansSaasAction?: string;
+    ansApp?: string;
+    ansAppAction?: string;
+    ansSeo?: string;
+    ansSeoAction?: string;
+    ansOffice?: string;
+    ansFallback?: string;
+    ansFallbackAction?: string;
+    now?: string;
   };
 }
 
@@ -298,6 +350,30 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
       ctaDetails: 'Ver detalles y cotizar',
       productStar: 'Producto Estrella',
       items: {
+        'aplicaciones-moviles': {
+          "id": "aplicaciones-moviles",
+          "category": "Producto",
+          "title": "Aplicaciones Móviles",
+          "shortDescription": "Aplicaciones nativas e híbridas para iOS y Android con experiencias táctiles fluidas, notificaciones y conexión a APIs.",
+          "highlightBenefit": "Interfaces limpias diseñadas para alto engagement y retención.",
+          "badgeText": "iOS & Android"
+},
+        'posicionamiento-seo': {
+          "id": "posicionamiento-seo",
+          "category": "Servicio",
+          "title": "Posicionamiento SEO",
+          "shortDescription": "Optimización técnica integral, palabras clave estratégicas y contenidos útiles para destacar en búsquedas orgánicas de Google.",
+          "highlightBenefit": "Auditoría profunda, estructura on-page y posicionamiento local.",
+          "badgeText": "Servicio Clave"
+},
+        'google-ads': {
+          "id": "google-ads",
+          "category": "Servicio",
+          "title": "Google Ads",
+          "shortDescription": "Gestión profesional de campañas publicitarias en red de búsqueda y display con segmentación precisa y medición de conversiones.",
+          "highlightBenefit": "Control riguroso del presupuesto y enfoque en leads calificados.",
+          "badgeText": "Publicidad Digital"
+},
         'paginas-web': {
           id: 'paginas-web',
           category: 'Producto',
@@ -370,6 +446,95 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
       verifiedBadge: 'Proyecto Real Verificado',
       demoBadge: 'Solución Demostrativa de Referencia',
       items: {
+        'proj-1': {
+          "id": "proj-1",
+          "title": "Portal Corporativo Nexo Industrial",
+          "client": "Nexo Industrial SpA",
+          "category": "Páginas Web",
+          "description": "Plataforma web con catálogo técnico para empresa de suministros, con carga ultrarrápida y cotizador directo.",
+          "impact": "Carga en menos de 0.8s y +120% en solicitudes de cotización.",
+          "statusLabel": "Proyecto Real Verificado",
+          "technologies": [
+                    "React",
+                    "Tailwind CSS",
+                    "TypeScript",
+                    "Vite"
+          ]
+},
+        'proj-2': {
+          "id": "proj-2",
+          "title": "E-Commerce Andes Sport Equipment",
+          "client": "Andes Sport Chile",
+          "category": "Tiendas Online",
+          "description": "Tienda en línea de equipamiento outdoor con inventario en tiempo real, filtros dinámicos e integración con pasarelas locales.",
+          "impact": "Pasarela Webpay Plus integrada con 99.9% de conversión en checkout.",
+          "statusLabel": "Solución Demostrativa de Referencia",
+          "technologies": [
+                    "E-Commerce Engine",
+                    "Node.js",
+                    "PostgreSQL",
+                    "Webpay API"
+          ]
+},
+        'proj-3': {
+          "id": "proj-3",
+          "title": "CoreFlow Operations SaaS",
+          "client": "CoreFlow Logistics",
+          "category": "Soluciones SaaS",
+          "description": "Sistema ERP modular para gestión de logística, seguimiento de despachos y reportabilidad automática en tiempo real.",
+          "impact": "Automatización de 450+ órdenes de despacho diarias sin fallos.",
+          "statusLabel": "Solución Demostrativa de Referencia",
+          "technologies": [
+                    "FastAPI",
+                    "Python",
+                    "React",
+                    "Docker",
+                    "Redis"
+          ]
+},
+        'proj-4': {
+          "id": "proj-4",
+          "title": "Aplicación Móvil FleetTrack Mobile",
+          "client": "FleetTrack Transportes",
+          "category": "Aplicaciones Móviles",
+          "description": "App para conductores y supervisores de transporte con geolocalización continua, modo offline y sincronización inteligente.",
+          "impact": "Monitoreo satelital activo en tiempo real con 0 pérdidas de señal.",
+          "statusLabel": "Demostración de Desarrollo",
+          "technologies": [
+                    "React Native",
+                    "TypeScript",
+                    "Node.js",
+                    "REST API"
+          ]
+},
+        'proj-5': {
+          "id": "proj-5",
+          "title": "Estrategia SEO para Clínica Dental Providencia",
+          "client": "Clínica Dental Providencia",
+          "category": "Posicionamiento SEO",
+          "description": "Reestructuración técnica on-page y arquitectura semántica local para duplicar el tráfico de búsqueda calificado.",
+          "impact": "Top 3 en Google Maps y +160% de llamadas telefónicas mensuales.",
+          "statusLabel": "Caso de Estudio Verificado",
+          "technologies": [
+                    "Technical SEO",
+                    "Schema.org",
+                    "Google Search Console"
+          ]
+},
+        'proj-6': {
+          "id": "proj-6",
+          "title": "Campañas Google Ads para Servicios B2B",
+          "client": "Suministros Industriales B2B",
+          "category": "Google Ads",
+          "description": "Planificación de palabras clave exactas y optimización de tasa de conversión en landing corporativa orientada a cotizaciones.",
+          "impact": "Costo por lead reducido en un 42% con ROI publicitario medible.",
+          "statusLabel": "Plantilla de Estrategia Comercial",
+          "technologies": [
+                    "Google Ads",
+                    "GA4 Analytics",
+                    "Conversion API"
+          ]
+},
         'e-commerce-gourmet': {
           id: 'e-commerce-gourmet',
           title: 'E-Commerce Gourmet',
@@ -461,6 +626,8 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
       planBadge: 'Plan Pyme',
       planName: 'Plan Básico',
       planSubtitle: 'Diseño web estándar',
+      toggleMore: '▼ (+6 adicionales)',
+      toggleLess: '▲ Menos características',
       priceAmount: '$49.990 CLP',
       priceNote: 'Pago único de puesta en marcha + soporte continuo',
       includedTitle: '14 Características Incluidas:',
@@ -540,6 +707,13 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
       badge: 'Hablemos',
       title: 'Iniciemos tu Transformación Digital',
       subtitle: 'Cuéntanos sobre tu proyecto o requerimiento técnico. Te responderemos en menos de 2 horas hábiles.',
+      partnerTag: 'Partner Tecnológico & IA',
+      companyBio: 'Empresa de software y consultoría tecnológica radicada en Santiago de Chile. Acompañamos a organizaciones en su diseño web, desarrollo a medida y adopción de inteligencia artificial.',
+      directWhatsApp: 'Atención directa vía WhatsApp',
+      mapTitle: 'Ubicación de nuestras oficinas',
+      directions: 'Cómo llegar',
+      verifiedAddress: 'Dirección corporativa verificada',
+      region: 'Providencia, Región Metropolitana',
       name: 'Nombre completo',
       namePlaceholder: 'Ej: Juan Pérez',
       email: 'Correo electrónico',
@@ -581,12 +755,55 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
     cookies: {
       title: 'Valoramos tu Privacidad',
       description: 'Utilizamos cookies para garantizar la mejor experiencia, analizar el tráfico y optimizar el rendimiento técnico del sitio.',
+      preferencesTitle: 'Centro de Preferencias de Cookies',
+      preferencesSubtitle: 'Administra tu consentimiento según la Ley N.° 19.628 y preparación Ley N.° 21.719 de Chile.',
+      catNecessaryTitle: '1. Cookies Técnicas Necesarias',
+      catNecessaryBadge: 'Siempre Activas',
+      catNecessaryDesc: 'Esenciales para la navegación, seguridad de sesión, selector de tema claro/oscuro y registro del propio consentimiento de cookies. No pueden desactivarse.',
+      catAnalyticsTitle: '2. Cookies de Analítica (Google Analytics 4)',
+      catAnalyticsDesc: 'Permiten recopilar datos agregados y anónimos sobre el rendimiento y páginas más consultadas para mejorar la calidad del software.',
+      catMarketingTitle: '3. Cookies Publicitarias (Google Ads & Meta)',
+      catMarketingDesc: 'Utilizadas para medir la efectividad de las campañas comerciales de Develisai en motores de búsqueda y redes profesionales.',
+      catPreferencesTitle: '4. Preferencias y Contenido Externo (Mapas / Recursos)',
+      catPreferencesDesc: 'Permite enriquecer la experiencia visual interactiva (como mapas de ubicación de oficinas y tipografías externas optimizadas).',
+      fullPolicyLink: 'Consultar la Política de Cookies completa',
+      rejectAllOptional: 'Rechazar todas las opcionales',
+      savePreferences: 'Guardar preferencias',
+      policyTitle: 'Política de Cookies y Privacidad de Develisai',
+      policySubtitle: 'Marco normativo: Ley N.° 19.628 y preparación Ley N.° 21.719 de Protección de Datos Personales (Chile).',
       acceptAll: 'Aceptar Todo',
       rejectNonEssential: 'Rechazar No Esenciales',
       configure: 'Configurar',
     },
     whatsapp: {
       defaultText: 'Hola Develisai, me gustaría consultar por sus soluciones tecnológicas.',
+    },
+    chat: {
+      launcherAria: 'Abrir chat corporativo Develisai',
+      title: 'Asistente Virtual Develisai',
+      status: 'En línea · Santiago, Chile',
+      tooltip: 'Asistente Develisai',
+      welcome: '¡Hola! Bienvenido a Develisai. Soy el asistente virtual para ayudarte a conocer nuestras soluciones de software, páginas web, SaaS y servicios de IA en Chile. ¿En qué podemos ayudarte hoy?',
+      placeholder: 'Escribe tu consulta o requerimiento...',
+      sendAria: 'Enviar mensaje',
+      quick1: '¿Qué incluye el Plan Básico ($49.990)?',
+      quick2: '¿Cómo cotizar una Tienda Online?',
+      quick3: '¿Qué desarrollo SaaS realizan?',
+      quick4: '¿Dónde están ubicadas sus oficinas?',
+      ansBasic: 'Nuestro Plan Básico parte en $49.990 CLP e incluye: diseño web estándar, hasta 5 pestañas, 5GB de hosting, 5 correos corporativos, certificado SSL, versión móvil, botón WhatsApp y desarrollo ágil en 3 días hábiles.',
+      ansBasicAction: 'Solicitar Propuesta Gratis Plan Básico',
+      ansStore: 'Desarrollamos Tiendas Online a medida con catálogo, carrito intuitivo, pasarelas de pago chilenas (Webpay, Mercado Pago) y panel de administración de productos y pedidos.',
+      ansStoreAction: 'Cotizar Tienda Online',
+      ansSaas: 'Creamos soluciones SaaS empresariales para automatizar procesos manuales, con accesos por rol, dashboards en tiempo real y arquitectura en la nube de alta disponibilidad.',
+      ansSaasAction: 'Cotizar Solución SaaS',
+      ansApp: 'Diseñamos aplicaciones móviles para iOS y Android orientadas a simplicidad de uso, notificaciones inteligentes e integración directa con bases de datos y APIs.',
+      ansAppAction: 'Cotizar Aplicación Móvil',
+      ansSeo: 'Nuestro servicio de Posicionamiento SEO optimiza la arquitectura técnica, palabras clave y señales locales de tu negocio para ganar visibilidad orgánica honesta y duradera.',
+      ansSeoAction: 'Solicitar Auditoría SEO',
+      ansOffice: 'Nuestras oficinas centrales están en Av. Providencia 1208, Oficina 702, Providencia, Santiago de Chile. Puedes ver nuestro mapa interactivo en la sección de Contacto.',
+      ansFallback: 'Gracias por tu consulta. En Develisai diseñamos cada propuesta según las necesidades específicas de tu empresa o pyme. Puedes solicitar una propuesta gratuita formal en un minuto.',
+      ansFallbackAction: 'Completar Formulario de Contacto',
+      now: 'Ahora',
     },
   },
 
@@ -652,6 +869,30 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
       ctaDetails: 'View details & quote',
       productStar: 'Flagship Product',
       items: {
+        'aplicaciones-moviles': {
+          "id": "aplicaciones-moviles",
+          "category": "Product",
+          "title": "Mobile Applications",
+          "shortDescription": "Native and hybrid iOS & Android apps featuring fluid touch UX, push notifications, and direct API integration.",
+          "highlightBenefit": "Clean interfaces built for high user retention and engagement.",
+          "badgeText": "iOS & Android"
+},
+        'posicionamiento-seo': {
+          "id": "posicionamiento-seo",
+          "category": "Service",
+          "title": "SEO Positioning",
+          "shortDescription": "Comprehensive technical optimization, strategic high-intent keywords, and useful content to stand out on Google search.",
+          "highlightBenefit": "In-depth audit, semantic on-page structure, and local Google Maps visibility.",
+          "badgeText": "Key Service"
+},
+        'google-ads': {
+          "id": "google-ads",
+          "category": "Service",
+          "title": "Google Ads Management",
+          "shortDescription": "Professional campaign setup and management across Search and Display networks with surgical bidding and conversion tracking.",
+          "highlightBenefit": "Strict budget control with unrelenting focus on high-intent qualified leads.",
+          "badgeText": "Digital Ads"
+},
         'paginas-web': {
           id: 'paginas-web',
           category: 'Product',
@@ -724,6 +965,95 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
       verifiedBadge: 'Verified Live Project',
       demoBadge: 'Reference Demo Solution',
       items: {
+        'proj-1': {
+          "id": "proj-1",
+          "title": "Nexo Industrial Corporate Portal",
+          "client": "Nexo Industrial SpA",
+          "category": "Websites",
+          "description": "High-speed technical catalog web platform for an industrial supplier with real-time direct quoting.",
+          "impact": "Loads in under 0.8s with a 120% increase in inbound quote requests.",
+          "statusLabel": "Verified Live Project",
+          "technologies": [
+                    "React",
+                    "Tailwind CSS",
+                    "TypeScript",
+                    "Vite"
+          ]
+},
+        'proj-2': {
+          "id": "proj-2",
+          "title": "Andes Sport Equipment E-Commerce",
+          "client": "Andes Sport Chile",
+          "category": "Online Stores",
+          "description": "Outdoor gear online store featuring real-time inventory sync, dynamic faceted filters, and local Chilean payment gateways.",
+          "impact": "Webpay Plus checkout integration achieving a 99.9% payment success rate.",
+          "statusLabel": "Reference Demo Solution",
+          "technologies": [
+                    "E-Commerce Engine",
+                    "Node.js",
+                    "PostgreSQL",
+                    "Webpay API"
+          ]
+},
+        'proj-3': {
+          "id": "proj-3",
+          "title": "CoreFlow Operations SaaS",
+          "client": "CoreFlow Logistics",
+          "category": "SaaS Solutions",
+          "description": "Modular cloud ERP for logistics management, parcel dispatch tracking, and automated real-time KPI reporting.",
+          "impact": "Automated 450+ daily courier dispatches with zero processing lag.",
+          "statusLabel": "Reference Demo Solution",
+          "technologies": [
+                    "FastAPI",
+                    "Python",
+                    "React",
+                    "Docker",
+                    "Redis"
+          ]
+},
+        'proj-4': {
+          "id": "proj-4",
+          "title": "FleetTrack Mobile Application",
+          "client": "FleetTrack Transportes",
+          "category": "Mobile Apps",
+          "description": "Cross-platform app for drivers and transport dispatchers with background geolocation, offline mode, and smart sync.",
+          "impact": "Continuous active GPS telemetry with zero cellular dead-zone data drops.",
+          "statusLabel": "Development Showcase",
+          "technologies": [
+                    "React Native",
+                    "TypeScript",
+                    "Node.js",
+                    "REST API"
+          ]
+},
+        'proj-5': {
+          "id": "proj-5",
+          "title": "Dental Clinic Providencia SEO Strategy",
+          "client": "Dental Clinic Providencia",
+          "category": "SEO Positioning",
+          "description": "On-page technical overhaul and local semantic schema architecture that doubled high-intent organic search inquiries.",
+          "impact": "Top 3 ranking on local Google Maps and +160% increase in qualified phone consultations.",
+          "statusLabel": "Verified Case Study",
+          "technologies": [
+                    "Technical SEO",
+                    "Schema.org",
+                    "Google Search Console"
+          ]
+},
+        'proj-6': {
+          "id": "proj-6",
+          "title": "B2B Google Ads Growth Campaigns",
+          "client": "Industrial B2B Supplies",
+          "category": "Google Ads",
+          "description": "High-intent keyword structuring and conversion rate optimization tailored for corporate lead-generation funnels.",
+          "impact": "Cost-per-lead reduced by 42% alongside fully transparent commercial ROI attribution.",
+          "statusLabel": "Commercial Strategy Template",
+          "technologies": [
+                    "Google Ads",
+                    "GA4 Analytics",
+                    "Conversion API"
+          ]
+},
         'e-commerce-gourmet': {
           id: 'e-commerce-gourmet',
           title: 'Gourmet E-Commerce',
@@ -815,6 +1145,8 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
       planBadge: 'SME Plan',
       planName: 'Basic Plan',
       planSubtitle: 'Standard Web Design',
+      toggleMore: '▼ (+6 additional)',
+      toggleLess: '▲ Fewer features',
       priceAmount: '$49,990 CLP',
       priceNote: 'One-time setup fee + continuous technical support',
       includedTitle: '14 Included Features:',
@@ -894,6 +1226,13 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
       badge: 'Let’s Talk',
       title: 'Start Your Digital Transformation',
       subtitle: 'Tell us about your project or technical requirements. We will reply within 2 business hours.',
+      partnerTag: 'Tech & AI Partner',
+      companyBio: 'Software engineering and technology advisory firm headquartered in Santiago, Chile. We partner with forward-thinking businesses in web development, bespoke software, and artificial intelligence.',
+      directWhatsApp: 'Direct support via WhatsApp',
+      mapTitle: 'Office Location',
+      directions: 'Get Directions',
+      verifiedAddress: 'Verified Corporate Address',
+      region: 'Providencia, Santiago Metropolitan Area',
       name: 'Full Name',
       namePlaceholder: 'e.g., John Smith',
       email: 'Work Email',
@@ -935,12 +1274,55 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
     cookies: {
       title: 'We Value Your Privacy',
       description: 'We use cookies to ensure optimal browsing, analyze site traffic, and optimize technical performance.',
+      preferencesTitle: 'Cookie Preferences Center',
+      preferencesSubtitle: 'Manage your consent in compliance with Chilean Law No. 19,628 and Law No. 21,719 readiness.',
+      catNecessaryTitle: '1. Essential Technical Cookies',
+      catNecessaryBadge: 'Always Active',
+      catNecessaryDesc: 'Required for core website navigation, session security, dark/light theme persistence, and recording consent preferences. Cannot be disabled.',
+      catAnalyticsTitle: '2. Analytics Cookies (Google Analytics 4)',
+      catAnalyticsDesc: 'Collect aggregated and anonymous technical metrics on page usage and performance to help us refine software quality.',
+      catMarketingTitle: '3. Advertising Cookies (Google Ads & Meta)',
+      catMarketingDesc: 'Used to assess the efficacy of Develisai marketing campaigns across search engines and professional networks.',
+      catPreferencesTitle: '4. Preferences & External Content (Maps / Assets)',
+      catPreferencesDesc: 'Enriches your experience with interactive elements such as office map embeds and performant web typography.',
+      fullPolicyLink: 'Read Full Cookie & Privacy Policy',
+      rejectAllOptional: 'Reject Optional Cookies',
+      savePreferences: 'Save Preferences',
+      policyTitle: 'Develisai Cookie & Privacy Policy',
+      policySubtitle: 'Regulatory framework: Chilean Data Protection Law No. 19,628 and Law No. 21,719.',
       acceptAll: 'Accept All',
       rejectNonEssential: 'Reject Non-Essential',
       configure: 'Configure',
     },
     whatsapp: {
       defaultText: 'Hello Develisai, I would like to inquire about your technology solutions.',
+    },
+    chat: {
+      launcherAria: 'Open Develisai corporate chat',
+      title: 'Develisai Virtual Assistant',
+      status: 'Online · Santiago, Chile',
+      tooltip: 'Develisai Assistant',
+      welcome: 'Hello! Welcome to Develisai. I am your virtual assistant to help you explore our software solutions, professional websites, SaaS, and AI capabilities in Chile. How may we assist you today?',
+      placeholder: 'Type your question or project details...',
+      sendAria: 'Send message',
+      quick1: 'What is included in the Basic Plan ($49,990)?',
+      quick2: 'How to quote an Online Store?',
+      quick3: 'What SaaS solutions do you build?',
+      quick4: 'Where are your offices located?',
+      ansBasic: 'Our Basic Plan starts at $49,990 CLP and includes: standard web design, up to 5 sections, 5GB cloud hosting, 5 corporate inboxes, SSL certificate, mobile optimization, WhatsApp button, and rapid 3-day turnaround.',
+      ansBasicAction: 'Request Free Basic Plan Proposal',
+      ansStore: 'We build tailored e-commerce platforms with dynamic product catalogs, seamless shopping carts, Chilean payment gateways (Webpay, Mercado Pago), and complete order management.',
+      ansStoreAction: 'Quote Online Store',
+      ansSaas: 'We engineer enterprise SaaS solutions that automate manual workflows, complete with role-based access control, real-time analytics dashboards, and highly available cloud architecture.',
+      ansSaasAction: 'Quote SaaS Solution',
+      ansApp: 'We craft native and cross-platform mobile apps for iOS and Android focused on fluid user experiences, smart push notifications, and direct database/API connectivity.',
+      ansAppAction: 'Quote Mobile App',
+      ansSeo: 'Our SEO Positioning service refines technical architecture, search keywords, and local signals to secure genuine, long-term organic Google rankings.',
+      ansSeoAction: 'Request SEO Audit',
+      ansOffice: 'Our headquarters are located at Av. Providencia 1208, Suite 702, Providencia, Santiago, Chile. You can view our interactive map in the Contact section.',
+      ansFallback: 'Thank you for reaching out. At Develisai we tailor every proposal to your company’s unique needs. You can request a free formal proposal in less than one minute.',
+      ansFallbackAction: 'Complete Contact Form',
+      now: 'Just now',
     },
   },
 
@@ -1006,6 +1388,30 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
       ctaDetails: '詳細を見る・見積り',
       productStar: '看板プロダクト',
       items: {
+        'aplicaciones-moviles': {
+          "id": "aplicaciones-moviles",
+          "category": "プロダクト",
+          "title": "モバイルアプリ開発",
+          "shortDescription": "iOS・Android対応のネイティブ＆ハイブリッドアプリ。軽快な操作性と通知機能、安全なAPI連携を完備。",
+          "highlightBenefit": "高いリテンションとユーザー定着率を生む洗練されたUI。",
+          "badgeText": "iOS & Android"
+},
+        'posicionamiento-seo': {
+          "id": "posicionamiento-seo",
+          "category": "サービス",
+          "title": "SEO検索順位最適化",
+          "shortDescription": "包括的なテクニカルSEO、戦略的キーワード選定、Google検索上位表示を実現するコンテンツ設計。",
+          "highlightBenefit": "詳細なサイト診断、構造化データ対応、ローカルMEO対策。",
+          "badgeText": "主力サービス"
+},
+        'google-ads': {
+          "id": "google-ads",
+          "category": "サービス",
+          "title": "Google広告運用",
+          "shortDescription": "検索連動型広告およびディスプレイ広告の専門運用。精密なターゲティングとコンバージョン計測を徹底。",
+          "highlightBenefit": "広告費用の無駄を徹底排除し、確度の高い見込み客獲得に特化。",
+          "badgeText": "デジタル広告"
+},
         'paginas-web': {
           id: 'paginas-web',
           category: 'プロダクト',
@@ -1076,6 +1482,95 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
       subtitle: '高いエンジニアリング基準と確実なROIを両立させた実装プロジェクト。',
       similarCta: '類似ソリューションを相談',
       items: {
+        'proj-1': {
+          "id": "proj-1",
+          "title": "Nexo Industrial コーポレートポータル",
+          "client": "Nexo Industrial SpA",
+          "category": "Webサイト",
+          "description": "産業機械・資材サプライヤー向け技術カタログ搭載の超高速Webプラットフォーム。即時見積機能付き。",
+          "impact": "表示速度0.8秒以内、見積依頼件数+120%向上。",
+          "statusLabel": "実稼働検証済みプロジェクト",
+          "technologies": [
+                    "React",
+                    "Tailwind CSS",
+                    "TypeScript",
+                    "Vite"
+          ]
+},
+        'proj-2': {
+          "id": "proj-2",
+          "title": "Andes Sport アウトドアECストア",
+          "client": "Andes Sport Chile",
+          "category": "オンラインストア",
+          "description": "リアルタイム在庫同期、動的絞り込み検索、チリ国内決済ゲートウェイを完全統合したアウトドア用品EC。",
+          "impact": "Webpay Plus決済完了率99.9%を達成。",
+          "statusLabel": "リファレンスデモソリューション",
+          "technologies": [
+                    "E-Commerce Engine",
+                    "Node.js",
+                    "PostgreSQL",
+                    "Webpay API"
+          ]
+},
+        'proj-3': {
+          "id": "proj-3",
+          "title": "CoreFlow オペレーションSaaS",
+          "client": "CoreFlow Logistics",
+          "category": "SaaSソリューション",
+          "description": "物流追跡、発送業務自動化、リアルタイムKPIダッシュボードを備えたモジュール型業務クラウドERP。",
+          "impact": "1日450件以上の配送自動処理を実現。",
+          "statusLabel": "リファレンスデモソリューション",
+          "technologies": [
+                    "FastAPI",
+                    "Python",
+                    "React",
+                    "Docker",
+                    "Redis"
+          ]
+},
+        'proj-4': {
+          "id": "proj-4",
+          "title": "FleetTrack 車両管理モバイルアプリ",
+          "client": "FleetTrack Transportes",
+          "category": "モバイルアプリ",
+          "description": "配送ドライバーと運行管理者向けの現場アプリ。GPS位置追跡、オフライン動作、安全なクラウド同期機能。",
+          "impact": "圏外でもデータ損失ゼロのリアルタイム遠隔監視。",
+          "statusLabel": "開発デモンストレーション",
+          "technologies": [
+                    "React Native",
+                    "TypeScript",
+                    "Node.js",
+                    "REST API"
+          ]
+},
+        'proj-5': {
+          "id": "proj-5",
+          "title": "プロビデンシア歯科クリニック SEO戦略",
+          "client": "Clínica Dental Providencia",
+          "category": "SEO検索順位",
+          "description": "内部コード構造改革と地域密着型セマンティック構造化により、高確度な検索流入数を2倍に拡大。",
+          "impact": "Googleマップ上位3位入り、月間電話予約+160%。",
+          "statusLabel": "検証済み導入事例",
+          "technologies": [
+                    "Technical SEO",
+                    "Schema.org",
+                    "Google Search Console"
+          ]
+},
+        'proj-6': {
+          "id": "proj-6",
+          "title": "B2B向け Google Ads 獲得キャンペーン",
+          "client": "Suministros Industriales B2B",
+          "category": "Google広告",
+          "description": "完全一致キーワード戦略とB2BランディングページのCVR改善による商談リード獲得数の最大化。",
+          "impact": "獲得単価42%削減、費用対効果の可視化を実現。",
+          "statusLabel": "実証済み運用テンプレート",
+          "technologies": [
+                    "Google Ads",
+                    "GA4 Analytics",
+                    "Conversion API"
+          ]
+},
         'e-commerce-gourmet': {
           id: 'e-commerce-gourmet',
           title: 'グルメECストア',
@@ -1164,6 +1659,11 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
       badge: '明朗な料金体系',
       title: '中小企業向け ベーシックWebプラン',
       subtitle: '安全で高コンバージョンなプロ仕様Webサイトに必要なすべてを凝縮。',
+      planBadge: '中小企業プラン',
+      planName: 'ベーシックプラン',
+      planSubtitle: '標準Webデザイン',
+      toggleMore: '▼ (+6項目を表示)',
+      toggleLess: '▲ 閉じる',
       priceAmount: '$49.990 CLP',
       priceNote: '初期立ち上げ費用 ＋ 継続テクニカルサポート',
       includedTitle: '標準搭載の14機能:',
@@ -1230,10 +1730,25 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
         },
       },
     },
-    contact: {
+        techStack: {
+      badge: '技術スタック一覧',
+      title: '現代の最高水準テクノロジーで構築',
+      subtitle: '拡張性、セキュリティ、高速性を両立する業界標準のツールを採用しています。',
+      frontendBadge: 'フロントエンド & Web',
+      backendBadge: 'バックエンド & API',
+      cloudBadge: 'クラウド & AI基盤',
+    },
+contact: {
       badge: 'お問い合わせ',
       title: 'デジタルトランスフォーメーションを始めましょう',
       subtitle: 'プロジェクトのご要望や技術的なご相談をお聞かせください。2営業時間以内にご返信いたします。',
+      partnerTag: '技術・AIパートナー',
+      companyBio: 'チリ・サンティアゴに本拠を置くソフトウェア受託開発および技術コンサルティング企業。中小企業からエンタープライズまで支援します。',
+      directWhatsApp: 'WhatsAppで直接相談',
+      mapTitle: 'オフィス所在地',
+      directions: 'ルートを確認',
+      verifiedAddress: '法人登記住所確認済み',
+      region: '首都州プロビデンシア',
       name: 'お名前',
       namePlaceholder: '例: 田中 太郎',
       email: 'メールアドレス',
@@ -1275,6 +1790,22 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
     cookies: {
       title: 'プライバシーの尊重',
       description: '快適な閲覧環境の提供、アクセス解析、技術的パフォーマンス向上のためにCookieを使用しています。',
+      preferencesTitle: 'Cookie設定センター',
+      preferencesSubtitle: 'チリ個人情報保護法に基づき同意内容を管理できます。',
+      catNecessaryTitle: '1. 必須技術Cookie',
+      catNecessaryBadge: '常時有効',
+      catNecessaryDesc: 'サイトの正常動作、セッション維持、ダークモード設定保持に不可欠です。',
+      catAnalyticsTitle: '2. 分析Cookie (GA4)',
+      catAnalyticsDesc: 'サービス品質向上のため匿名での利用状況を計測します。',
+      catMarketingTitle: '3. 広告Cookie (Google Ads)',
+      catMarketingDesc: '広告効果の測定と適切な配信のために使用されます。',
+      catPreferencesTitle: '4. 機能・外部リソースCookie',
+      catPreferencesDesc: 'マップ表示やフォント読み込みなど快適な表示に寄与します。',
+      fullPolicyLink: 'Cookieポリシー詳細を読む',
+      rejectAllOptional: '任意Cookieをすべて拒否',
+      savePreferences: '設定を保存',
+      policyTitle: 'Develisai Cookie＆プライバシーポリシー',
+      policySubtitle: 'チリ法令準拠：第19.628号法および第21.719号法。',
       acceptAll: 'すべて同意',
       rejectNonEssential: '必須以外を拒否',
       configure: '詳細設定',
@@ -1346,6 +1877,30 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
       ctaDetails: '查看详情与报价',
       productStar: '核心爆款',
       items: {
+        'aplicaciones-moviles': {
+          "id": "aplicaciones-moviles",
+          "category": "产品",
+          "title": "移动端应用开发",
+          "shortDescription": "面向iOS与Android的原生与混合应用，具备流畅的交互体验、即时推送通知及稳健的API接口联动。",
+          "highlightBenefit": "专为提升用户留存与参与度量身打造的精炼UI界面。",
+          "badgeText": "iOS & Android"
+},
+        'posicionamiento-seo': {
+          "id": "posicionamiento-seo",
+          "category": "服务",
+          "title": "搜索引擎SEO优化",
+          "shortDescription": "全方位的技术底层优化、高转化战略关键词布局及优质内容架构，助您的业务在Google自然搜索中脱颖而出。",
+          "highlightBenefit": "深度网站技术诊断、语义化代码构建与本地化地图优化。",
+          "badgeText": "核心服务"
+},
+        'google-ads': {
+          "id": "google-ads",
+          "category": "服务",
+          "title": "Google广告精准投放",
+          "shortDescription": "专业的搜索与展示广告策略管理，结合严密的受众细分定位与实时转化漏斗追踪。",
+          "highlightBenefit": "严谨的预算管控机制，全方位聚焦高意向高质量客户获取。",
+          "badgeText": "数字营销"
+},
         'paginas-web': {
           id: 'paginas-web',
           category: '产品',
@@ -1416,6 +1971,95 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
       subtitle: '以严苛的工程标准打造的真实商业方案，带来明确可衡量的投资回报。',
       similarCta: '咨询类似方案',
       items: {
+        'proj-1': {
+          "id": "proj-1",
+          "title": "Nexo Industrial 工业集团官网门户",
+          "client": "Nexo Industrial SpA",
+          "category": "企业网站",
+          "description": "专为工业供应链打造的超高速技术产品目录与实时在线报价平台。",
+          "impact": "页面加载低于0.8秒，询盘转化率提升120%。",
+          "statusLabel": "真实落地验证案例",
+          "technologies": [
+                    "React",
+                    "Tailwind CSS",
+                    "TypeScript",
+                    "Vite"
+          ]
+},
+        'proj-2': {
+          "id": "proj-2",
+          "title": "Andes Sport 户外运动电商商城",
+          "client": "Andes Sport Chile",
+          "category": "电商商城",
+          "description": "户外运动装备在线商城，配备实时库存同步、动态多维筛选系统及本地主流支付网关联动。",
+          "impact": "Webpay Plus收银台对接，支付成功率高达99.9%。",
+          "statusLabel": "参考示范级解决方案",
+          "technologies": [
+                    "E-Commerce Engine",
+                    "Node.js",
+                    "PostgreSQL",
+                    "Webpay API"
+          ]
+},
+        'proj-3': {
+          "id": "proj-3",
+          "title": "CoreFlow 数字化运营管理SaaS",
+          "client": "CoreFlow Logistics",
+          "category": "SaaS软件方案",
+          "description": "模块化企业级云ERP系统，用于全链路物流管控、出货派送实时追踪及自动化管理报表生成。",
+          "impact": "实现日均450余单物流派送的全自动化调度。",
+          "statusLabel": "参考示范级解决方案",
+          "technologies": [
+                    "FastAPI",
+                    "Python",
+                    "React",
+                    "Docker",
+                    "Redis"
+          ]
+},
+        'proj-4': {
+          "id": "proj-4",
+          "title": "FleetTrack 智能车队协同App",
+          "client": "FleetTrack Transportes",
+          "category": "移动端应用",
+          "description": "专为物流司机与调度主管打造的移动应用，支持后台GPS连续定位、离线作业及智能差分同步。",
+          "impact": "全天候卫星动态监控，无信号盲区数据丢失。",
+          "statusLabel": "研发示范项目",
+          "technologies": [
+                    "React Native",
+                    "TypeScript",
+                    "Node.js",
+                    "REST API"
+          ]
+},
+        'proj-5': {
+          "id": "proj-5",
+          "title": "Providencia 齿科专科诊所 SEO实战",
+          "client": "Clínica Dental Providencia",
+          "category": "SEO关键词排名",
+          "description": "深度优化页面代码与本地化结构化数据架构，使高质量精准预约搜索流量成功实现翻倍增长。",
+          "impact": "稳居Google地图前3位，月度电话预约量增长160%。",
+          "statusLabel": "真实成效评估案例",
+          "technologies": [
+                    "Technical SEO",
+                    "Schema.org",
+                    "Google Search Console"
+          ]
+},
+        'proj-6': {
+          "id": "proj-6",
+          "title": "B2B企业级 Google Ads 获客投放",
+          "client": "Suministros Industriales B2B",
+          "category": "Google竞价广告",
+          "description": "高意向精准关键词拓词规划与落地页转化率深度优化，实现企业级询盘与线索获取成本大幅下降。",
+          "impact": "获客成本降低42%，ROI全流程精准归因。",
+          "statusLabel": "商业实操方案范本",
+          "technologies": [
+                    "Google Ads",
+                    "GA4 Analytics",
+                    "Conversion API"
+          ]
+},
         'e-commerce-gourmet': {
           id: 'e-commerce-gourmet',
           title: '高档美食电商平台',
@@ -1504,6 +2148,11 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
       badge: '价格透明承诺',
       title: '中小企业官网基础套餐',
       subtitle: '涵盖建立高转化、安全且专业企业数字化窗口所需的一切必备要素。',
+      planBadge: '中小企业特惠',
+      planName: '基础套餐',
+      planSubtitle: '标准企业建站',
+      toggleMore: '▼ (展开6项功能)',
+      toggleLess: '▲ 收起功能',
       priceAmount: '$49.990 CLP',
       priceNote: '一次性开发部署费用 ＋ 持续技术护航',
       includedTitle: '标配包含 14 项完整功能:',
@@ -1570,10 +2219,25 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
         },
       },
     },
-    contact: {
+        techStack: {
+      badge: '现代技术全景',
+      title: '以前沿架构打造卓越数字产品',
+      subtitle: '采用行业主流开源技术与云原生标准，保障代码的高扩展性与银行级安全。',
+      frontendBadge: '前端与交互',
+      backendBadge: '后端服务与接口',
+      cloudBadge: '云原生与AI基建',
+    },
+contact: {
       badge: '携手合作',
       title: '开启您的数字化转型新篇章',
       subtitle: '请告诉我们您的项目需求或技术设想。我们将在2个工作小时内与您取得联系。',
+      partnerTag: '数字化技术与AI战略伙伴',
+      companyBio: '总部位于智利圣地亚哥的高品质软件开发与技术咨询公司，助力企业实现官网重塑、定制系统开发与AI落地。',
+      directWhatsApp: '通过WhatsApp直联工程师',
+      mapTitle: '公司办公地址',
+      directions: '查看路线指引',
+      verifiedAddress: '企业官方认证实体地址',
+      region: '圣地亚哥首都大区 Providencia',
       name: '您的姓名',
       namePlaceholder: '例如: 张先生',
       email: '电子邮箱',
@@ -1615,6 +2279,22 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
     cookies: {
       title: '保护您的隐私',
       description: '我们使用必要和分析类 Cookie 以确保优质的用户体验并优化系统性能。',
+      preferencesTitle: 'Cookie 隐私首选项中心',
+      preferencesSubtitle: '严格遵循智利第19.628号法律及第21.719号个人数据保护法案规定。',
+      catNecessaryTitle: '1. 核心技术必需Cookie',
+      catNecessaryBadge: '始终保持启用',
+      catNecessaryDesc: '保证网站基础浏览、登录安全凭证、亮暗色主题配置及授权记录所必需，不可单独关闭。',
+      catAnalyticsTitle: '2. 流量统计分析Cookie (GA4)',
+      catAnalyticsDesc: '以完全匿名脱敏方式汇总系统访问数据与性能指标，以便持续优化软件使用体验。',
+      catMarketingTitle: '3. 广告监测Cookie (Google Ads)',
+      catMarketingDesc: '用于衡量Develisai在商业搜索引擎及职场社交网络中的推广效能。',
+      catPreferencesTitle: '4. 界面功能与外部资源Cookie',
+      catPreferencesDesc: '支持加载办公室交互地图与高质量排版字体等丰富视觉组件。',
+      fullPolicyLink: '阅读完整Cookie及隐私条例',
+      rejectAllOptional: '拒绝所有可选Cookie',
+      savePreferences: '保存偏好设置',
+      policyTitle: 'Develisai 隐私保护与Cookie使用政策',
+      policySubtitle: '法定合规依据：智利个人数据保护法第19.628号及第21.719号条例。',
       acceptAll: '全部同意',
       rejectNonEssential: '仅保留必要项',
       configure: '偏好设置',
@@ -1686,6 +2366,30 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
       ctaDetails: 'Details ansehen & anfragen',
       productStar: 'Flaggschiff-Produkt',
       items: {
+        'aplicaciones-moviles': {
+          "id": "aplicaciones-moviles",
+          "category": "Produkt",
+          "title": "Mobile Applikationen",
+          "shortDescription": "Native und hybride Apps für iOS und Android mit flüssiger Haptik, Push-Benachrichtigungen und stabiler API-Anbindung.",
+          "highlightBenefit": "Auf maximale Nutzerbindung und Konversion ausgelegte Oberflächen.",
+          "badgeText": "iOS & Android"
+},
+        'posicionamiento-seo': {
+          "id": "posicionamiento-seo",
+          "category": "Service",
+          "title": "SEO-Positionierung",
+          "shortDescription": "Umfassende technische On-Page-Optimierung, strategische Keywords und zielgerichtete Inhalte für beste Google-Rankings.",
+          "highlightBenefit": "Tiefgehende Audits, strukturierte Daten und lokale Auffindbarkeit.",
+          "badgeText": "Schlüsselservice"
+},
+        'google-ads': {
+          "id": "google-ads",
+          "category": "Service",
+          "title": "Google Ads Kampagnen",
+          "shortDescription": "Professionelle Steuerung von Such- und Displaynetzwerk-Kampagnen mit präziser Zielgruppenansprache und Conversion-Tracking.",
+          "highlightBenefit": "Strenge Budgetkontrolle mit klarem Fokus auf qualifizierte Leads.",
+          "badgeText": "Digitale Werbung"
+},
         'paginas-web': {
           id: 'paginas-web',
           category: 'Produkt',
@@ -1756,6 +2460,95 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
       subtitle: 'Erprobte Kundenprojekte mit höchsten Software-Engineering-Standards und messbarem ROI.',
       similarCta: 'Ähnliche Lösung anfragen',
       items: {
+        'proj-1': {
+          "id": "proj-1",
+          "title": "Nexo Industrial Unternehmensportal",
+          "client": "Nexo Industrial SpA",
+          "category": "Websites",
+          "description": "Hochperformante technische Katalogplattform für Industrieausrüster mit direkter Preiskalkulation.",
+          "impact": "Ladezeit unter 0,8 s und 120 % mehr qualifizierte Preisanfragen.",
+          "statusLabel": "Geprüftes Live-Projekt",
+          "technologies": [
+                    "React",
+                    "Tailwind CSS",
+                    "TypeScript",
+                    "Vite"
+          ]
+},
+        'proj-2': {
+          "id": "proj-2",
+          "title": "Andes Sport Equipment E-Commerce",
+          "client": "Andes Sport Chile",
+          "category": "Online-Shops",
+          "description": "Outdoor-Online-Shop mit Echtzeit-Warenwirtschaft, dynamischen Filtern und Integration lokaler Zahlungsgateways.",
+          "impact": "Webpay Plus Anbindung mit 99,9 % Checkout-Erfolgsrate.",
+          "statusLabel": "Referenz-Demolösung",
+          "technologies": [
+                    "E-Commerce Engine",
+                    "Node.js",
+                    "PostgreSQL",
+                    "Webpay API"
+          ]
+},
+        'proj-3': {
+          "id": "proj-3",
+          "title": "CoreFlow Operations SaaS",
+          "client": "CoreFlow Logistics",
+          "category": "SaaS-Lösungen",
+          "description": "Modulares Cloud-ERP für Logistiksteuerung, Versand-Tracking und automatisiertes KPI-Reporting in Echtzeit.",
+          "impact": "Automatisierung von täglich 450+ Versandaufträgen ohne Verzögerung.",
+          "statusLabel": "Referenz-Demolösung",
+          "technologies": [
+                    "FastAPI",
+                    "Python",
+                    "React",
+                    "Docker",
+                    "Redis"
+          ]
+},
+        'proj-4': {
+          "id": "proj-4",
+          "title": "FleetTrack Flotten-App",
+          "client": "FleetTrack Transportes",
+          "category": "Mobile Apps",
+          "description": "App für Fahrer und Disponenten mit durchgängiger Standorterfassung, Offline-Fähigkeit und smarter Synchronisation.",
+          "impact": "Aktives Satelliten-Tracking ohne Datenverluste in Funklöchern.",
+          "statusLabel": "Entwicklungs-Showcase",
+          "technologies": [
+                    "React Native",
+                    "TypeScript",
+                    "Node.js",
+                    "REST API"
+          ]
+},
+        'proj-5': {
+          "id": "proj-5",
+          "title": "SEO-Strategie Zahnklinik Providencia",
+          "client": "Clínica Dental Providencia",
+          "category": "SEO-Positionierung",
+          "description": "Technische Überarbeitung und lokale semantische Struktur, die qualifizierte Suchanfragen verdoppelt hat.",
+          "impact": "Top-3-Platzierung auf Google Maps und +160 % mehr telefonische Terminanfragen.",
+          "statusLabel": "Verifizierte Fallstudie",
+          "technologies": [
+                    "Technical SEO",
+                    "Schema.org",
+                    "Google Search Console"
+          ]
+},
+        'proj-6': {
+          "id": "proj-6",
+          "title": "B2B Google Ads Kampagnen",
+          "client": "Suministros Industriales B2B",
+          "category": "Google Ads",
+          "description": "Exakte Keyword-Segmentierung und Conversion-Optimierung auf Unternehmensebene für maximale Leadqualität.",
+          "impact": "Leadkosten um 42 % gesenkt bei transparenter Rendite.",
+          "statusLabel": "Kommerzielle Strategievorlage",
+          "technologies": [
+                    "Google Ads",
+                    "GA4 Analytics",
+                    "Conversion API"
+          ]
+},
         'e-commerce-gourmet': {
           id: 'e-commerce-gourmet',
           title: 'Gourmet-Onlineshop',
@@ -1844,6 +2637,11 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
       badge: 'Maximale Transparenz',
       title: 'Web-Basisplan für den Mittelstand',
       subtitle: 'Alles, was Ihr Unternehmen für einen erfolgreichen, sicheren und konversionsstarken Webauftritt benötigt.',
+      planBadge: 'KMU-Tarif',
+      planName: 'Basis-Paket',
+      planSubtitle: 'Standard Webdesign',
+      toggleMore: '▼ (+6 Details einblenden)',
+      toggleLess: '▲ Weniger Details',
       priceAmount: '$49.990 CLP',
       priceNote: 'Einmalige Bereitstellung + laufender technischer Support',
       includedTitle: '14 Inkludierte Leistungen:',
@@ -1910,10 +2708,25 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
         },
       },
     },
-    contact: {
+        techStack: {
+      badge: 'Technologie-Stack',
+      title: 'Moderne Technologien für messbaren Geschäftserfolg',
+      subtitle: 'Wir setzen auf modulare, skalierbare und sichere Industriestandards.',
+      frontendBadge: 'Frontend & Web',
+      backendBadge: 'Backend & APIs',
+      cloudBadge: 'Cloud & KI-Infrastruktur',
+    },
+contact: {
       badge: 'Lassen Sie uns sprechen',
       title: 'Starten Sie Ihre digitale Transformation',
       subtitle: 'Schildern Sie uns Ihr Projekt oder Ihre technischen Anforderungen. Wir antworten innerhalb von 2 Geschäftsstunden.',
+      partnerTag: 'Technologie- & KI-Partner',
+      companyBio: 'Software-Entwicklungsgesellschaft mit Sitz in Santiago de Chile. Wir begleiten Unternehmen bei Webdesign, Individualsoftware und KI-Integration.',
+      directWhatsApp: 'Direkter Kontakt über WhatsApp',
+      mapTitle: 'Unser Standort',
+      directions: 'Route berechnen',
+      verifiedAddress: 'Verifizierte Geschäftsadresse',
+      region: 'Providencia, Metropolregion Santiago',
       name: 'Vollständiger Name',
       namePlaceholder: 'z.B. Max Mustermann',
       email: 'E-Mail-Adresse',
@@ -1955,6 +2768,22 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
     cookies: {
       title: 'Wir respektieren Ihre Privatsphäre',
       description: 'Wir setzen Cookies ein, um Ihnen ein optimales Nutzererlebnis zu bieten und die technische Leistung zu analysieren.',
+      preferencesTitle: 'Cookie-Einstellungen',
+      preferencesSubtitle: 'Verwalten Sie Ihre Einwilligung gemäß den Datenschutzgesetzen Chiles.',
+      catNecessaryTitle: '1. Technisch notwendige Cookies',
+      catNecessaryBadge: 'Immer aktiv',
+      catNecessaryDesc: 'Unverzichtbar für die Seitennavigation, Session-Sicherheit und die Speicherung Ihrer Datenschutzauswahl.',
+      catAnalyticsTitle: '2. Analyse-Cookies (Google Analytics 4)',
+      catAnalyticsDesc: 'Erfassen anonymisierte Nutzungsdaten zur fortlaufenden Verbesserung der Systemleistung.',
+      catMarketingTitle: '3. Werbe-Cookies (Google Ads)',
+      catMarketingDesc: 'Dienen der Messung des Erfolgs unserer Werbekampagnen.',
+      catPreferencesTitle: '4. Funktions- & Medien-Cookies',
+      catPreferencesDesc: 'Ermöglichen interaktive Karten und erweiterte visuelle Inhalte.',
+      fullPolicyLink: 'Vollständige Cookie-Richtlinie lesen',
+      rejectAllOptional: 'Optionale Cookies ablehnen',
+      savePreferences: 'Einstellungen speichern',
+      policyTitle: 'Develisai Cookie- und Datenschutzrichtlinie',
+      policySubtitle: 'Gesetzlicher Rahmen: Gesetz Nr. 19.628 und 21.719 (Chile).',
       acceptAll: 'Alle akzeptieren',
       rejectNonEssential: 'Nur essenzielle',
       configure: 'Konfigurieren',
@@ -2026,6 +2855,30 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
       ctaDetails: 'Ver detalhes e orçamento',
       productStar: 'Produto Destaque',
       items: {
+        'aplicaciones-moviles': {
+          "id": "aplicaciones-moviles",
+          "category": "Produto",
+          "title": "Aplicativos Mobile",
+          "shortDescription": "Apps nativos e híbridos para iOS e Android com navegação fluida, notificações inteligentes e integração com APIs.",
+          "highlightBenefit": "Interfaces limpas desenvolvidas para alto engajamento e retenção.",
+          "badgeText": "iOS & Android"
+},
+        'posicionamiento-seo': {
+          "id": "posicionamiento-seo",
+          "category": "Serviço",
+          "title": "Posicionamento SEO",
+          "shortDescription": "Otimização técnica integral, palavras-chave estratégicas e conteúdo qualificado para destacar no topo do Google.",
+          "highlightBenefit": "Auditoria técnica profunda, estrutura on-page e SEO local.",
+          "badgeText": "Serviço Chave"
+},
+        'google-ads': {
+          "id": "google-ads",
+          "category": "Serviço",
+          "title": "Gestão de Google Ads",
+          "shortDescription": "Gestão profissional de campanhas de busca e display com segmentação refinada e mensuração rigorosa de conversões.",
+          "highlightBenefit": "Controle orçamentário estrito com foco exclusivo em leads qualificados.",
+          "badgeText": "Anúncios Digitais"
+},
         'paginas-web': {
           id: 'paginas-web',
           category: 'Produto',
@@ -2096,6 +2949,95 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
       subtitle: 'Projetos reais entregues com rigor de engenharia de software e retorno comprovado.',
       similarCta: 'Cotar solução similar',
       items: {
+        'proj-1': {
+          "id": "proj-1",
+          "title": "Portal Corporativo Nexo Industrial",
+          "client": "Nexo Industrial SpA",
+          "category": "Sites Profissionais",
+          "description": "Plataforma web de altíssima velocidade com catálogo técnico e cotador em tempo real para fornecedora industrial.",
+          "impact": "Carregamento abaixo de 0,8s e aumento de 120% nas solicitações de cotação.",
+          "statusLabel": "Projeto Real Verificado",
+          "technologies": [
+                    "React",
+                    "Tailwind CSS",
+                    "TypeScript",
+                    "Vite"
+          ]
+},
+        'proj-2': {
+          "id": "proj-2",
+          "title": "E-Commerce Andes Sport Equipment",
+          "client": "Andes Sport Chile",
+          "category": "Lojas Virtuais",
+          "description": "Loja online de artigos esportivos com estoque sincronizado em tempo real, filtros inteligentes e gateways de pagamento.",
+          "impact": "Integração Webpay Plus com taxa de sucesso de 99,9% no checkout.",
+          "statusLabel": "Solução Demonstrativa de Referência",
+          "technologies": [
+                    "E-Commerce Engine",
+                    "Node.js",
+                    "PostgreSQL",
+                    "Webpay API"
+          ]
+},
+        'proj-3': {
+          "id": "proj-3",
+          "title": "CoreFlow Operations SaaS",
+          "client": "CoreFlow Logistics",
+          "category": "Soluções SaaS",
+          "description": "Sistema ERP modular para gestão de logística, rastreamento de entregas e relatórios gerenciais em tempo real.",
+          "impact": "Automação de mais de 450 despachos diários com zero latência.",
+          "statusLabel": "Solução Demonstrativa de Referência",
+          "technologies": [
+                    "FastAPI",
+                    "Python",
+                    "React",
+                    "Docker",
+                    "Redis"
+          ]
+},
+        'proj-4': {
+          "id": "proj-4",
+          "title": "FleetTrack Aplicativo Mobile",
+          "client": "FleetTrack Transportes",
+          "category": "Aplicativos Mobile",
+          "description": "App para frotas e motoristas com geolocalização contínua, operação offline e sincronização em nuvem.",
+          "impact": "Telemetria ativa via satélite sem perda de dados em zonas sem sinal.",
+          "statusLabel": "Demonstração de Engenharia",
+          "technologies": [
+                    "React Native",
+                    "TypeScript",
+                    "Node.js",
+                    "REST API"
+          ]
+},
+        'proj-5': {
+          "id": "proj-5",
+          "title": "Estratégia SEO para Clínica Odontológica",
+          "client": "Clínica Dental Providencia",
+          "category": "Posicionamento SEO",
+          "description": "Reestruturação técnica on-page e arquitetura semântica que duplicou os contatos orgânicos qualificados.",
+          "impact": "Presença no Top 3 do Google Maps e +160% em agendamentos telefônicos.",
+          "statusLabel": "Caso de Estudo Verificado",
+          "technologies": [
+                    "Technical SEO",
+                    "Schema.org",
+                    "Google Search Console"
+          ]
+},
+        'proj-6': {
+          "id": "proj-6",
+          "title": "Campanhas Google Ads para Serviços B2B",
+          "client": "Suministros Industriales B2B",
+          "category": "Google Ads",
+          "description": "Planejamento de palavras-chave de alta intenção e otimização de conversão em landing pages corporativas.",
+          "impact": "Redução de 42% no custo por lead com mensuração clara de ROI.",
+          "statusLabel": "Modelo de Estratégia Comercial",
+          "technologies": [
+                    "Google Ads",
+                    "GA4 Analytics",
+                    "Conversion API"
+          ]
+},
         'e-commerce-gourmet': {
           id: 'e-commerce-gourmet',
           title: 'E-Commerce Gourmet',
@@ -2184,6 +3126,11 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
       badge: 'Transparência Total',
       title: 'Plano Básico Web para PMEs',
       subtitle: 'Tudo o que sua empresa necessita para consolidar uma presença digital profissional, segura e de alta conversão.',
+      planBadge: 'Plano PME',
+      planName: 'Plano Básico',
+      planSubtitle: 'Design Web Padrão',
+      toggleMore: '▼ (+6 recursos adicionais)',
+      toggleLess: '▲ Menos detalhes',
       priceAmount: '$49.990 CLP',
       priceNote: 'Pagamento único de implantação + suporte contínuo',
       includedTitle: '14 Recursos Inclusos:',
@@ -2250,10 +3197,25 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
         },
       },
     },
-    contact: {
+        techStack: {
+      badge: 'Stack Tecnológico Integral',
+      title: 'Tecnologias modernas para soluções de alto impacto',
+      subtitle: 'Construímos arquiteturas modulares, escaláveis e seguras utilizando os padrões da indústria.',
+      frontendBadge: 'Frontend & Web',
+      backendBadge: 'Backend & APIs',
+      cloudBadge: 'Nuvem & Infraestrutura IA',
+    },
+contact: {
       badge: 'Vamos Conversar',
       title: 'Inicie sua Transformação Digital',
       subtitle: 'Conte-nos sobre o seu projeto ou necessidade técnica. Responderemos em até 2 horas úteis.',
+      partnerTag: 'Parceiro Tecnológico & IA',
+      companyBio: 'Empresa de engenharia de software e consultoria com sede em Santiago do Chile. Apoiamos empresas em websites, sistemas sob medida e inteligência artificial.',
+      directWhatsApp: 'Atendimento direto via WhatsApp',
+      mapTitle: 'Localização dos escritórios',
+      directions: 'Como chegar',
+      verifiedAddress: 'Endereço corporativo verificado',
+      region: 'Providencia, Região Metropolitana de Santiago',
       name: 'Nome completo',
       namePlaceholder: 'Ex: João da Silva',
       email: 'E-mail corporativo',
@@ -2295,6 +3257,22 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
     cookies: {
       title: 'Valorizamos sua Privacidade',
       description: 'Utilizamos cookies para proporcionar a melhor experiência, analisar o tráfego e aprimorar o desempenho técnico do site.',
+      preferencesTitle: 'Centro de Preferências de Cookies',
+      preferencesSubtitle: 'Gerencie seu consentimento conforme as diretrizes legais vigentes no Chile.',
+      catNecessaryTitle: '1. Cookies Técnicos Necessários',
+      catNecessaryBadge: 'Sempre Ativos',
+      catNecessaryDesc: 'Indispensáveis para a navegação, segurança da sessão e registro das suas escolhas de privacidade.',
+      catAnalyticsTitle: '2. Cookies de Análise (Google Analytics 4)',
+      catAnalyticsDesc: 'Coletam dados agregados e anônimos para o aprimoramento contínuo dos nossos sistemas.',
+      catMarketingTitle: '3. Cookies Publicitários (Google Ads)',
+      catMarketingDesc: 'Mensuram o desempenho das campanhas comerciais da Develisai.',
+      catPreferencesTitle: '4. Preferências e Recursos Externos',
+      catPreferencesDesc: 'Permitem mapas interativos e recursos visuais otimizados.',
+      fullPolicyLink: 'Consultar a Política de Cookies completa',
+      rejectAllOptional: 'Rejeitar opcionais',
+      savePreferences: 'Salvar preferências',
+      policyTitle: 'Política de Cookies e Privacidade da Develisai',
+      policySubtitle: 'Marco normativo: Lei n.º 19.628 e 21.719 do Chile.',
       acceptAll: 'Aceitar Todos',
       rejectNonEssential: 'Rejeitar Não Essenciais',
       configure: 'Personalizar',

@@ -44,7 +44,7 @@ export const OfferingsGrid: React.FC = () => {
           {HOME_OFFERINGS.map((item) => {
             const trans = t.offerings.items[item.id];
             const title = trans?.title || item.title;
-            const category = trans?.category || (item.category === 'producto' ? 'Producto' : 'Servicio');
+            const category = trans?.category || (item.category === 'producto' ? t.nav.products : t.nav.services);
             const badgeText = trans?.badgeText || item.badgeText;
             const shortDescription = trans?.shortDescription || item.shortDescription;
             const highlightBenefit = trans?.highlightBenefit || item.highlightBenefit;

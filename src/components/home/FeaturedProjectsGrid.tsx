@@ -110,7 +110,7 @@ export const FeaturedProjectsGrid: React.FC = () => {
                 {/* Bottom CTA */}
                 <div className="px-6 pb-6 pt-3 border-t border-[#1E2D4A]/60">
                   <button
-                    onClick={() => openModal({ product: title, origin: 'Proyectos Destacados' })}
+                    onClick={() => openModal({ product: title, origin: t.projects.title || 'Proyectos Destacados' })}
                     className="btn-interactive w-full flex items-center justify-center gap-2 rounded-lg border border-[#2A3F66] bg-[#111C35] py-2.5 text-xs font-semibold text-[#dae2fd] hover:text-[#00f0ff] hover:border-[#00f0ff]/50 cursor-pointer"
                   >
                     <span>{t.projects.similarCta}</span>
