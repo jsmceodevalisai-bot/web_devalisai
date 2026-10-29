@@ -22,7 +22,7 @@ export const Footer: React.FC = () => {
             <div className="flex items-center">
               <div className="bg-white rounded-lg px-2.5 py-1.5 inline-flex items-center justify-center">
                 <img
-                  src="/assets/aistudio/devalisai-logo_grande_fondoblanco_8ca86973.svg"
+                  src="/images/devalisai-logo_grande_fondoblanco_8ca86973.svg"
                   alt="DevalisAI"
                   className="h-8 w-auto object-contain"
                 />

@@ -77,7 +77,7 @@ export const Header: React.FC = () => {
             {/* Mobile: App Icon */}
             <div className="flex sm:hidden items-center justify-center">
               <img
-                src="/assets/aistudio/devalisai-icono_ebd3a920.svg"
+                src="/images/devalisai-icono_ebd3a920.svg"
                 alt="DevalisAI"
                 className="h-10 w-10 object-contain rounded-xl shadow-sm"
               />
@@ -85,7 +85,7 @@ export const Header: React.FC = () => {
             {/* Desktop: Horizontal Full Brand Logo with White Background */}
             <div className="hidden sm:flex bg-white rounded-lg px-2.5 py-1.5 items-center justify-center">
               <img
-                src="/assets/aistudio/devalisai-logo_grande_fondoblanco_8ca86973.svg"
+                src="/images/devalisai-logo_grande_fondoblanco_8ca86973.svg"
                 alt="DevalisAI"
                 className="h-8 sm:h-9 w-auto object-contain"
               />
