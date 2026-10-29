@@ -141,49 +141,51 @@ export const KeyMetricsDashboard: React.FC = () => {
         </div>
 
         {/* Interactive Dashboard Container */}
-        <div className="rounded-2xl border border-[#2A3F66] bg-[#0C1527] p-6 sm:p-8 shadow-2xl">
+        <div className="rounded-2xl border border-[#2A3F66] bg-[#0C1527] p-3.5 sm:p-6 md:p-8 shadow-2xl overflow-hidden max-w-full">
           
           {/* Tabs Selector */}
-          <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-[#1E2D4A]">
-            <div className="flex items-center gap-2 p-1 bg-[#060A12] rounded-xl border border-[#1E2D4A]">
-              <button
-                type="button"
-                onClick={() => setActiveTab('growth')}
-                className={`px-4 py-2 text-xs font-semibold rounded-lg transition-all cursor-pointer ${
-                  activeTab === 'growth'
-                    ? 'bg-[#00838f] dark:bg-[#00f0ff] text-white dark:text-[#060e20] shadow-md'
-                    : 'text-[#475569] dark:text-[#94A3B8] hover:text-[#0F172A] dark:hover:text-[#F8FAFC]'
-                }`}
-              >
-                {t.metrics.tabUptime}
-              </button>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 pb-6 border-b border-[#1E2D4A]">
+            <div className="w-full sm:w-auto overflow-x-auto scrollbar-none pb-1 sm:pb-0">
+              <div className="flex items-center gap-1 sm:gap-2 p-1 bg-[#060A12] rounded-xl border border-[#1E2D4A] w-max sm:w-auto max-w-full">
+                <button
+                  type="button"
+                  onClick={() => setActiveTab('growth')}
+                  className={`whitespace-nowrap px-2.5 sm:px-4 py-1.5 sm:py-2 text-[11px] sm:text-xs font-semibold rounded-lg transition-all cursor-pointer shrink-0 ${
+                    activeTab === 'growth'
+                      ? 'bg-[#00838f] dark:bg-[#00f0ff] text-white dark:text-[#060e20] shadow-md'
+                      : 'text-[#475569] dark:text-[#94A3B8] hover:text-[#0F172A] dark:hover:text-[#F8FAFC]'
+                  }`}
+                >
+                  {t.metrics.tabUptime}
+                </button>
 
-              <button
-                type="button"
-                onClick={() => setActiveTab('performance')}
-                className={`px-4 py-2 text-xs font-semibold rounded-lg transition-all cursor-pointer ${
-                  activeTab === 'performance'
-                    ? 'bg-[#00838f] dark:bg-[#00f0ff] text-white dark:text-[#060e20] shadow-md'
-                    : 'text-[#475569] dark:text-[#94A3B8] hover:text-[#0F172A] dark:hover:text-[#F8FAFC]'
-                }`}
-              >
-                {t.metrics.tabPerformance}
-              </button>
+                <button
+                  type="button"
+                  onClick={() => setActiveTab('performance')}
+                  className={`whitespace-nowrap px-2.5 sm:px-4 py-1.5 sm:py-2 text-[11px] sm:text-xs font-semibold rounded-lg transition-all cursor-pointer shrink-0 ${
+                    activeTab === 'performance'
+                      ? 'bg-[#00838f] dark:bg-[#00f0ff] text-white dark:text-[#060e20] shadow-md'
+                      : 'text-[#475569] dark:text-[#94A3B8] hover:text-[#0F172A] dark:hover:text-[#F8FAFC]'
+                  }`}
+                >
+                  {t.metrics.tabPerformance}
+                </button>
 
-              <button
-                type="button"
-                onClick={() => setActiveTab('conversion')}
-                className={`px-4 py-2 text-xs font-semibold rounded-lg transition-all cursor-pointer ${
-                  activeTab === 'conversion'
-                    ? 'bg-[#00838f] dark:bg-[#00f0ff] text-white dark:text-[#060e20] shadow-md'
-                    : 'text-[#475569] dark:text-[#94A3B8] hover:text-[#0F172A] dark:hover:text-[#F8FAFC]'
-                }`}
-              >
-                {t.metrics.tabSatisfaction}
-              </button>
+                <button
+                  type="button"
+                  onClick={() => setActiveTab('conversion')}
+                  className={`whitespace-nowrap px-2.5 sm:px-4 py-1.5 sm:py-2 text-[11px] sm:text-xs font-semibold rounded-lg transition-all cursor-pointer shrink-0 ${
+                    activeTab === 'conversion'
+                      ? 'bg-[#00838f] dark:bg-[#00f0ff] text-white dark:text-[#060e20] shadow-md'
+                      : 'text-[#475569] dark:text-[#94A3B8] hover:text-[#0F172A] dark:hover:text-[#F8FAFC]'
+                  }`}
+                >
+                  {t.metrics.tabSatisfaction}
+                </button>
+              </div>
             </div>
 
-            <div className="text-[11px] text-[#64748B] font-mono">
+            <div className="text-[11px] text-[#64748B] font-mono shrink-0">
               Datos normalizados de auditorías técnicas (2025–2026)
             </div>
           </div>
