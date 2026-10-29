@@ -1,0 +1,161 @@
+
+REGLA COMERCIAL VIGENTE — WEB CORPORATIVA DE DEVELISAI
+- Sitio público informativo y de captación de contactos; NO es una tienda que cobre al visitante.
+- NO implementar carrito, icono/contador de carrito, checkout, pasarelas de pago, pedidos, inventario comercial, facturación automática ni suscripciones del sitio.
+- NO implementar registro, login, cuentas de visitantes, autenticación con Google, perfiles, panel administrativo ni roles/permisos de usuarios del sitio.
+- Al activar «Comprar», «Contratar», «Propuesta gratis» o «Solicitar cotización», ABRIR el mismo modal de contacto corporativo, con el producto/servicio y plan preseleccionados. No navegar a un pago.
+- Mantener el formulario con EmailJS según la configuración real; sin credenciales configuradas no simular envíos exitosos. Ofrecer WhatsApp como alternativa con datos oficiales.
+- Esta exclusión aplica a la WEB CORPORATIVA; una tienda online o SaaS que Develisai desarrolle PARA UN CLIENTE puede incluir carrito, cuentas y roles como características del producto ofrecido, pero no deben implementarse en este sitio.
+- Referencia de flujo: 03_modulo_contacto_cotizaciones.txt. Sistema visual: Documento 04. Consentimiento: Documento 05.
+FIN DE REGLA COMERCIAL VIGENTE
+
+# MODULO DE GESTION DE COOKIES — PAGINA WEB PUBLICA
+
+## Objetivo
+
+Implementar un modulo de consentimiento de cookies para una pagina web publica orientada a visitantes de Chile, teniendo en cuenta la Ley N.º 19.628 actualmente aplicable y preparando la implementacion para la entrada en vigor de la Ley N.º 21.719, prevista para el 1 de diciembre de 2026.
+
+El modulo debe implementar Google Consent Mode v2 en modo Basic y bloquear efectivamente los scripts opcionales hasta obtener el consentimiento correspondiente.
+
+El alcance se limita a la pagina web publica. No implementar gestion de consentimiento para cuentas, organizaciones, usuarios autenticados ni funcionalidades internas de un SaaS.
+
+## Servicios contemplados
+
+- Google Analytics 4.
+- Google Ads y sus etiquetas de conversion o remarketing utilizadas por el sitio.
+- Meta Pixel y otras integraciones publicitarias que se incorporen.
+- YouTube incrustado.
+- Google Maps incrustado.
+- Fuentes externas.
+- Widgets y scripts de terceros.
+- Enlaces y widgets de WhatsApp.
+
+Inventariar los servicios realmente utilizados antes de implementar integraciones. No agregar scripts, proveedores ni identificadores que no esten presentes en el proyecto o expresamente solicitados.
+
+## Interfaz
+
+Crear un banner responsive que incluya:
+
+- Mensaje breve y comprensible sobre el uso de cookies.
+- Enlace a la politica de cookies y privacidad.
+- Boton «Aceptar todas».
+- Boton «Rechazar opcionales».
+- Boton «Configurar preferencias».
+
+El panel de preferencias debe permitir gestionar las categorias opcionales por separado.
+
+Categorias iniciales:
+
+1. Necesarias: siempre activas cuando sean estrictamente necesarias para la funcionalidad solicitada.
+2. Analitica: Google Analytics 4.
+3. Publicidad: Google Ads y Meta Pixel.
+4. Contenido externo y preferencias: clasificar cada servicio segun su finalidad y tecnologia real.
+
+No marcar categorias opcionales como aceptadas por defecto. No considerar el silencio, el cierre del banner o la continuacion de la navegacion como consentimiento.
+
+Aceptar todas y rechazar opcionales deben ser acciones igualmente claras y accesibles. No utilizar patrones manipulativos.
+
+## Google Consent Mode v2 — modo Basic
+
+Antes de cargar cualquier etiqueta de Google, inicializar las señales de consentimiento con los valores predeterminados denegados:
+
+- analytics_storage: denied
+- ad_storage: denied
+- ad_user_data: denied
+- ad_personalization: denied
+
+No descargar ni ejecutar Google Tag Manager, Google Analytics ni Google Ads antes de obtener el consentimiento requerido.
+
+Cuando el visitante acepte analitica, activar unicamente los servicios autorizados de esa categoria.
+
+Cuando acepte publicidad, activar las etiquetas publicitarias que correspondan y actualizar las señales pertinentes de Google.
+
+No conceder automaticamente todos los permisos cuando se acepte una sola categoria.
+
+Si el visitante rechaza las categorias opcionales, no cargar las etiquetas opcionales ni transmitir datos mediante ellas a sus proveedores.
+
+No implementar el modo Advanced ni enviar pings sin cookies antes del consentimiento.
+
+## Bloqueo de scripts de terceros
+
+Google Consent Mode no controla automaticamente Meta Pixel, YouTube, Google Maps ni otros scripts externos.
+
+Implementar un mecanismo independiente de control de carga por categoria.
+
+- Meta Pixel debe permanecer bloqueado antes del consentimiento publicitario.
+- YouTube y Google Maps deben usar marcadores de posicion cuando la integracion requiera consentimiento previo.
+- Preferir fuentes alojadas localmente para evitar solicitudes innecesarias a terceros.
+- Preferir enlaces normales a WhatsApp antes que widgets externos cuando sea suficiente para la experiencia del usuario.
+- Bloquear tambien scripts insertados dinamicamente por componentes y bibliotecas.
+- No permitir que un script opcional se cargue mediante otra ruta que eluda el gestor de consentimiento.
+
+Inventariar las cookies y solicitudes de red reales. No clasificar un servicio unicamente por su nombre comercial.
+
+## Persistencia y revocacion
+
+Guardar la eleccion del visitante en el navegador mediante un mecanismo apropiado y una estructura versionada que incluya, como minimo:
+
+- Version de configuracion.
+- Categorias aceptadas.
+- Fecha y hora de la eleccion.
+- Version de la informacion presentada.
+
+Definir y documentar el periodo de validez de las preferencias. No presentarlo como un plazo impuesto por la ley si no existe una obligacion especifica que lo establezca.
+
+Si cambia sustancialmente una finalidad o se incorpora un proveedor relevante, revisar si se requiere una nueva solicitud de consentimiento.
+
+Incluir un enlace permanente «Preferencias de cookies» en el pie de pagina.
+
+Al revocar un permiso:
+
+- Guardar el cambio inmediatamente.
+- Impedir nuevas cargas y ejecuciones de scripts no autorizados.
+- Actualizar los estados de consentimiento de Google si las etiquetas estan cargadas.
+- Eliminar las cookies que el sitio controle y pueda retirar de forma segura.
+- Evitar que la siguiente navegacion reactive permisos revocados.
+- No depender de una recarga ni de un retraso fijo para aplicar la revocacion.
+
+## Privacidad y documentacion
+
+Crear o actualizar la politica de cookies para documentar:
+
+- Categorias y finalidades.
+- Proveedores utilizados.
+- Cookies o tecnologias relevantes, duracion y titular cuando corresponda.
+- Datos tratados y posibles destinatarios.
+- Informacion sobre transferencias internacionales cuando sea aplicable.
+- Forma de modificar o revocar el consentimiento.
+- Contacto del responsable y demas informacion exigida por la normativa aplicable.
+
+Evaluar por separado las cookies estrictamente necesarias y las tecnologias opcionales. No afirmar que todas las cookies requieren consentimiento ni que las necesarias estan exentas de toda obligacion informativa.
+
+No almacenar datos personales excesivos para demostrar el consentimiento.
+
+## Pruebas obligatorias
+
+Verificar mediante pruebas automatizadas y pruebas reales del navegador que:
+
+1. La primera visita no carga Google Analytics, Google Ads, Meta Pixel ni scripts opcionales.
+2. Rechazar opcionales impide sus solicitudes de red y creacion de cookies.
+3. Aceptar analitica habilita unicamente los servicios autorizados de analitica.
+4. Aceptar publicidad habilita los servicios publicitarios autorizados, sin conceder permisos de analitica automaticamente.
+5. Los servicios de terceros respetan las categorias definidas.
+6. Las preferencias se mantienen al navegar por distintas paginas.
+7. La revocacion bloquea nuevas ejecuciones.
+8. Las preferencias obsoletas o incompatibles no se consideran automaticamente validas.
+9. El panel puede volver a abrirse desde el pie de pagina.
+10. La pagina sigue funcionando si el visitante rechaza todos los servicios opcionales.
+
+Inspeccionar las solicitudes de red, las cookies y las etiquetas cargadas. No limitar la validacion a comprobar el estado interno del gestor.
+
+## Metodo de trabajo
+
+Antes de programar, inspeccionar la estructura del proyecto y los scripts existentes.
+
+Presentar un plan breve, identificar los archivos que se modificaran e implementar el modulo siguiendo la arquitectura y las convenciones actuales.
+
+Evitar dependencias innecesarias y no reescribir componentes ajenos al objetivo.
+
+Al terminar, informar que archivos se modificaron, como se configura cada proveedor, que pruebas se ejecutaron y que aspectos legales o tecnicos requieren validacion adicional.
+
+No declarar cumplimiento legal integral unicamente porque las pruebas tecnicas hayan sido aprobadas.

@@ -1,0 +1,412 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    
+    --color-primary: #00f0ff;
+    --color-primary-dim: #00dbe9;
+    --color-primary-light: #dbfcff;
+    --color-surface: #0b1326;
+    --color-surface-dim: #060e20;
+    --color-surface-panel: #0c1527;
+    --color-surface-card: #111c35;
+    --color-surface-card-hover: #162343;
+    --color-border-subtle: #1e2d4a;
+    --color-border-interactive: #2a3f66;
+  }
+
+  html {
+    font-family: var(--font-body);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    transition: background-color 200ms ease, color 200ms ease;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+  }
+
+  code, pre, .font-mono {
+    font-family: var(--font-mono);
+  }
+}
+
+/* =========================================================================
+   LIGHT MODE ARCHITECTURE (High-Contrast, WCAG AA Compliant)
+   ========================================================================= */
+html.light {
+  color-scheme: light;
+}
+
+html.light body {
+  background-color: #F8FAFC !important;
+  color: #0F172A !important;
+}
+
+/* Background surfaces */
+html.light [class*="bg-[#0b1326]" i],
+html.light [class*="bg-[#0B1326]" i] {
+  background-color: #F8FAFC !important;
+}
+
+html.light [class*="bg-[#060A12]" i],
+html.light [class*="bg-[#060a12]" i],
+html.light [class*="bg-[#060e20]" i] {
+  background-color: #F1F5F9 !important;
+}
+
+html.light [class*="bg-[#0C1527]" i],
+html.light [class*="bg-[#0c1527]" i] {
+  background-color: #FFFFFF !important;
+}
+
+html.light [class*="bg-[#111C35]" i],
+html.light [class*="bg-[#111c35]" i] {
+  background-color: #F8FAFC !important;
+}
+
+html.light [class*="bg-[#162343]" i] {
+  background-color: #EDF2F7 !important;
+}
+
+html.light [class*="bg-[#1E2D4A]" i],
+html.light [class*="bg-[#1e2d4a]" i] {
+  background-color: #E2E8F0 !important;
+}
+
+html.light [class*="bg-[#2A3F66]" i],
+html.light [class*="bg-[#2a3f66]" i] {
+  background-color: #CBD5E1 !important;
+}
+
+/* Borders */
+html.light [class*="border-[#1E2D4A]" i],
+html.light [class*="border-[#1e2d4a]" i] {
+  border-color: #E2E8F0 !important;
+}
+
+html.light [class*="border-[#2A3F66]" i],
+html.light [class*="border-[#2a3f66]" i] {
+  border-color: #CBD5E1 !important;
+}
+
+/* =========================================================================
+   TEXT COLORS & HIGH CONTRAST IN LIGHT MODE
+   ========================================================================= */
+
+/* Primary headline / title text (was off-white in dark mode, now deep dark slate) */
+html.light [class*="text-[#F8FAFC]" i],
+html.light [class*="text-[#f8fafc]" i] {
+  color: #0F172A !important;
+}
+
+/* Body / description text (was light lavender #dae2fd in dark mode, now rich readable charcoal/slate) */
+html.light [class*="text-[#dae2fd]" i] {
+  color: #1E293B !important;
+}
+
+/* Secondary muted text (was slate-400 #94A3B8 in dark mode, now high-contrast slate-700) */
+html.light [class*="text-[#94A3B8]" i],
+html.light [class*="text-[#94a3b8]" i] {
+  color: #334155 !important;
+}
+
+/* Faint labels / metadata (ensure at least 4.5:1 contrast against white/light surfaces) */
+html.light [class*="text-[#64748B]" i],
+html.light [class*="text-[#64748b]" i] {
+  color: #475569 !important;
+}
+
+/* Electric cyan text (in dark mode it was bright #00f0ff; in light mode it must be deep teal #00666e) */
+html.light [class*="text-[#00f0ff]" i],
+html.light [class*="text-[#00F0FF]" i] {
+  color: #00666e !important;
+}
+
+/* Sky cyan text (in dark mode it was bright #38BDF8; in light mode it must be rich azure #0284c7) */
+html.light [class*="text-[#38BDF8]" i],
+html.light [class*="text-[#38bdf8]" i] {
+  color: #0284c7 !important;
+}
+
+/* Emerald green text (in light mode, make it deep forest green for readability) */
+html.light [class*="text-[#10B981]" i],
+html.light [class*="text-[#10b981]" i] {
+  color: #047857 !important;
+}
+
+/* Amber/warning text */
+html.light [class*="text-[#F59E0B]" i],
+html.light [class*="text-[#f59e0b]" i] {
+  color: #b45309 !important;
+}
+
+/* Error text tokens */
+html.light [class*="text-[#ffb4ab]" i] {
+  color: #b91c1c !important;
+}
+
+/* Light cyan text tokens like #dbfcff, #7df4ff */
+html.light [class*="text-[#dbfcff]" i],
+html.light [class*="text-[#7df4ff]" i],
+html.light [class*="text-[#00dbe9]" i] {
+  color: #00666e !important;
+}
+
+/* =========================================================================
+   BUTTONS AND BADGES WITH TEAL / CYAN
+   ========================================================================= */
+
+/* Solid primary action buttons & elements with bg-[#00f0ff] */
+html.light button[class*="bg-[#00f0ff]"]:not([class*="/"]):not([class*="hover"]),
+html.light a[class*="bg-[#00f0ff]"]:not([class*="/"]):not([class*="hover"]),
+html.light [class~="bg-[#00f0ff]"],
+html.light [class~="bg-[#00F0FF]"] {
+  background-color: #00838f !important;
+  color: #FFFFFF !important;
+}
+
+html.light button[class*="bg-[#00f0ff]"]:not([class*="/"]) *,
+html.light a[class*="bg-[#00f0ff]"]:not([class*="/"]) *,
+html.light [class~="bg-[#00f0ff]"] *,
+html.light [class~="bg-[#00F0FF]"] * {
+  color: #FFFFFF !important;
+  fill: currentColor;
+}
+
+html.light button[class*="bg-[#00f0ff]"]:not([class*="/"]):hover,
+html.light a[class*="bg-[#00f0ff]"]:not([class*="/"]):hover,
+html.light [class~="bg-[#00f0ff]"]:hover,
+html.light [class~="bg-[#00F0FF]"]:hover {
+  background-color: #006b75 !important;
+}
+
+/* Translucent badges and soft fills with bg-[#00f0ff]/... MUST have deep dark teal text and icons, NEVER white */
+html.light [class*="bg-[#00f0ff]/"],
+html.light [class*="bg-[#00F0FF]/"] {
+  background-color: rgba(0, 131, 143, 0.12) !important;
+  color: #00666e !important;
+}
+
+html.light [class*="bg-[#00f0ff]/"] *,
+html.light [class*="bg-[#00F0FF]/"] * {
+  color: #00666e !important;
+}
+
+/* Translucent green badges */
+html.light [class*="bg-[#10B981]/"],
+html.light [class*="bg-[#10b981]/"] {
+  background-color: rgba(4, 120, 87, 0.12) !important;
+  color: #047857 !important;
+}
+
+html.light [class*="bg-[#10B981]/"] *,
+html.light [class*="bg-[#10b981]/"] * {
+  color: #047857 !important;
+}
+
+/* Translucent sky badges */
+html.light [class*="bg-[#38BDF8]/"],
+html.light [class*="bg-[#38bdf8]/"] {
+  background-color: rgba(2, 132, 199, 0.12) !important;
+  color: #0284c7 !important;
+}
+
+html.light [class*="bg-[#38BDF8]/"] *,
+html.light [class*="bg-[#38bdf8]/"] * {
+  color: #0284c7 !important;
+}
+
+/* Translucent red badges/error banners */
+html.light [class*="bg-[#EF4444]/"],
+html.light [class*="bg-[#ef4444]/"] {
+  background-color: rgba(220, 38, 38, 0.1) !important;
+  color: #b91c1c !important;
+}
+
+html.light [class*="bg-[#EF4444]/"] *,
+html.light [class*="bg-[#ef4444]/"] * {
+  color: #b91c1c !important;
+}
+
+html.light [class*="border-[#00f0ff]" i],
+html.light [class*="border-[#00F0FF]" i] {
+  border-color: #00838f !important;
+}
+
+/* =========================================================================
+   COMPONENTS SPECIFIC OVERRIDES
+   ========================================================================= */
+
+/* Header */
+html.light header {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-bottom-color: #E2E8F0 !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+}
+
+html.light header a,
+html.light header button {
+  color: #1E293B !important;
+}
+
+html.light header nav button:hover,
+html.light header nav a:hover {
+  color: #00666e !important;
+}
+
+/* Top bar primary CTA */
+html.light header button[class*="bg-[#00f0ff]" i] {
+  background-color: #00838f !important;
+  color: #FFFFFF !important;
+}
+
+/* Brand wordmark */
+html.light .font-display span[class*="text-[#00f0ff]" i] {
+  color: #00666e !important;
+}
+
+/* Footer */
+html.light footer {
+  background-color: #F1F5F9 !important;
+  border-top-color: #E2E8F0 !important;
+  color: #334155 !important;
+}
+
+/* Forms & Inputs */
+html.light input,
+html.light textarea,
+html.light select {
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+  border-color: #CBD5E1 !important;
+}
+
+html.light select option {
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+}
+
+html.light input:focus,
+html.light textarea:focus,
+html.light select:focus {
+  border-color: #00838f !important;
+  box-shadow: 0 0 0 1px #00838f !important;
+}
+
+html.light input::placeholder,
+html.light textarea::placeholder {
+  color: #94A3B8 !important;
+}
+
+/* Form labels */
+html.light label {
+  color: #0F172A !important;
+}
+
+/* Gradients */
+html.light .bg-gradient-to-b {
+  background-image: linear-gradient(to bottom, #F1F5F9, #F8FAFC, #FFFFFF) !important;
+}
+
+/* Cinematic Zoom Hero must keep white text over its dark photographic image */
+html.light section[class*="overflow-hidden bg-[#060A12]"] h2,
+html.light section[class*="overflow-hidden bg-[#060A12]"] p {
+  color: #FFFFFF !important;
+}
+
+/* Global button microinteraction: scale 1.03-1.05, 180ms ease, respecting reduced motion */
+.btn-interactive {
+  transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 180ms ease, background-color 180ms ease, border-color 180ms ease;
+  will-change: transform;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn-interactive:hover:not(:disabled) {
+    transform: scale(1.035);
+  }
+  .btn-interactive:active:not(:disabled) {
+    transform: scale(0.985);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-interactive {
+    transition: none !important;
+    transform: none !important;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0b1326;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e2d4a;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2a3f66;
+}
+
+/* Continuous Marquee Animation */
+@keyframes marquee-left {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+.animate-marquee-left {
+  display: flex;
+  width: 200%;
+  animation: marquee-left 32s linear infinite;
+}
+
+.animate-marquee-right {
+  display: flex;
+  width: 200%;
+  animation: marquee-right 36s linear infinite;
+}
+
+.animate-marquee-slow {
+  animation-duration: 45s;
+}
+
+.marquee-container:hover .animate-marquee-left,
+.marquee-container:hover .animate-marquee-right {
+  animation-play-state: paused;
+}
+
+/* Breathing Zoom Effect for Cinematic Hero */
+@keyframes breathing-zoom {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+}
+
+.animate-breathing {
+  animation: breathing-zoom 18s ease-in-out infinite;
+  transform-origin: center center;
+}

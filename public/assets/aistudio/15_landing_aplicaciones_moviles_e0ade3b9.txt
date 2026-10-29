@@ -1,0 +1,186 @@
+
+REGLA COMERCIAL VIGENTE — WEB CORPORATIVA DE DEVELISAI
+- Sitio público informativo y de captación de contactos; NO es una tienda que cobre al visitante.
+- NO implementar carrito, icono/contador de carrito, checkout, pasarelas de pago, pedidos, inventario comercial, facturación automática ni suscripciones del sitio.
+- NO implementar registro, login, cuentas de visitantes, autenticación con Google, perfiles, panel administrativo ni roles/permisos de usuarios del sitio.
+- Al activar «Comprar», «Contratar», «Propuesta gratis» o «Solicitar cotización», ABRIR el mismo modal de contacto corporativo, con el producto/servicio y plan preseleccionados. No navegar a un pago.
+- Mantener el formulario con EmailJS según la configuración real; sin credenciales configuradas no simular envíos exitosos. Ofrecer WhatsApp como alternativa con datos oficiales.
+- Esta exclusión aplica a la WEB CORPORATIVA; una tienda online o SaaS que Develisai desarrolle PARA UN CLIENTE puede incluir carrito, cuentas y roles como características del producto ofrecido, pero no deben implementarse en este sitio.
+- Referencia de flujo: 03_modulo_contacto_cotizaciones.txt. Sistema visual: Documento 04. Consentimiento: Documento 05.
+FIN DE REGLA COMERCIAL VIGENTE
+
+DOCUMENTO 09 — LANDING DE APLICACIONES MÓVILES
+MARCA: DEVELISAI
+TIPO: PRODUCTO
+RUTA SUGERIDA: /productos/aplicaciones-moviles
+ESTADO: Especificación de diseño y funcionalidad, no sitio construido.
+
+# Objetivo
+Construir una landing independiente, moderna y completa para «Aplicaciones Móviles», orientada a explicar valor, generar confianza y lograr consultas calificadas. Debe ser visualmente coherente con el sitio Develisai y tener contenido propio, no solo cambiar un título en una plantilla repetida.
+
+## Marco de integración con los documentos existentes
+- 01: Landing principal de Develisai, sin repetirla ni sobrescribirla.
+- 02: Estándares generales de desarrollo (seguridad, legibilidad, arquitectura y pruebas).
+- 03: Módulo global de contacto y solicitudes de cotización; las acciones comerciales abren su modal con el contexto preseleccionado.
+- 04: Sistema global de temas, tipografía, hover con zoom moderado, WhatsApp, chat interno, animaciones y footer.
+- 05: Gestión de cookies de la web pública. Respetar las preferencias al integrar terceros; los enlaces de productos deben conducir a sus páginas individuales.
+No crear otro header, footer, botón de WhatsApp o sistema de tema para cada página. Reutilizar los componentes existentes. Las rutas son propuestas y deben alinearse con el router real.
+
+## 1. Orden obligatorio de secciones
+1. Header corporativo global.
+2. Hero principal único para Aplicaciones Móviles.
+3. Franja de confianza y propuesta de valor (sin cifras ni sellos inventados).
+4. Bloque editorial con imagen: importancia de la solución y cómo trabaja Develisai.
+5. Grilla de seis beneficios con iconos SVG.
+6. Sección de planes o cotización con alcances transparentes, sin inventar valores.
+7. Proceso de trabajo explicado en cinco pasos.
+8. Carrusel de proyectos, casos o demostraciones del servicio.
+9. Bloque de llamada a la acción y contacto específico.
+10. Preguntas frecuentes en formato acordeón.
+11. Footer global con redes oficiales.
+
+## 2. Hero principal
+- Etiqueta superior: «Experiencias para iOS y Android».
+- Titular H1: «Aplicaciones móviles que simplifican la vida».
+- Párrafo: «Diseñamos aplicaciones prácticas, atractivas y centradas en las personas que las utilizarán.».
+- CTA primario: «Solicitar propuesta»; navegar por ancla a la sección correspondiente.
+- CTA secundario: «Cotizar por WhatsApp»; abrir enlace oficial configurado con texto prellenado específico sobre Aplicaciones Móviles.
+- Imagen/visual protagonista: Dos o tres smartphones con pantallas de una app conceptual y transiciones suaves de interfaz; no utilizar capturas ni logotipos ajenos sin autorización.
+- Diseño: hero de ancho generoso, tipografía marcada, gradientes o acentos coherentes con el tema; composición en dos columnas para desktop y una columna en móvil.
+- Efecto: entrada sutil de elementos y microinteracciones; ningún movimiento debe impedir leer el mensaje, acceder a botones ni interactuar por teclado. Respetar prefers-reduced-motion.
+- Evitar presentar renders conceptuales como capturas de proyectos reales.
+
+## 3. Bloque editorial: por qué importa y cómo trabajamos
+- Título sugerido: «La mejor aplicación es la que resulta fácil de usar».
+- Texto: «Antes de programar, comprendemos el problema, los recorridos de usuario y las funcionalidades imprescindibles. Luego prototipamos, desarrollamos y probamos la experiencia en dispositivos representativos, preparando su evolución y eventual publicación.».
+- Diseño: imagen representativa a un lado; texto, bullets breves y CTA de contacto al otro. Alternar disposición respecto del hero para dar ritmo visual.
+- Imagen auténtica de trabajo/proceso o ilustración conceptual con licencia; no usar fotografía de cliente sin permiso.
+- CTA opcional: «Conversemos sobre tu proyecto» (ancla a contacto).
+
+## 4. Grilla de seis beneficios — iconos SVG individuales
+
+- **Diseño centrado en usuarios** | SVG sugerido: `mouse-pointer-click` | Pantallas claras y recorridos sencillos.
+
+- **iOS y Android** | SVG sugerido: `smartphone` | Evaluar desarrollo multiplataforma o nativo según necesidad.
+
+- **Notificaciones** | SVG sugerido: `bell` | Comunicación útil y respetuosa, con permisos adecuados.
+
+- **Integración con servicios** | SVG sugerido: `plug-zap` | Conexión segura con APIs y datos del negocio.
+
+- **Rendimiento móvil** | SVG sugerido: `gauge` | Cargas rápidas y uso eficiente de recursos.
+
+- **Mantenimiento y evolución** | SVG sugerido: `refresh-cw` | Correcciones y nuevas versiones según el plan acordado.
+
+Comportamiento: grilla 3×2 en escritorio, 2 columnas en tablet y 1 en móvil. Tarjetas con bordes suaves, contraste en ambos temas, hover ligero y foco visible. Los iconos SVG deben ser coherentes en tamaño, grosor y accesibilidad; usar iconografía local o librería existente, no imágenes raster improvisadas.
+
+## 5. Precios y propuesta comercial — Aplicaciones Móviles
+- Encabezado sugerido: «Una solución que se adapta a tu proyecto».
+- Crear bloque de alcance y opciones con diseño de tarjeta comercial, sin inventar montos.
+- Identificar «Qué evaluamos», «Qué puede incluir» y «Qué se define en la propuesta».
+- Botón: «Solicitar propuesta gratis» que lleva a formulario con la categoría «Aplicaciones Móviles» seleccionada.
+- Botón complementario: «Conversar por WhatsApp» con mensaje específico.
+- No trasladar los $49.990 del Plan Básico de Páginas Web a Aplicaciones Móviles.
+- Si después hay planes reales, configurar sus datos en una fuente compartida, mostrar características iniciales y «Mostrar más» con accesibilidad, sin duplicar lógica.
+
+## 6. Así trabajamos — proceso en cinco pasos
+
+1. **Objetivos y usuarios:** Definir el problema y la propuesta de valor.
+
+2. **UX y prototipo:** Diseñar y validar pantallas.
+
+3. **Arquitectura:** Elegir tecnología y definir APIs.
+
+4. **Desarrollo y pruebas:** Construir flujos y validar dispositivos.
+
+5. **Publicación y mejoras:** Preparar tiendas y mantenimiento si están incluidos.
+
+Diseño: línea de proceso o tarjetas con numeración, iconos discretos y transiciones al entrar en pantalla sin retrasar la interacción. En móvil permitir lectura vertical natural.
+
+## 7. Portafolio y proyectos
+- Título: «Nuestras aplicaciones móviles».
+- Contenido: Usar proyectos autorizados, pantallas reales y enlaces a tiendas de aplicaciones únicamente si están publicados.
+- Carrusel responsive con tarjetas: imagen representativa, nombre, categoría, resumen breve, tecnología o alcance si es público y enlace de destino confirmado.
+- Hover: mostrar capa semitransparente «Ver proyecto» con flecha/icono. En táctil, el enlace debe estar siempre disponible sin hover.
+- Enlaces externos con apertura segura y accesible. No inventar URL, clientes, proyectos, calificaciones ni resultados.
+- Si no existen proyectos verificables, usar bloque de casos tipo «Ejemplo de solución» identificados como demostrativos, sin «Visitar sitio» falso, o mostrar un estado vacío editorial diseñado.
+- Debe admitir una colección por categoría para que agregar proyectos no requiera modificar el componente.
+
+## 8. CTA y contacto
+- Encabezado sugerido: «¿Conversamos sobre Aplicaciones Móviles?».
+- Mensaje: «Cuéntanos qué necesitas y te ayudamos a definir los próximos pasos».
+- CTA primario: «Solicitar propuesta gratis».
+- CTA secundario: «Hablar por WhatsApp».
+- Formulario de contacto reutilizado: nombre, correo, empresa (opcional), teléfono (opcional), servicio/producto preseleccionado y mensaje.
+- Integrar con el sistema de contacto definido para el sitio (EmailJS si se mantiene esa elección), usando identificadores públicos configurables y medidas contra abuso; no exponer secretos.
+- Mostrar estados de envío, confirmación y error. Validar consentimiento y privacidad cuando corresponda.
+- Si la plantilla de contacto global incluye mapa, reutilizar mapa con ubicación oficial configurable; nunca inventar domicilio.
+
+## 9. Preguntas frecuentes — acordeón antes del footer
+
+1. ¿Cuánto cuesta desarrollar una aplicación móvil?
+   Respuesta sugerida: Depende del número de pantallas, funciones, backend, integraciones y plataformas; se define mediante cotización.
+
+2. ¿Mi aplicación puede funcionar en Android y iPhone?
+   Respuesta sugerida: Sí, según la tecnología elegida y el alcance de la implementación.
+
+3. ¿Necesito un backend para mi app?
+   Respuesta sugerida: No siempre. Depende de si requiere usuarios, sincronización, pagos, datos compartidos o funciones de servidor.
+
+4. ¿Ustedes publican la app en las tiendas?
+   Respuesta sugerida: El servicio puede incluir acompañamiento o publicación según contrato, sujeto a cuentas y aprobaciones de cada tienda.
+
+5. ¿Cómo se mantiene una aplicación después del lanzamiento?
+   Respuesta sugerida: Con monitoreo, correcciones, compatibilidad con nuevas versiones y mejoras planificadas.
+
+Comportamiento: acordeón con botones semánticos, atributos aria-expanded y aria-controls, soporte por teclado y animación discreta. Las respuestas deben aparecer en HTML legible e indexable, sin exigir interacción para que el contenido exista en el DOM. Evitar claims de ranking garantizado, ventas aseguradas o plazos no verificados.
+
+## 10. Footer y elementos persistentes
+- Reutilizar footer global con logotipo, navegación, contacto y los iconos de redes sociales **oficiales que estén configuradas**; no colocar redes inexistentes ni enlaces `#`.
+- Mantener tema claro/oscuro y preferencia guardada.
+- Mantener WhatsApp flotante y chat interno en posiciones que no se tapen.
+- Reutilizar estilo global de botones (zoom aprox. 1.03–1.05, 150–220 ms cuando exista hover, excepción por movimiento reducido).
+- Mantener accesibilidad, foco, contraste, navegación y desempeño responsive.
+
+## 11. SEO, estructura y enlaces internos
+- Solo un H1 por landing («Aplicaciones móviles que simplifican la vida»).
+- Definir title/meta description distintos para Aplicaciones Móviles según contenido real, sin rellenar términos de forma artificial.
+- Usar ruta canónica correspondiente y enlaces cruzados coherentes con la navegación global.
+- Optimizar imagen principal con tamaños adaptables, texto alt descriptivo y carga apropiada; lazy loading para imágenes inferiores.
+- Añadir datos estructurados únicamente cuando reflejen información real y permitida, sin reseñas ni precios fabricados.
+- La página deberá enlazar con la landing general y con otras soluciones pertinentes; no duplicar texto idéntico en siete páginas.
+
+## 12. Comportamiento móvil y rendimiento
+- Evitar carruseles que secuestren el scroll; admitir swipe, controles visibles y navegación por teclado.
+- No autoavanzar contenido de forma que impida leer; ofrecer pausa si se usa autoplay.
+- Reducir efectos de movimiento o reemplazarlos por imagen estática en equipos de menor capacidad.
+- Usar componentes compartidos para tarjetas, FAQ, contacto, galerías y CTAs, con datos distintos por página.
+- Evitar librerías grandes solo para una animación. Priorizar imágenes comprimidas, carga progresiva y contraste.
+
+## 13. Instrucciones para la IA que construye la página
+ANTES:
+1. Leer documentos 02, 04 y 05; identificar router, componentes, estilos, formulario y datos reales.
+2. Identificar qué componentes pueden reutilizarse de otras páginas individuales y qué contenido es específico.
+3. Presentar el listado de archivos a crear o modificar.
+DURANTE:
+1. Implementar TODAS las secciones descritas, no solo una maqueta o un primer bloque.
+2. Conectar botones y enlaces a acciones reales o estados explícitos si faltan datos.
+3. No crear capturas, clientes, resultados, credenciales o testimonios inventados.
+4. Usar fuente de datos separada de la presentación donde sea útil.
+DESPUÉS:
+1. Probar modo claro/oscuro, responsive, teclado, menú, formularios y carrusel.
+2. Ejecutar build, lint y pruebas disponibles.
+3. Enumerar archivos modificados, funciones verificadas y datos comerciales que faltan confirmar.
+
+## 14. Criterios de aceptación
+- La ruta `/productos/aplicaciones-moviles` carga una página completa y original para Aplicaciones Móviles.
+- Hero con dos CTA funcionales, visual representativo y mensaje propio.
+- Bloque editorial con imagen y explicación del método de trabajo.
+- Seis tarjetas de beneficios con SVG e información específica.
+- Sección de precios o propuesta que no inventa condiciones comerciales.
+- Cinco pasos del proceso.
+- Carrusel de proyectos/casos con estados reales y acciones válidas.
+- Formulario y WhatsApp con el contexto de Aplicaciones Móviles.
+- Cinco preguntas frecuentes accesibles antes del footer.
+- Header, footer, tema, WhatsApp y chat globales reutilizados.
+- La página funciona en móviles, tiene foco visible y respeta movimiento reducido.
+- Se documenta cualquier dato faltante antes de publicar.

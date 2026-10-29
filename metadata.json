@@ -1,0 +1,6 @@
+{
+  "name": "Develisai | Soluciones Inteligentes y Desarrollo de Software",
+  "description": "Sitio corporativo y plataforma de servicios de Develisai. Soluciones en Páginas Web, Tiendas Online, SaaS, Aplicaciones Móviles, SEO y Google Ads.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

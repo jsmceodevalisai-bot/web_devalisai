@@ -1,0 +1,135 @@
+
+REGLA COMERCIAL VIGENTE — WEB CORPORATIVA DE DEVELISAI
+- Sitio público informativo y de captación de contactos; NO es una tienda que cobre al visitante.
+- NO implementar carrito, icono/contador de carrito, checkout, pasarelas de pago, pedidos, inventario comercial, facturación automática ni suscripciones del sitio.
+- NO implementar registro, login, cuentas de visitantes, autenticación con Google, perfiles, panel administrativo ni roles/permisos de usuarios del sitio.
+- Al activar «Comprar», «Contratar», «Propuesta gratis» o «Solicitar cotización», ABRIR el mismo modal de contacto corporativo, con el producto/servicio y plan preseleccionados. No navegar a un pago.
+- Mantener el formulario con EmailJS según la configuración real; sin credenciales configuradas no simular envíos exitosos. Ofrecer WhatsApp como alternativa con datos oficiales.
+- Esta exclusión aplica a la WEB CORPORATIVA; una tienda online o SaaS que Develisai desarrolle PARA UN CLIENTE puede incluir carrito, cuentas y roles como características del producto ofrecido, pero no deben implementarse en este sitio.
+- Referencia de flujo: 03_modulo_contacto_cotizaciones.txt. Sistema visual: Documento 04. Consentimiento: Documento 05.
+FIN DE REGLA COMERCIAL VIGENTE
+
+NOMBRE: 02 - Estándares generales de desarrollo de software
+PROPÓSITO: Establecer las reglas permanentes de calidad, arquitectura, seguridad y mantenimiento para todo el proyecto.
+
+# Documento 2. Estándares generales de desarrollo de software
+
+## 1. Objetivo
+Todo el código del proyecto debe ser legible para una persona, estar ordenado, ser modular, seguro y fácil de mantener. Estas reglas se aplican a todas las páginas, componentes, servicios, integraciones y funcionalidades.
+
+## 2. Legibilidad
+- Utilizar nombres claros y descriptivos para variables, funciones, clases, tipos y archivos.
+- Escribir código que explique su intención sin depender de comentarios excesivos.
+- Mantener funciones y componentes enfocados en una responsabilidad principal.
+- Evitar abreviaturas confusas, lógica excesivamente compacta y anidamientos innecesarios.
+- Añadir comentarios cuando expliquen decisiones, restricciones o razonamientos que no resulten evidentes.
+- Mantener un formato uniforme mediante las herramientas de formato y análisis disponibles en el proyecto.
+
+## 3. Arquitectura y modularidad
+- Separar presentación, lógica de negocio, acceso a datos y configuración.
+- Agrupar archivos por responsabilidad y dominio funcional.
+- Evitar componentes enormes que concentren demasiadas responsabilidades.
+- Definir interfaces claras entre módulos.
+- Reutilizar componentes y funciones cuando exista una necesidad real, sin crear abstracciones innecesarias.
+- Mantener una única fuente de verdad para cada estado compartido.
+- Evitar dependencias circulares y acoplamiento innecesario.
+- Respetar la arquitectura y las convenciones que ya existan, salvo que haya una razón justificada para cambiarlas.
+
+## 4. Principios de diseño
+Aplicar KISS, DRY y SOLID de manera pragmática:
+- KISS: preferir la solución más sencilla que cumpla los requisitos.
+- DRY: evitar duplicación real de lógica, sin forzar una abstracción prematura.
+- SOLID: utilizar sus principios cuando mejoren la claridad, las pruebas o la evolución del código.
+No introducir patrones de diseño solo por seguir una metodología.
+
+## 5. Seguridad
+- Validar y normalizar los datos de entrada en los límites apropiados.
+- No confiar en datos recibidos del navegador o de servicios externos.
+- Mantener secretos, claves privadas y credenciales fuera del código público y del repositorio.
+- Utilizar variables de entorno o un gestor seguro de secretos según el entorno.
+- Aplicar controles de autorización en el servidor cuando corresponda.
+- No exponer información sensible en mensajes de error, registros o respuestas públicas.
+- Evitar inyección de código, XSS, CSRF y otros riesgos pertinentes a la arquitectura utilizada.
+- Utilizar dependencias mantenidas y revisar los permisos y riesgos que incorporan.
+- No considerar la validación del frontend como sustituto de la validación del backend.
+
+## 6. Estado y datos
+- Identificar qué estado es local y cuál debe compartirse.
+- Evitar mantener copias independientes del mismo dato sin una razón explícita.
+- Definir formatos consistentes para los datos que circulan entre módulos.
+- Gestionar estados de carga, éxito, vacío y error.
+- Manejar correctamente datos ausentes, inválidos o desactualizados.
+- Si existe backend, validar allí las reglas de negocio y los datos críticos.
+
+## 7. Configuración y dependencias
+- Centralizar la configuración compartida cuando sea razonable.
+- Separar configuración de desarrollo, pruebas y producción.
+- No agregar paquetes sin una necesidad concreta.
+- Preferir soluciones nativas cuando sean suficientes y mantenibles.
+- Documentar las variables de entorno necesarias mediante un archivo de ejemplo sin secretos reales.
+
+## 8. Accesibilidad y experiencia
+- Utilizar elementos semánticos y controles adecuados.
+- Garantizar navegación mediante teclado y foco visible.
+- Proporcionar etiquetas accesibles a controles que solo muestran iconos.
+- Mantener contraste suficiente y mensajes de error comprensibles.
+- Respetar las preferencias de movimiento reducido.
+- Evitar que los controles se solapen o queden fuera de la pantalla.
+
+## 9. Rendimiento
+- Evitar trabajo innecesario en cada renderizado.
+- Cargar recursos pesados cuando sean necesarios.
+- Optimizar imágenes y fuentes.
+- Evitar dependencias grandes sin justificación.
+- Medir antes de aplicar optimizaciones complejas.
+- No sacrificar legibilidad sin una mejora demostrable.
+
+## 10. Pruebas y calidad
+- Probar las reglas de negocio y los flujos críticos.
+- Añadir pruebas para correcciones que puedan volver a romperse.
+- Ejecutar las herramientas disponibles de lint, formato, tipos, pruebas y compilación.
+- Corregir errores introducidos por los cambios.
+- No afirmar que una funcionalidad está verificada si no se ejecutaron las comprobaciones pertinentes.
+- No ocultar errores ignorándolos sin explicar la razón.
+
+## 11. Documentación
+- Mantener instrucciones de instalación, configuración y ejecución actualizadas.
+- Documentar decisiones arquitectónicas relevantes.
+- Explicar las variables de entorno requeridas.
+- Mantener los documentos del proyecto coherentes con la implementación real.
+- No documentar funcionalidades como terminadas si aún son simuladas o están pendientes.
+
+## 12. Protocolo de trabajo para la IA
+Antes de modificar archivos:
+1. Revisar la estructura y las tecnologías existentes.
+2. Identificar los archivos y módulos relacionados.
+3. Entender las convenciones del proyecto.
+4. Proponer brevemente el plan y los archivos que se modificarán.
+5. Detectar riesgos, dependencias y posibles duplicaciones.
+
+Durante la implementación:
+1. Realizar cambios acotados y coherentes.
+2. Reutilizar componentes y servicios existentes cuando sea apropiado.
+3. No reescribir partes no relacionadas sin una razón justificada.
+4. Mantener la implementación legible y modular.
+5. No sustituir código funcional por simulaciones sin autorización.
+
+Después de implementar:
+1. Ejecutar las pruebas y verificaciones disponibles.
+2. Corregir los errores detectados.
+3. Revisar la coherencia con estos estándares y con los documentos específicos.
+4. Resumir los archivos modificados y el motivo.
+5. Indicar qué está terminado, qué fue verificado y qué queda pendiente.
+
+## 13. Evitar complejidad innecesaria
+- No construir una arquitectura de gran escala para requisitos simples.
+- No añadir capas, servicios o abstracciones sin una razón concreta.
+- No implementar anticipadamente funciones que no se han solicitado.
+- Diseñar puntos de extensión razonables para necesidades futuras.
+- Priorizar una solución funcional, comprensible y mantenible.
+
+## 14. Criterios de aceptación
+El código debe ser legible, modular, coherente con la arquitectura, razonablemente probado, seguro para el alcance implementado y fácil de ampliar. Los cambios deben estar documentados y no deben romper funcionalidades existentes.
+
+## 15. Relación con los demás documentos
+Este documento es el marco general y se aplica a todo el proyecto. Los documentos 1, 3 y 4 definen requisitos específicos de la landing page, el módulo de contacto comercial y el sistema global de diseño e interacciones. Si existe un conflicto, priorizar la seguridad y la calidad, y aclarar la discrepancia antes de implementar una excepción importante.

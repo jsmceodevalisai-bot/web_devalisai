@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <title>DevalisAI</title>
+  <defs>
+    <linearGradient id="ola" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#1B4FD8"/>
+      <stop offset="1" stop-color="#22D3EE"/>
+    </linearGradient>
+  </defs>
+  <!-- Fondo -->
+  <rect width="120" height="120" rx="26" fill="#0A1A3F"/>
+  <!-- Ola trasera (profundidad) -->
+  <path fill="#163A8C" d="
+    M 14 104 C 26 100 32 90 36 80 C 40 70 46 64 54 64
+    C 46 70 46 84 54 94 C 58 99 64 102 70 104 Z"/>
+  <!-- Cuerpo de la ola -->
+  <path fill="url(#ola)" d="
+    M 18 104 C 14 104 13 98 18 97
+    C 36 94 45 77 50 59
+    C 58 37 74 22 92 24
+    C 106 26 113 40 107 52
+    C 102 61 89 63 84 55
+    C 80 48 85 41 92 43
+    C 88 46 89 52 94 52
+    C 100 51 102 43 97 37
+    C 91 30 79 32 71 43
+    C 61 57 62 79 75 92
+    C 81 98 93 102 104 104 Z"/>
+  <!-- Línea de espuma interior -->
+  <path fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round"
+        d="M 26 96 C 41 91 50 76 56 60 C 62 45 72 34 84 32"/>
+  <!-- Nodos de IA en la cresta (espuma convertida en red neuronal) -->
+  <g stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round">
+    <line x1="84" y1="32" x2="97" y2="24"/>
+    <line x1="97" y1="24" x2="108" y2="31"/>
+  </g>
+  <g fill="#FFFFFF">
+    <circle cx="84" cy="32" r="4.2"/>
+    <circle cx="97" cy="24" r="3.6"/>
+    <circle cx="108" cy="31" r="3.2"/>
+  </g>
+  <!-- Línea del mar -->
+  <path fill="none" stroke="#22D3EE" stroke-width="2.5" stroke-linecap="round" opacity="0.55"
+        d="M 18 110 L 102 110"/>
+</svg>

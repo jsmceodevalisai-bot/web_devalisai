@@ -1,0 +1,50 @@
+DOCUMENTO 03 — MÓDULO GLOBAL DE CONTACTO Y SOLICITUDES DE PROPUESTA
+MARCA: DEVELISAI
+ESTADO: ESPECIFICACIÓN DE LA WEB CORPORATIVA
+
+1. OBJETIVO
+Reemplazar por completo el carrito de compra, las compras directas y el checkout del sitio corporativo con un único flujo de contacto comercial reutilizable en todas las landing pages.
+
+2. FUNCIONAMIENTO DE LOS CTA
+- «Comprar», «Contratar», «Propuesta gratis», «Solicitar propuesta», «Cotizar» y equivalentes abren el mismo modal de contacto sin cambiar de página.
+- El modal recibe contexto desde el botón de origen: categoría, producto o servicio, plan (si existe), precio publicado (si existe) y página de origen.
+- Para «Plan Básico», precargar «Páginas Web / Plan Básico / $49.990 CLP» como referencia comercial, sin cobro ni reserva de precio.
+- Mostrar dentro del modal el producto o plan seleccionado para que el visitante entienda qué está consultando y pueda corregirlo si desea.
+- Al cerrar el modal no se pierde la navegación ni se ejecuta acción de compra.
+- Los botones «Ver planes» o «Ver precios» pueden desplazarse a la sección de precios; únicamente botones de contratación/contacto abren el modal.
+
+3. FORMULARIO
+Campos: nombre, correo electrónico, teléfono opcional, empresa opcional, producto/servicio o plan preseleccionado, mensaje, casilla de aceptación de política de privacidad cuando corresponda.
+No exigir registro, contraseña, perfil ni acceso con Google. No pedir información de tarjetas ni de pago.
+Validar campos obligatorios, formato de correo, longitudes y errores. Usar estados «Enviando», «Enviado» y «Error» reales.
+
+4. EMAILJS
+- Reutilizar la integración EmailJS definida en el Documento 01.
+- Usar las claves/identificadores públicos configurados por el propietario; nunca inventar valores o insertar secretos privados.
+- Incluir contexto del plan/producto en la plantilla de correo y en el mensaje enviado.
+- No confirmar éxito hasta respuesta efectiva del servicio.
+- Aplicar protección antispam, límites disponibles y restricciones de dominio según configuración; no registrar datos personales innecesarios.
+- Si EmailJS no está configurado, presentar estado pendiente real y ofrecer la alternativa de WhatsApp configurado; no fingir que se envió la consulta.
+
+5. WHATSAPP
+Mantener el acceso global de WhatsApp y los CTA específicos. Precompletar el mensaje con la solución seleccionada si corresponde; no inventar teléfono oficial.
+
+6. DISEÑO DEL MODAL
+- Usar el sistema de tema, tipografía, botones y animaciones del Documento 04.
+- Diseño responsive, visible en móvil, con scroll interno si es necesario.
+- Foco inicial útil; cerrar con Escape y botón accesible; devolver el foco al botón activador.
+- Evitar que el modal quede detrás del chat, WhatsApp o banner de cookies.
+- No bloquear al visitante por no tener cuenta: NO EXISTEN cuentas de visitantes en la web corporativa.
+
+7. ALCANCE EXCLUIDO
+No implementar carrito, contador de artículos, listado de compra, checkout, pasarela de pago, registro de pedidos, suscripciones, membresías, registro/login de visitantes, roles o panel administrativo del sitio.
+Estas exclusiones no impiden ofrecer a los clientes el DESARROLLO de plataformas de e-commerce o SaaS que sí incluyan tales funcionalidades en sus propios productos.
+
+8. CRITERIOS DE ACEPTACIÓN
+- Cada CTA comercial abre el mismo modal con el contexto correcto.
+- El Plan Básico precarga el plan sin disparar cobro.
+- El visitante puede contactar sin cuenta.
+- El formulario es accesible y funciona con teclado/móvil.
+- EmailJS muestra éxito únicamente al confirmarse el envío.
+- WhatsApp funciona si está configurado.
+- No se presenta un carrito ni flujos de administración, autenticación o pago propios del sitio.

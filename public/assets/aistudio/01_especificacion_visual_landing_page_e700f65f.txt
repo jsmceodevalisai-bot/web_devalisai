@@ -1,0 +1,353 @@
+
+REGLA COMERCIAL VIGENTE — WEB CORPORATIVA DE DEVELISAI
+- Sitio público informativo y de captación de contactos; NO es una tienda que cobre al visitante.
+- NO implementar carrito, icono/contador de carrito, checkout, pasarelas de pago, pedidos, inventario comercial, facturación automática ni suscripciones del sitio.
+- NO implementar registro, login, cuentas de visitantes, autenticación con Google, perfiles, panel administrativo ni roles/permisos de usuarios del sitio.
+- Al activar «Comprar», «Contratar», «Propuesta gratis» o «Solicitar cotización», ABRIR el mismo modal de contacto corporativo, con el producto/servicio y plan preseleccionados. No navegar a un pago.
+- Mantener el formulario con EmailJS según la configuración real; sin credenciales configuradas no simular envíos exitosos. Ofrecer WhatsApp como alternativa con datos oficiales.
+- Esta exclusión aplica a la WEB CORPORATIVA; una tienda online o SaaS que Develisai desarrolle PARA UN CLIENTE puede incluir carrito, cuentas y roles como características del producto ofrecido, pero no deben implementarse en este sitio.
+- Referencia de flujo: 03_modulo_contacto_cotizaciones.txt. Sistema visual: Documento 04. Consentimiento: Documento 05.
+FIN DE REGLA COMERCIAL VIGENTE
+
+NOMBRE: 01 - Especificación visual y funcional de la landing page
+PROPÓSITO: Definir el contenido, orden, apariencia, animaciones e interacciones de la página de inicio de Develisai.
+
+# Documento 1. Especificación visual y funcional de la landing page
+VERSIÓN: 2.1 — sección de precios y mapa de ubicación
+ESTADO: diseño definido; contenidos corporativos e integraciones externas sujetos a validación
+
+## 1. Objetivo y alcance
+Construir una landing page moderna, distintiva, responsive y orientada a convertir visitas en contactos comerciales para Develisai. Esta especificación define el diseño de la página de inicio; los estándares técnicos generales están en el Documento 2, el flujo de contacto en el Documento 3 y los estilos/interacciones globales en el Documento 4.
+
+Usar la marca «Develisai» en los textos del hero. El logotipo oficial, los datos de la empresa y sus recursos gráficos deben obtenerse de los archivos reales del proyecto; no inventarlos.
+
+## 2. Encabezado global (header)
+- Logo de la empresa en el extremo izquierdo.
+- Menú principal: Inicio, Productos, Servicios, Clientes, Cómo Funciona y Contacto.
+- Menú desplegable Productos: Páginas Web, Tiendas Online, SaaS y Aplicaciones Móviles.
+- Menú desplegable Servicios: Agenda Online, Posicionamiento SEO y Google Ads.
+- Controles a la derecha: tema claro/oscuro, idioma, acceso a WhatsApp y botón «Contactar». No mostrar carrito de compra.
+- Navegación responsive con menú móvil accesible, soporte de teclado y estados de foco.
+- El botón «Contactar» y todos los CTA comerciales abren el modal de contacto del Documento 3; estilos, chats y tema según Documento 4.
+- Los enlaces deben dirigir a secciones existentes o páginas reales; no dejar enlaces ficticios presentados como funcionales.
+
+## 3. Diferenciación comercial
+- Productos: soluciones comercializables, por ejemplo Páginas Web, Tiendas Online, SaaS y Aplicaciones Móviles.
+- Servicios: prestaciones profesionales, por ejemplo Agenda Online, Posicionamiento SEO y Google Ads.
+- Mantener esta distinción en navegación, tarjetas y llamadas a la acción.
+
+## 4. Orden de secciones de la landing page
+Las siguientes secciones deben aparecer en este orden, inmediatamente después del header, sin sustituirlas por simples placeholders o bloques genéricos. El diseño puede adaptar su distribución a distintos tamaños de pantalla, manteniendo el contenido y el comportamiento esencial.
+
+### 4.1. Hero principal de partículas: Develisai → AI
+- Situar un hero amplio inmediatamente bajo el header.
+- Crear una animación de partículas que formen de manera legible la palabra «Develisai» y, mediante una transición visual fluida, se reorganicen para formar «AI».
+- Permitir una pausa suficiente para leer ambos estados y evitar que el efecto se convierta en un destello ilegible.
+- El texto central bajo las letras debe decir exactamente: «Desarrollando Valor con Soluciones Inteligentes».
+- Debajo, mostrar: «La IA impulsa el futuro. Nosotros lo hacemos realidad».
+- Incorporar, dentro del mismo hero y bajo estos textos, una franja secundaria con tres elementos: logotipo de menor tamaño a la izquierda, «Tu partner tecnológico» al centro y «Ideas + Tecnología + Futuro» a la derecha.
+- Interpretar la última frase como el tercer elemento a la derecha para equilibrar la composición; en móviles apilar los tres elementos de manera legible.
+- Mantener todas estas partes como UN MISMO BLOQUE visual, no como secciones independientes.
+- La animación debe ser suave, elegante, optimizada y compatible con tema claro/oscuro. En móviles reducir partículas o complejidad; con prefers-reduced-motion mostrar una versión estática legible.
+- Conservar texto HTML accesible para los lectores de pantalla y el posicionamiento SEO, sin depender de las partículas para transmitir el contenido.
+
+### 4.2. Tres carruseles de tecnologías
+- Crear TRES filas/carruseles horizontales diferenciados, cada uno con marcas y nombres de tecnologías, organizadas por categorías.
+- Carrusel 1 — Frontend y experiencia web: HTML5, CSS3, JavaScript, TypeScript, React, Astro, Vue, Tailwind CSS.
+- Carrusel 2 — Backend, datos y APIs: Node.js, Python, Go, PostgreSQL, Redis, FastAPI, Docker, GraphQL.
+- Carrusel 3 — Cloud, automatización e IA: AWS, Azure, Google Cloud, GitHub Actions, Kubernetes, Databricks, PyTorch, OpenAI.
+- Estos nombres son propuestas de contenido visual y no deben presentarse como certificaciones, alianzas oficiales ni experiencia comprobada de la empresa sin validación.
+- Utilizar logotipos oficiales o recursos autorizados, proporciones consistentes y nombres accesibles. No inventar ni alterar identidades de marcas.
+- Dar a cada carrusel una velocidad o dirección visual diferente, sin resultar distractor; permitir pausa en hover/foco cuando corresponda.
+- Asegurar que los contenidos sean explorables con teclado y accesibles cuando se desactive la animación.
+- En móvil mantener desplazamiento horizontal usable, sin recortar elementos importantes.
+
+### 4.3. Hero fotográfico con zoom respiratorio
+- Crear un segundo hero de gran impacto visual con una imagen de fondo de alta calidad y un efecto de zoom in / zoom out continuo, lento y sutil.
+- Título exacto: «Descubre lo extraordinario».
+- Texto exacto: «La imagen respira despacio: un zoom suave da vida a cualquier paisaje.»
+- El efecto debe sentirse cinematográfico y tranquilo, no como una vibración. Utilizar preferentemente transformaciones eficientes, sin desplazar el contenido de texto.
+- Aplicar una superposición o degradado que garantice contraste y legibilidad sobre la imagen.
+- La imagen definitiva debe elegirse o suministrarse explícitamente; si aún no existe, dejar el recurso claramente pendiente en lugar de presentar una imagen arbitraria como definitiva.
+- Con movimiento reducido, usar fondo estático. Optimizar peso y resolución para escritorio y móvil.
+
+### 4.4. Grilla principal de seis productos y servicios
+- Incorporar una grilla responsive de SEIS tarjetas, seleccionadas por relevancia comercial y claridad de la oferta.
+- Propuesta inicial de seis elementos, sujeta a validación comercial:
+  1. Páginas Web — Producto.
+  2. Tiendas Online — Producto.
+  3. Soluciones SaaS — Producto.
+  4. Aplicaciones Móviles — Producto.
+  5. Posicionamiento SEO — Servicio.
+  6. Google Ads — Servicio.
+- Cada tarjeta debe incluir: imagen de cabecera o miniatura destacada, categoría Producto/Servicio, título, descripción breve de valor, y enlace real a detalle o contacto.
+- Se puede sustituir uno de los servicios por Agenda Online si esa oferta es más prioritaria, manteniendo seis tarjetas.
+- No inventar precios, resultados comerciales ni capacidades no confirmadas.
+- Mantener imágenes coherentes, proporciones consistentes, efectos hover globales y estados de foco accesibles.
+- En escritorio usar una grilla equilibrada; en móvil mostrar una o dos columnas según espacio disponible.
+
+### 4.5. Hero interactivo de apoyo a las pymes
+- Crear una sección hero dedicada a la importancia de las pequeñas y medianas empresas y al compromiso de Develisai con su crecimiento.
+- Fondo: malla cuadriculada interactiva que se deforma suavemente cerca del cursor, como si respondiera a su paso, y recupera su forma gradualmente.
+- No debe interferir con botones, selección de texto ni navegación.
+- En pantallas táctiles, ofrecer una versión estática o una interacción simplificada; con movimiento reducido, eliminar la deformación.
+- Texto propuesto:
+  Título: «Las grandes ideas también nacen en las pequeñas empresas».
+  Descripción: «Creemos en el potencial de cada pyme. Por eso acercamos tecnología, automatización e inteligencia artificial a negocios que quieren crecer, simplificar sus procesos y competir con nuevas oportunidades. Tu desafío es nuestro punto de partida.»
+  CTA: «Impulsemos tu negocio».
+- El CTA debe dirigir a la sección de contacto o a un flujo real de consulta.
+- El mensaje debe ser cercano y profesional, sin prometer resultados garantizados.
+
+### 4.6. Grilla de seis proyectos o soluciones destacadas
+- Crear una sección con título sugerido «Proyectos y soluciones destacadas».
+- Mostrar SEIS tarjetas visuales con imagen, título, categoría, resumen, tecnologías relevantes cuando estén verificadas y enlace de detalle.
+- Priorizar proyectos reales y autorizados de Develisai. Si no existen seis casos públicos, utilizar tarjetas de «Soluciones destacadas» claramente identificadas como propuestas o demostraciones, sin atribuirles clientes ni resultados inventados.
+- No utilizar nombres, logos, testimonios ni datos de clientes sin autorización.
+- La composición debe diferenciarse visualmente de la grilla comercial de productos y servicios, evitando que parezca la misma sección repetida.
+
+### 4.7. Sección de precios — antes de «Qué dicen nuestros clientes»
+- Ubicar esta sección INMEDIATAMENTE ANTES del carrusel «Qué dicen nuestros clientes», después de proyectos y soluciones destacadas.
+- Título sugerido de sección: «Planes que impulsan tu presencia digital»; subtítulo opcional: «Comienza con una web profesional y crece a tu ritmo».
+- Presentar una tarjeta comercial protagonista con los siguientes datos exactos:
+  - Nombre: «Plan Básico».
+  - Precio visible: «$49.990»; especificar CLP (pesos chilenos) en contexto accesible o junto al importe. No añadir frecuencia mensual, descuentos, impuestos ni condiciones que no hayan sido confirmados.
+  - Beneficio/servicio: «Diseño web estándar».
+  - Características en este orden:
+    1. Diseño web estándar.
+    2. Incluye hasta 5 pestañas.
+    3. Hosting 5GB incluido.
+    4. 5 Correos corporativos.
+    5. Certificado SSL.
+    6. Versión para móviles.
+    7. Botón de WhatsApp.
+    8. Desarrollo: 3 días.
+    9. Formulario de contacto.
+    10. Iconos de redes sociales.
+    11. Mapa de ubicación.
+    12. Galería de imágenes.
+    13. Asistencia técnica.
+    14. Indexación en Google.
+- Mostrar inicialmente SOLO LAS PRIMERAS OCHO características, conservando su orden. Las seis restantes deben estar colapsadas, no eliminadas del contenido.
+- Añadir un botón «Mostrar más» que expanda y revele las características 9–14 sin recargar la página; una vez expandido, cambiar su texto a «Mostrar menos» y permitir volver a colapsar.
+- El botón de expansión debe anunciar su estado con aria-expanded y estar asociado con el bloque desplegable. No bloquear la navegación por teclado ni crear desplazamientos bruscos.
+- Incluir un CTA principal destacado con el texto exacto «Propuesta gratis». Debe abrir el modal de contacto corporativo y preseleccionar el motivo «Plan Básico» (o incluir el contexto equivalente en el mensaje) sin borrar datos escritos previamente.
+- No convertir «Propuesta gratis» en una compra o cobro directo ni conectar un checkout ficticio. Este CTA solicita una propuesta comercial.
+- Estilo: tarjeta de precio de alto contraste, limpia y profesional, coherente con ambos temas, centrada y adaptable a móviles. Usar espacios suficientes y evitar efectos que dificulten comparar las características.
+- Si en el futuro aparecen otros planes, gestionar planes y características como datos estructurados, sin duplicar componentes ni inventar precios.
+- La descripción de la oferta es contenido comercial proporcionado para diseño; antes de publicar, verificar vigencia de precio, alcance, plazo de desarrollo, detalles de hosting/correos, condiciones de asistencia, impuestos y qué significa «indexación en Google». No prometer indexación garantizada ni plazos garantizados sin respaldo contractual.
+
+### 4.8. Carrusel «Qué dicen nuestros clientes»
+- Incorporar un carrusel con capacidad para CINCO testimonios.
+- Título: «Qué dicen nuestros clientes».
+- Cada tarjeta debe contemplar cita, nombre de la persona o empresa (solo con autorización), cargo o relación cuando proceda y avatar/logo autorizado si está disponible.
+- No inventar reseñas ni atribuir frases a clientes reales. Hasta recibir cinco testimonios verificables, dejar los datos como pendientes o usar una presentación neutra sin citas ficticias.
+- Añadir controles anterior/siguiente, indicadores de posición y pausa de reproducción automática si la hubiera; preferir control manual para accesibilidad.
+- En móvil mostrar una tarjeta legible por vista, con navegación táctil cuando sea posible.
+
+### 4.9. Sección de contacto en dos columnas
+- Crear una sección de contacto dividida en dos áreas en escritorio y apilada en móvil.
+- COLUMNA IZQUIERDA: formulario de contacto con campos para nombre, correo electrónico, empresa (opcional), motivo de consulta mediante lista desplegable y mensaje. Opciones iniciales de motivo: Plan Básico, Página Web, Tienda Online, SaaS, Aplicación Móvil, SEO, Google Ads, Agenda Online y Otra consulta.
+- Incluir casilla de aceptación de política de privacidad si el tratamiento de datos y el contexto legal del proyecto lo requieren; no inventar textos legales definitivos.
+- COLUMNA DERECHA: cuadro de información corporativa con imagen real o recurso visual autorizado, nombre de la empresa, breve descripción, datos de contacto verificados y enlaces pertinentes.
+- Agregar un MAPA DE UBICACIÓN a la sección de contacto, preferentemente dentro o inmediatamente debajo del cuadro de información corporativa de la columna derecha. Debe mostrar la ubicación REAL de la empresa, no un punto arbitrario.
+- La dirección o coordenadas oficiales deben venir de la configuración del proyecto; no inventar la ubicación. Si todavía no se dispone de dirección confirmada, mantener el componente preparado y ocultar el mapa público o mostrar «Ubicación pendiente de confirmar» sin un pin falso.
+- Si la empresa tiene una dirección pública verificada, presentar un mapa interactivo embebido (por ejemplo Google Maps u OpenStreetMap, sujeto a licencias y políticas aplicables), con título accesible, botón «Cómo llegar» o «Ver en mapa» y enlace a una dirección verificable.
+- Respetar el consentimiento de privacidad y la configuración de servicios externos cuando corresponda. Cargar el mapa de forma diferida para no perjudicar el rendimiento, y prever alternativa textual con dirección y enlace si el mapa no carga.
+- En móviles, mostrar un mapa adaptable al ancho disponible sin provocar desplazamiento horizontal ni superponerse con WhatsApp o chat interno.
+- El formulario debe integrarse con EmailJS (emailjs.com), utilizando los identificadores públicos de servicio, plantilla y clave pública configurados para el proyecto; no inventar identificadores ni incluir claves privadas.
+- Implementar validación del lado del cliente, estados enviando/enviado/error, prevención de envíos duplicados y mensajes de confirmación comprensibles.
+- Configurar límites y medidas antispam apropiadas en EmailJS, como restricciones de dominio, rate limiting y protección contra bots según capacidades disponibles; no confiar solo en la validación del navegador.
+- No mostrar un envío exitoso hasta recibir confirmación del servicio. Si EmailJS aún no está configurado, mostrar un estado explícito de integración pendiente y no simular envíos.
+- Evitar exponer información personal innecesaria o registrar mensajes de contacto en consola.
+
+### 4.10. Footer
+- Crear un pie de página completo, coherente con ambos temas, con logo, breve descripción, enlaces de navegación, productos, servicios, contacto, copyright y enlaces legales cuando estén disponibles.
+- Incorporar iconos de las redes sociales que la empresa realmente utilice, por ejemplo LinkedIn, Instagram, Facebook, X, YouTube, TikTok y GitHub. No inventar perfiles ni crear enlaces falsos; mostrar solo redes con URLs oficiales configuradas.
+- Cada icono debe tener etiqueta accesible y un enlace seguro.
+- Mantener coherencia con el sistema de diseño global del Documento 4.
+
+## 5. Comportamiento global e integraciones
+- Todos los botones deben heredar los estados y el zoom hover del Documento 4; no programar ese efecto por separado en cada sección.
+- Mantener accesibles WhatsApp y el chat interno según las reglas del Documento 4, evitando superposiciones con CTA, formulario y modal de contacto.
+- El tema claro/oscuro debe aplicarse también a los efectos de partículas, carruseles, malla interactiva, formularios y footer.
+- Utilizar animaciones eficientes y evitar bibliotecas pesadas si no son necesarias.
+- Para imágenes y efectos, ofrecer degradación elegante si WebGL, Canvas u otras capacidades no están disponibles.
+- Evitar movimiento excesivo; respetar prefers-reduced-motion.
+- No convertir contenido comercial en imágenes de texto cuando deba ser accesible, indexable o traducible.
+
+## 6. Idiomas y contenido
+- Preparar los textos para un sistema de internacionalización, sin duplicar componentes por idioma.
+- Mantener exactamente los textos españoles indicados hasta que se solicite una revisión.
+- Usar «Ideas + Tecnología + Futuro» como corrección ortográfica de la frase solicitada «Ieas + Tecnología + Futuro».
+- No introducir datos de clientes, testimonios, direcciones, teléfonos, correos o perfiles sociales que no estén confirmados.
+
+## 7. Protocolo para la IA implementadora
+Antes de comenzar:
+1. Leer los Documentos 2, 3 y 4 y revisar el proyecto existente.
+2. Identificar logo, imágenes, proyectos, testimonios y datos de contacto disponibles.
+3. Separar recursos confirmados de los pendientes.
+4. Proponer componentes por sección y estrategia para efectos de partículas, zoom, carruseles y malla.
+5. Identificar qué configuración real falta para EmailJS y redes sociales.
+
+Durante la implementación:
+1. Construir todas las secciones solicitadas en el orden definido, sin limitarse a una maqueta parcial.
+2. Mantener cada sección en componentes legibles y reutilizables.
+3. Conectar navegación, enlaces y CTA a destinos reales cuando existan.
+4. Mantener efectos visuales independientes de la lógica comercial.
+5. Integrar el formulario con EmailJS cuando se suministren los identificadores y la configuración necesaria.
+6. Reutilizar tema, botones, chats y estilos globales del Documento 4.
+
+Al finalizar:
+1. Verificar visualmente escritorio y móvil.
+2. Probar navegación, menús, efectos, accesibilidad y movimiento reducido.
+3. Comprobar que el formulario envía mensajes reales antes de marcarlo como funcional.
+4. Ejecutar verificaciones de compilación, tipos y pruebas disponibles.
+5. Informar qué quedó implementado, qué se verificó y qué recursos o integraciones siguen pendientes.
+
+## 8. Criterios de aceptación
+- Existe un hero inicial único con partículas Develisai → AI, los dos textos y la franja de tres elementos.
+- Hay tres carruseles de tecnologías claramente diferenciados.
+- Existe el hero «Descubre lo extraordinario» con zoom respiratorio y texto legible.
+- Se muestran seis tarjetas comerciales con imagen, detalle y enlace.
+- Existe el hero de apoyo a pymes con malla interactiva o su alternativa accesible.
+- Hay seis tarjetas de proyectos reales o soluciones correctamente etiquetadas.
+- Existe una sección de precios antes de «Qué dicen nuestros clientes» con «Plan Básico», precio «$49.990» y sus catorce características en el orden solicitado.
+- Solo ocho características son visibles inicialmente; «Mostrar más» despliega las seis restantes y «Mostrar menos» las vuelve a ocultar.
+- «Propuesta gratis» conduce al formulario y conserva el contexto «Plan Básico».
+- Existe un carrusel preparado para cinco testimonios verificados, sin reseñas inventadas.
+- La sección de contacto está dividida en formulario izquierdo e información corporativa derecha en escritorio, con mapa de ubicación real o estado pendiente explícito.
+- EmailJS está integrado y probado, o queda explícitamente pendiente si faltan credenciales de configuración.
+- El footer incluye enlaces e iconos solo para redes sociales reales.
+- Todos los elementos respetan los Documentos 2, 3 y 4.
+- El sitio funciona de forma responsive y no depende de las animaciones para comunicar información esencial.
+
+## 9. Dirección creativa y jerarquía visual (obligatoria)
+La landing debe sentirse como un sitio tecnológico de gama alta, con una narrativa visual continua: identidad → capacidades → inspiración → oferta → compromiso → evidencia → precios → confianza → contacto.
+
+- No utilizar un mismo tipo de tarjeta o fondo para todas las secciones; alternar composiciones amplias, zonas de descanso visual, grillas y bloques cinéticos.
+- Diferenciar claramente el hero principal de partículas, el hero fotográfico y el hero de malla: son tres experiencias con estética y propósito distintos.
+- Mantener una sola propuesta de valor predominante en cada sección y una jerarquía tipográfica consistente.
+- Dar aire al diseño: espacios generosos entre secciones y espaciados internos suficientes para que las animaciones no compitan con los textos.
+- Utilizar contraste, tipografía y un lenguaje de color compatible con la identidad de marca, sin inventar un manual corporativo inexistente.
+- Los efectos deben enriquecer la experiencia, no ocultar el contenido ni ralentizar la interacción.
+- Diseñar desde el principio estados de carga, falla y reducción de movimiento; nunca dejar un lienzo vacío si la animación no puede ejecutarse.
+
+## 10. Guion visual e interacciones por sección
+
+### 10.1. Hero de partículas — composición y secuencia
+1. El encabezado queda separado visualmente del hero, pero sin un salto abrupto de color.
+2. En el plano central, las partículas se reúnen para formar «Develisai». La palabra debe permanecer legible durante un intervalo perceptible.
+3. Las partículas se dispersan de manera controlada y se reagrupan para formar «AI», sin movimientos bruscos ni cambios de cámara.
+4. La animación puede entrar en un ciclo discreto, pero debe detenerse o simplificarse cuando la pestaña no está visible o el usuario prefiere movimiento reducido.
+5. Debajo de la animación, colocar el lema «Desarrollando Valor con Soluciones Inteligentes» y, en un nivel visual inferior, «La IA impulsa el futuro. Nosotros lo hacemos realidad».
+6. En el tercio inferior del MISMO hero, ubicar una franja de tres columnas: logo pequeño | «Tu partner tecnológico» | «Ideas + Tecnología + Futuro».
+7. Mantener la frase e identidad disponibles como texto HTML real; Canvas/WebGL/SVG son una capa decorativa, no el único contenido.
+8. En pantallas pequeñas, evitar acumulaciones: reducir la densidad de partículas, usar tamaños tipográficos fluidos y apilar la franja sin cambiar el orden.
+
+### 10.2. Carruseles tecnológicos — ritmo visual
+- Componer tres bandas horizontales de altura consistente, con identidad propia por categoría: frontend; backend/datos; nube/IA/automatización.
+- Combinar nombre y logo solo cuando exista recurso autorizado; mantener un tratamiento visual uniforme entre marcas.
+- Permitir velocidades y direcciones diferenciadas, pero suficientemente lentas para identificar cada tecnología.
+- Garantizar continuidad sin saltos visuales; si se duplican elementos para lograr un bucle, ocultar duplicados de lectores de pantalla.
+- Pausar animaciones en foco o hover, y ofrecer una lista estática o desplazable al preferir movimiento reducido.
+- No insinuar alianzas, certificaciones o dominio técnico demostrado por la sola presencia de un logo.
+
+### 10.3. Hero cinematográfico — zoom respiratorio
+- Usar una composición de imagen de gran formato con título y texto superpuestos sobre una zona de contraste suficiente.
+- El zoom debe oscilar lentamente entre dos escalas cercanas; no debe desplazar el bloque de texto ni provocar recortes inesperados del sujeto visual.
+- En móvil elegir el punto focal de la imagen con criterio, sin forzar la misma posición del recorte de escritorio.
+- La imagen debe comunicar creatividad, innovación o transformación; seleccionar la definitiva con recursos reales y no por azar.
+- Incorporar un degradado si es necesario para preservar la legibilidad; animar la imagen y no el texto.
+
+### 10.4. Seis productos/servicios — estructura de tarjetas
+- Mostrar identificación de tipo, imagen superior, título, descripción orientada al beneficio y enlace con destino verificable.
+- Las seis tarjetas iniciales se distribuyen en cuatro productos (Páginas Web, Tiendas Online, SaaS, Aplicaciones Móviles) y dos servicios (SEO, Google Ads).
+- En escritorio preferir una grilla de tres columnas por dos filas cuando el ancho lo permita; pasar a dos y una columna según tamaño.
+- Evitar tarjetas de alturas irregulares por descripciones excesivas: utilizar longitudes editoriales similares sin truncar información indispensable.
+- En hover se puede aplicar elevación sutil, siguiendo el Documento 4; en móvil las acciones deben permanecer visibles sin hover.
+- No habilitar compras directas; todo CTA comercial «Comprar» o «Contratar» debe abrir el modal de contacto con su contexto preseleccionado.
+
+### 10.5. Hero de pymes — experiencia y mensaje
+- Crear un bloque de fondo con malla cuadriculada de geometría fina y deformación elástica local alrededor del cursor.
+- Limitar la amplitud de deformación para que el efecto no desfigure palabras ni botones; la malla debe estar detrás de todo el contenido interactivo.
+- La malla recupera su estado suavemente; debe funcionar sin capturar eventos de puntero destinados a enlaces o botones.
+- En móviles y con movimiento reducido, conservar un patrón de malla estático de buena calidad visual.
+- Mantener el mensaje emocional y concreto: «Las grandes ideas también nacen en las pequeñas empresas» y el texto de apoyo ya definido, acompañado del CTA «Impulsemos tu negocio».
+
+### 10.6. Proyectos y soluciones — diferenciación
+- No repetir exactamente el diseño de la grilla de productos. Usar tarjetas tipo caso/proyecto, con imagen principal más protagonista y una estructura editorial diferente.
+- La sección debe permitir seis entradas sin inventar encargos ni clientes. Separar claramente «Proyecto real» de «Solución propuesta» o «Demostración».
+- Si faltan datos, dejar contenido estructurado pendiente o ejemplos expresamente marcados como demostrativos para revisión, no como experiencia acreditada.
+
+### 10.7. Precios — revelación progresiva y conversión
+- Destacar «Plan Básico» y «$49.990» en la jerarquía visual, con un rótulo claro de moneda CLP sin añadir periodicidad ni impuestos no confirmados.
+- Construir la lista desde un único arreglo ordenado de catorce características, para que solo las ocho primeras estén visibles por defecto y las restantes se expandan con el botón «Mostrar más».
+- Conservar el orden original del contenido y cambiar el botón a «Mostrar menos» tras la expansión.
+- El CTA «Propuesta gratis» debe abrir el modal de contacto, seleccionando «Plan Básico» como motivo, sin datos simulados ni compra automática.
+- Conservar la accesibilidad mediante aria-expanded, foco visible y funcionamiento con teclado. Evitar saltos bruscos al expandir.
+- Verificar la oferta comercial antes de la publicación, sin inventar condiciones contractuales ni garantías.
+
+### 10.8. Testimonios — credibilidad
+- Diseñar cinco espacios de testimonios con navegación accesible y control manual preferente.
+- No publicar estrellas, nombres, imágenes, empresas ni citas inventadas.
+- Si todavía no existen testimonios autorizados, no mostrar tarjetas ficticias en producción: conservar el componente preparado para poblarlo al contar con contenido real.
+
+### 10.9. Contacto — conversión y estados
+- Columna izquierda: encabezado, campos del formulario, selector de motivo y botón de envío; columna derecha: ficha corporativa, imagen verificada, información de la empresa y canales oficiales.
+- El envío mediante EmailJS debe implementar: validación, estado enviando, resultado confirmado, error recuperable y limitación de envíos repetidos.
+- Los IDs públicos de EmailJS deben provenir de configuración. No pedir contraseñas ni claves privadas para incrustarlas en frontend.
+- Considerar honeypot y protección antispam apropiada; aclarar que una integración de cliente no sustituye controles externos de abuso.
+- Si no hay credenciales válidas, la interfaz puede quedar preparada pero no debe fingir que envía mensajes.
+- Integrar dentro del bloque corporativo un mapa cuya dirección o coordenadas sean configurables y verificadas. Cargarlo de forma diferida; ofrecer alternativa textual y un enlace externo «Cómo llegar» si corresponde.
+- No colocar una dirección, marcador o localización inventados. Sin ubicación confirmada, mantener el mapa pendiente sin mostrar una ubicación falsa.
+- Asegurar que al pulsar «Propuesta gratis» el formulario reciba el motivo «Plan Básico» sin sobrescribir otros datos introducidos por el visitante.
+
+### 10.10. Footer — cierre y confianza
+- Construir columnas claras: identidad/mensaje, navegación, soluciones, contacto y redes disponibles; adaptar su orden a móviles.
+- Mostrar solo perfiles de redes sociales verificados y con enlaces correctos.
+- Incluir enlaces legales solo si existen sus páginas o textos correspondientes.
+
+## 11. Arquitectura de componentes recomendada (sin imponer framework)
+Mantener las secciones independientes y el layout general compartido. Nombres orientativos, a adaptar al proyecto:
+- `SiteHeader` y `SiteFooter` compartidos.
+- `ParticleBrandHero` y una capa `ParticleField` puramente visual.
+- `TechnologyMarquees` con tres conjuntos de datos categorizados.
+- `CinematicZoomHero` con imagen configurable y fallback estático.
+- `CommercialOfferGrid` y `OfferCard`.
+- `SMEInteractiveHero` con capa decorativa de malla y contenido HTML separado.
+- `FeaturedWorkGrid` y `FeaturedWorkCard`.
+- `PricingSection`, `PricingPlanCard` y `ExpandableFeatureList`, usando una fuente de datos única para las catorce características.
+- `ClientTestimonials`.
+- `ContactSection`, `ContactForm`, `CompanyInfoCard`, `CompanyLocationMap` y un adaptador acotado para EmailJS.
+- Elementos globales del Documento 4: botones, tema, WhatsApp y chat interno.
+
+Gestionar el contenido en datos tipados o configuración: ofertas, planes/precios, tecnologías, trabajos, testimonios, redes, dirección verificada y datos de empresa. No acoplar el contenido editorial con el motor de animaciones. Si el sitio es estático, hidratar solo componentes que realmente lo requieran.
+
+## 12. Rendimiento, resiliencia y calidad visual
+- No cargar tres motores de animación distintos si una solución simple es suficiente.
+- Preferir animaciones basadas en transformaciones y opacidad; evitar trabajo costoso en el hilo principal.
+- Limitar densidad de partículas y frecuencia de actualización según la capacidad del dispositivo; manejar la pérdida de contexto gráfico cuando corresponda.
+- Suspender tareas visuales fuera de pantalla cuando sea posible.
+- Cargar de forma diferida imágenes y efectos de secciones inferiores, sin diferir recursos esenciales del primer pantallazo.
+- Reservar espacio para imágenes, grillas y carruseles para reducir saltos de diseño.
+- Evitar que imágenes de fondo pesadas comprometan la carga inicial; usar formatos modernos y tamaños adaptables.
+- Respetar `prefers-reduced-motion`, teclado, foco, contraste y semántica HTML.
+- Revisar los indicadores de experiencia web (LCP, CLS, INP) con las herramientas disponibles, sin afirmar resultados no medidos.
+- No usar textos enteros como imágenes; conservar títulos, descripciones y CTA como HTML accesible e indexable.
+
+## 13. Entrega requerida a la IA implementadora
+No considerar terminada la tarea por producir solo una estructura, capturas de pantalla o componentes no conectados. La entrega debe incluir:
+1. Diez secciones implementadas y visibles según el orden definido, salvo aquellas cuya publicación depende de información real, en cuyo caso distinguir el componente construido de su contenido aún pendiente.
+2. Navegación y CTA conectados a destinos existentes.
+3. Efectos reales con alternativas estáticas y accesibles.
+4. Estilos responsive coherentes y pruebas en distintos anchos.
+5. Uso de tema y botones globales del Documento 4 sin duplicar sus reglas.
+6. Formularios con envío real comprobado o estado pendiente claramente comunicado, y mapa de ubicación real con carga diferida o estado pendiente explícito.
+7. Inventario de recursos reales que faltan: logotipo, imágenes, proyectos, cinco testimonios, datos de contacto, ubicación real para el mapa, vigencia y condiciones del Plan Básico, redes y configuración de EmailJS.
+8. Informe final de archivos cambiados y verificaciones ejecutadas, distinguiendo implementado, probado y pendiente.
+
+## 14. Relación con los demás documentos
+Documento 1: composición, textos, contenido y efectos específicos de la landing page.
+Documento 2: calidad de código, arquitectura, seguridad, rendimiento y pruebas.
+Documento 3: flujo compartido de contacto y solicitudes de propuesta.
+Documento 4: temas, componentes globales, animaciones compartidas, WhatsApp y chat interno.

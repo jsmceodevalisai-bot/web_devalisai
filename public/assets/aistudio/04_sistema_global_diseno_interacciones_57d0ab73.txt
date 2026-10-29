@@ -1,0 +1,263 @@
+
+REGLA COMERCIAL VIGENTE — WEB CORPORATIVA DE DEVELISAI
+- Sitio público informativo y de captación de contactos; NO es una tienda que cobre al visitante.
+- NO implementar carrito, icono/contador de carrito, checkout, pasarelas de pago, pedidos, inventario comercial, facturación automática ni suscripciones del sitio.
+- NO implementar registro, login, cuentas de visitantes, autenticación con Google, perfiles, panel administrativo ni roles/permisos de usuarios del sitio.
+- Al activar «Comprar», «Contratar», «Propuesta gratis» o «Solicitar cotización», ABRIR el mismo modal de contacto corporativo, con el producto/servicio y plan preseleccionados. No navegar a un pago.
+- Mantener el formulario con EmailJS según la configuración real; sin credenciales configuradas no simular envíos exitosos. Ofrecer WhatsApp como alternativa con datos oficiales.
+- Esta exclusión aplica a la WEB CORPORATIVA; una tienda online o SaaS que Develisai desarrolle PARA UN CLIENTE puede incluir carrito, cuentas y roles como características del producto ofrecido, pero no deben implementarse en este sitio.
+- Referencia de flujo: 03_modulo_contacto_cotizaciones.txt. Sistema visual: Documento 04. Consentimiento: Documento 05.
+FIN DE REGLA COMERCIAL VIGENTE
+
+NOMBRE: 04 - Sistema global de diseño, interfaz e interacciones
+PROPÓSITO: Definir los temas, estilos compartidos, animaciones, controles globales, WhatsApp y chat interno.
+
+# Documento 4. Sistema global de diseño, interfaz e interacciones
+
+## 1. Objetivo
+Definir los elementos visuales y comportamientos globales que deben mantenerse consistentes en todas las páginas: temas, colores, tipografía, botones, efectos, WhatsApp, chat interno, animaciones y comportamiento responsive.
+
+Estas reglas se aplican a la landing page, productos, servicios, clientes, contacto, modal de cotizaciones y futuras secciones. Deben implementarse una sola vez mediante estilos y componentes compartidos, evitando duplicaciones.
+
+## 2. Principios generales
+- Mantener identidad visual coherente.
+- Centralizar estilos y comportamientos comunes.
+- Reutilizar componentes globales.
+- Evitar implementaciones paralelas del mismo efecto.
+- Priorizar profesionalismo, legibilidad, accesibilidad y rendimiento.
+- Evitar animaciones excesivas o elementos que distraigan.
+- Garantizar el funcionamiento en escritorio, tabletas y móviles.
+- No modificar la identidad visual global al crear páginas nuevas salvo instrucción explícita.
+
+## 3. Sistema de temas: claro y oscuro
+Implementar un sistema global de temas que permita alternar entre modo claro y oscuro.
+
+### 3.1. Comportamiento
+- Incorporar un control visible para cambiar el tema.
+- Aplicar el tema a toda la aplicación.
+- Mantener la preferencia entre páginas y recargas.
+- Evitar que cada componente administre su propio tema.
+- Garantizar que menús, formularios, tarjetas, botones, modales, chats y formulario de contacto respeten el tema activo.
+- Evitar destellos del tema incorrecto durante la carga inicial cuando sea técnicamente posible.
+
+### 3.2. Implementación
+Centralizar colores mediante variables o tokens semánticos. Definir como mínimo:
+- Fondo principal y secundario.
+- Superficies de tarjetas y paneles.
+- Texto principal y secundario.
+- Bordes y separadores.
+- Color de marca y de énfasis.
+- Estados de éxito, advertencia y error.
+- Colores de enlaces, controles, foco, selección y estados deshabilitados.
+
+Diseñar el modo oscuro específicamente; no limitarse a invertir los colores del modo claro.
+
+### 3.3. Preferencia inicial
+Si no hay preferencia guardada, se puede utilizar la preferencia del sistema operativo. Una selección manual del usuario debe prevalecer hasta que decida cambiarla.
+
+## 4. Identidad visual global
+Centralizar, cuando sea apropiado:
+- Paleta corporativa.
+- Tipografías y jerarquía tipográfica.
+- Escala de tamaños de texto.
+- Espaciados.
+- Radios de bordes.
+- Sombras.
+- Anchos máximos de contenido.
+- Cuadrícula y distribución.
+- Estilos de iconos y enlaces.
+- Transiciones y duraciones.
+- Estados de interacción.
+
+Evitar estilos equivalentes duplicados con nombres diferentes.
+
+## 5. Comportamiento global de los botones
+Todos los botones interactivos deben seguir un sistema común.
+
+### 5.1. Hover
+En dispositivos que admitan hover, los botones habilitados deben tener una respuesta visual sutil:
+- Aumento de escala aproximado de 1.03 a 1.05.
+- Transición suave de aproximadamente 150–220 ms.
+- Texto e iconos nítidos.
+- Sin saltos de posición ni cambios que alteren el flujo del documento.
+- Aplicar preferentemente `transform: scale(...)`.
+
+### 5.2. Otros estados
+Definir estilos consistentes para normal, hover, foco por teclado, presionado, cargando y deshabilitado. Los botones principales pueden tener énfasis adicional moderado, como un cambio de sombra o color.
+
+No aplicar zoom a controles deshabilitados ni sugerir que una acción está disponible cuando no lo está.
+
+### 5.3. Accesibilidad y centralización
+Respetar `prefers-reduced-motion`; eliminar o minimizar movimientos no esenciales cuando corresponda. En pantallas táctiles no depender de hover.
+
+Implementar el efecto mediante componentes reutilizables, clases globales o tokens. No copiar el mismo efecto manualmente en cada botón. Justificar explícitamente las excepciones.
+
+## 6. Enlaces, tarjetas e iconos
+### Enlaces
+- Diferenciar los enlaces del texto normal.
+- Proporcionar estados de hover y foco.
+- Evitar animaciones que dificulten la lectura.
+- Mantener indicaciones accesibles de interactividad.
+
+### Tarjetas
+Las tarjetas navegables de productos, servicios o contenido pueden incorporar elevación o escala sutil. No hacer clicable toda una tarjeta si contiene acciones independientes que puedan entrar en conflicto.
+
+### Iconos
+Mantener tamaños, alineación y estilo consistentes. Los iconos de acción deben tener nombre accesible o etiqueta equivalente. No comunicar significado únicamente mediante color.
+
+## 7. Botón flotante de WhatsApp
+Mantener un acceso flotante a WhatsApp en todas las páginas públicas donde corresponda.
+
+### 7.1. Comportamiento
+- Ubicación fija, preferentemente en la esquina inferior derecha.
+- Visible al desplazarse por la página.
+- Respetar márgenes y áreas seguras de dispositivos móviles.
+- No bloquear botones importantes ni el modal de contacto comercial.
+- Incorporar un hover coherente con el sistema global.
+- Abrir el enlace oficial de WhatsApp configurado para la empresa.
+- Permitir un mensaje inicial predefinido cuando se requiera.
+- No inventar números ni enlaces: usar la configuración oficial del proyecto.
+
+El botón debe tener una etiqueta accesible, por ejemplo, “Contactar por WhatsApp”. Si WhatsApp no está configurado, no mostrar un botón con destino inválido.
+
+### 7.2. Configuración
+Centralizar el número oficial, mensaje inicial y URL de contacto en la configuración del sitio.
+
+## 8. Chat interno del sitio
+Preparar un chat interno independiente de WhatsApp para que los visitantes consulten información de productos, servicios y funcionamiento de la empresa sin abandonar el sitio.
+
+### 8.1. Interfaz
+Contemplar:
+- Botón flotante para abrir.
+- Ventana adaptable a escritorio y móvil.
+- Encabezado con nombre e identidad visual.
+- Área de mensajes.
+- Campo de texto y botón de envío.
+- Indicador de carga o respuesta en curso.
+- Mensajes de error y recuperación.
+- Bienvenida y sugerencias de consultas.
+- Acción para minimizar o cerrar.
+
+La interfaz debe respetar el tema activo.
+
+### 8.2. Separación funcional
+WhatsApp y chat interno son funciones independientes:
+- WhatsApp deriva la conversación a un canal externo.
+- El chat interno mantiene la interacción dentro del sitio.
+- Ninguno debe abrir o cerrar automáticamente el otro.
+- Cada uno tiene sus propios estados y configuración.
+
+### 8.3. Integración futura
+Separar la interfaz del proveedor o motor que genere las respuestas. La interfaz debe poder conectarse posteriormente a un backend, API o asistente de IA sin reconstruir sus componentes.
+
+No incluir claves secretas ni credenciales privadas en el navegador. Si el backend aún no existe, implementar solo la interfaz e identificar la integración pendiente. No simular que existe un asistente funcional si no está conectado a un servicio real.
+
+### 8.4. Convivencia de elementos flotantes
+WhatsApp y el chat interno no deben superponerse. Definir una estrategia común de posicionamiento y gestión de estados, especialmente en móviles.
+
+Evitar que cubran botones de compra, checkout o controles importantes del modal de contacto. Cuando el espacio sea limitado, reorganizar posiciones o reducir elementos secundarios sin ocultar funciones esenciales.
+
+## 9. Animaciones y transiciones globales
+Definir valores comunes de duración y curvas para:
+- Hover de botones y enlaces.
+- Apertura y cierre de menús.
+- Desplegables.
+- Paneles laterales y modales.
+- Modal de contacto.
+- Ventana del chat.
+- Cambio de tema.
+- Estados de carga.
+
+Las animaciones deben comunicar cambios de estado y mejorar la experiencia. Evitar movimientos constantes sin finalidad, parpadeos, rebotes exagerados, retrasos de acciones y animaciones pesadas. No animar indiscriminadamente todos los elementos.
+
+## 10. Responsive y dispositivos táctiles
+- Mantener tamaños táctiles adecuados.
+- Evitar que elementos flotantes tapen contenido o controles.
+- Adaptar el chat a móviles.
+- Mantener menús, ventanas y paneles dentro del área visible.
+- Evitar desplazamiento horizontal accidental.
+- No depender de hover en pantallas táctiles.
+- Mantener contraste y legibilidad en ambos temas.
+
+## 11. Accesibilidad
+Contemplar:
+- Navegación por teclado.
+- Foco visible.
+- Contraste suficiente en ambos temas.
+- Etiquetas accesibles para controles con iconos.
+- Respeto por movimiento reducido.
+- Gestión correcta del foco en diálogos.
+- Compatibilidad razonable con lectores de pantalla.
+- Mensajes de estado accesibles.
+
+Los elementos flotantes no deben impedir el acceso a controles ni atrapar el foco incorrectamente.
+
+## 12. Rendimiento
+- Evitar librerías de animación innecesarias.
+- Cargar recursos pesados de forma diferida cuando corresponda.
+- No iniciar conexiones externas de chat sin necesidad, salvo justificación técnica.
+- Evitar actualizaciones innecesarias del estado global.
+- Mantener pequeño y comprensible el código compartido.
+- Evitar que widgets externos bloqueen la carga del contenido principal.
+
+## 13. Configuración centralizada
+Centralizar, cuando corresponda:
+- Tema predeterminado.
+- Tokens visuales.
+- Preferencias de animación.
+- Datos y mensaje de WhatsApp.
+- Habilitación del chat interno.
+- Nombre e identidad visual del chat.
+- Posicionamiento de elementos flotantes.
+- Enlaces corporativos globales.
+
+No distribuir valores idénticos por múltiples componentes. Las credenciales privadas deben permanecer en el servidor o gestor seguro de secretos.
+
+## 14. Protocolo de implementación para la IA
+Antes:
+1. Revisar arquitectura, estilos y componentes existentes.
+2. Identificar comportamientos ya implementados.
+3. Proponer una estrategia de reutilización y centralización.
+4. Detectar conflictos con encabezado, modal de contacto, menús y elementos flotantes.
+5. Indicar los archivos que se crearán o modificarán.
+
+Durante:
+1. Crear o reutilizar el sistema global de diseño.
+2. Centralizar estilos y transiciones.
+3. Aplicar comportamientos comunes.
+4. Implementar tema global y persistencia.
+5. Integrar WhatsApp con la configuración oficial.
+6. Preparar el chat según el alcance definido.
+7. Verificar que los elementos no se superpongan.
+
+Después:
+1. Revisar escritorio y móvil.
+2. Comprobar temas claro y oscuro.
+3. Probar hover, foco, estados presionados y movimiento reducido.
+4. Verificar que los elementos flotantes no tapen controles esenciales.
+5. Ejecutar las pruebas disponibles.
+6. Informar qué está terminado y qué requiere servicios externos.
+
+No duplicar estilos o componentes cuando ya exista una implementación global adecuada.
+
+## 15. Criterios de aceptación
+- El tema claro y oscuro funciona en todas las páginas.
+- Los estilos globales son consistentes.
+- Los botones tienen interacciones visuales uniformes.
+- El zoom es sutil y accesible.
+- WhatsApp usa la configuración oficial y funciona donde corresponde.
+- El chat interno tiene interfaz independiente y compatible con ambos temas.
+- Los elementos flotantes no tapan controles importantes.
+- Las animaciones respetan movimiento reducido.
+- La interfaz funciona en escritorio y móvil.
+- La implementación es reutilizable, modular y mantenible.
+- No hay integraciones ficticias ni credenciales secretas expuestas.
+- Los cambios no rompen el encabezado, el contacto ni otras funciones.
+
+## 16. Relación con los demás documentos
+- Documento 1: composición y contenido de la landing page.
+- Documento 2: calidad, seguridad, modularidad y mantenimiento.
+- Documento 3: lógica, estado y comportamiento del modal de contacto.
+- Documento 4: temas, estilos compartidos, animaciones, controles globales y comunicación.
+
+Las páginas nuevas deben reutilizar el sistema global en lugar de crear implementaciones paralelas. Las excepciones visuales deben ser explícitas y justificadas. Implementar incrementalmente, respetando la arquitectura existente y evitando complejidad innecesaria.

@@ -1,0 +1,13 @@
+DEVELISAI — PAQUETE ACTIVO DE ESPECIFICACIONES (WEB SOLO CONTACTO)
+
+Objetivo: captar contactos comerciales, NO realizar compras en línea.
+CTA Comprar / Contratar / Propuesta gratis => modal global con producto/plan preseleccionado.
+Sin carrito, cuentas de usuarios, registro, login, checkout, pasarelas, administración, roles ni membresías en la web corporativa.
+
+ARCHIVOS ACTIVOS: 01, 02, 03 (nuevo contacto), 04, 05 y landing pages 11-17.
+NO INCLUIDOS INTENCIONALMENTE: los documentos originales 03 (carrito) y 06-10 (autenticación, checkout/pagos, autorización comercial, panel/roles y suscripciones): contradicen el alcance actual.
+
+El término «carrito» puede aparecer en descripciones de las TIENDAS ONLINE que Develisai ofrece construir PARA SUS CLIENTES; eso NO significa que Develisai deba incluir un carrito en su propia página corporativa.
+La numeración de las landing pages 11-17 se conserva para mantener correspondencia con los archivos proporcionados.
+
+Nota: el documento original 05 es sobre cookies, NO sobre la landing general de Productos. Se corrigieron referencias cruzadas en los archivos de las landing pages.
