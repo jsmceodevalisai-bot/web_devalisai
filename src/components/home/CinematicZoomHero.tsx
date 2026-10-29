@@ -18,9 +18,9 @@ export const CinematicZoomHero: React.FC = () => {
           className="h-full w-full object-cover object-center animate-breathing"
         />
 
-        {/* Cinematic Scrim & Dark Gradient for High-Contrast Typography (WCAG AA) */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#060A12] via-[#0b1326]/60 to-[#0b1326]/40 backdrop-blur-[0.5px]" />
-        <div className="absolute inset-0 bg-radial from-transparent via-[#060A12]/30 to-[#060A12]/80" />
+        {/* Clarified, softened cinematic overlays: allows the artwork and neon details to shine brightly */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/15 to-black/20" />
+        <div className="absolute inset-0 bg-radial from-transparent via-transparent to-black/25" />
       </div>
 
       {/* Content Overlay */}
@@ -32,12 +32,12 @@ export const CinematicZoomHero: React.FC = () => {
         </div>
 
         {/* Exact Mandatory Title from Document 01 Section 4.3 - Always white on photographic dark scrim */}
-        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight !text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.8)]">
+        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight !text-white drop-shadow-[0_4px_18px_rgba(0,0,0,0.95)]">
           {t.cinematicHero.title}
         </h2>
 
         {/* Exact Mandatory Text from Document 01 Section 4.3 */}
-        <p className="text-base sm:text-lg md:text-xl !text-slate-100 max-w-2xl mx-auto leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+        <p className="text-base sm:text-lg md:text-xl !text-white font-medium max-w-2xl mx-auto leading-relaxed drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">
           {t.cinematicHero.subtitle}
         </p>
 

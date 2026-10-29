@@ -86,8 +86,9 @@ export const SMEInteractiveHero: React.FC = () => {
       ctx.clearRect(0, 0, rect.width, rect.height);
 
       const isLight = document.documentElement.classList.contains('light');
-      ctx.lineWidth = 1;
-      ctx.strokeStyle = isLight ? 'rgba(203, 213, 225, 0.7)' : 'rgba(42, 63, 102, 0.45)';
+      ctx.lineWidth = 1.15;
+      // White, luminous elastic mesh lines as requested by the user
+      ctx.strokeStyle = isLight ? 'rgba(255, 255, 255, 0.75)' : 'rgba(255, 255, 255, 0.52)';
 
       const rows = points.length;
       if (rows === 0) return;
@@ -147,13 +148,13 @@ export const SMEInteractiveHero: React.FC = () => {
         ctx.stroke();
       }
 
-      // Highlight subtle nodes
+      // Highlight subtle nodes - whiter with luminous clarity
       for (let r = 0; r < rows; r += 2) {
         for (let c = 0; c < cols; c += 2) {
           const p = points[r][c];
           ctx.beginPath();
-          ctx.arc(p.x, p.y, 1.5, 0, Math.PI * 2);
-          ctx.fillStyle = isLight ? 'rgba(0, 102, 110, 0.55)' : 'rgba(0, 240, 255, 0.4)';
+          ctx.arc(p.x, p.y, 1.8, 0, Math.PI * 2);
+          ctx.fillStyle = isLight ? 'rgba(255, 255, 255, 0.95)' : 'rgba(255, 255, 255, 0.82)';
           ctx.fill();
         }
       }
@@ -175,17 +176,18 @@ export const SMEInteractiveHero: React.FC = () => {
     <section
       id="pymes"
       ref={containerRef}
-      className="relative min-h-[440px] py-20 bg-[#0B1326] border-b border-[#1E2D4A] overflow-hidden flex items-center"
+      className="relative min-h-[440px] py-20 bg-gradient-to-b from-[#182848] via-[#1a2d54] to-[#12203c] border-b border-[#2A3F66] overflow-hidden flex items-center"
     >
-      {/* Interactive Elastic Canvas */}
+      {/* Interactive Elastic Canvas - white luminous mesh */}
       <canvas
         ref={canvasRef}
-        className="pointer-events-none absolute inset-0 h-full w-full opacity-60"
+        className="pointer-events-none absolute inset-0 h-full w-full opacity-90"
         aria-hidden="true"
       />
 
-      {/* Radial soft lighting */}
-      <div className="pointer-events-none absolute inset-0 bg-radial from-transparent via-[#0B1326]/60 to-[#0B1326]" />
+      {/* Luminous soft ambient lighting for clarity and depth */}
+      <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[380px] bg-[#00f0ff]/10 blur-[130px] rounded-full" />
+      <div className="pointer-events-none absolute inset-0 bg-radial from-transparent via-[#1a2d54]/20 to-[#12203c]/45" />
 
       {/* Content Layer (non-obstructive to user interaction) */}
       <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center space-y-6">
@@ -196,12 +198,12 @@ export const SMEInteractiveHero: React.FC = () => {
         </div>
 
         {/* Exact Title from Document 01 Section 4.5 */}
-        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#F8FAFC]">
+        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]">
           {t.smeHero.title}
         </h2>
 
         {/* Exact Description from Document 01 Section 4.5 */}
-        <p className="text-base sm:text-lg text-[#94A3B8] max-w-2xl mx-auto leading-relaxed">
+        <p className="text-base sm:text-lg text-slate-200 max-w-2xl mx-auto leading-relaxed drop-shadow-[0_1px_6px_rgba(0,0,0,0.5)]">
           {t.smeHero.subtitle}
         </p>
 
