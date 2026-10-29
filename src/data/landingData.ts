@@ -30,7 +30,7 @@ export const HOME_OFFERINGS: CommercialOffering[] = [
     title: 'Páginas Web',
     shortDescription: 'Sitios web profesionales, rápidos, 100% adaptables a celulares y diseñados para captar clientes desde el primer día.',
     iconName: 'Globe',
-    imageSrc: '/src/assets/images/hero_cinematic_landscape_1793236906104.jpg',
+    imageSrc: '/images/hero_cinematic_landscape_1793236906104.jpg',
     slug: '/productos/paginas-web',
     highlightBenefit: 'Plan Básico desde $49.990 CLP con hosting y correos incluidos.',
     badgeText: 'Producto Estrella',
@@ -41,7 +41,7 @@ export const HOME_OFFERINGS: CommercialOffering[] = [
     title: 'Tiendas Online',
     shortDescription: 'Plataformas de e-commerce robustas con catálogo dinámico, carrito de compras, medios de pago chilenos y gestión de pedidos.',
     iconName: 'ShoppingBag',
-    imageSrc: '/src/assets/images/showcase_ecommerce_store_1793236906545.jpg',
+    imageSrc: '/images/showcase_ecommerce_store_1793236906545.jpg',
     slug: '/productos/tiendas-online',
     highlightBenefit: 'Flujo de compra intuitivo optimizado para conversión móvil.',
     badgeText: 'E-Commerce',
@@ -52,7 +52,7 @@ export const HOME_OFFERINGS: CommercialOffering[] = [
     title: 'Soluciones SaaS',
     shortDescription: 'Desarrollo de software como servicio a medida para digitalizar operaciones, automatizar tareas y centralizar datos en la nube.',
     iconName: 'LayoutDashboard',
-    imageSrc: '/src/assets/images/showcase_saas_platform_1793236907081.jpg',
+    imageSrc: '/images/showcase_saas_platform_1793236907081.jpg',
     slug: '/productos/saas',
     highlightBenefit: 'Arquitectura escalable, dashboards analíticos y roles de usuario.',
     badgeText: 'Cloud & B2B',
@@ -63,7 +63,7 @@ export const HOME_OFFERINGS: CommercialOffering[] = [
     title: 'Aplicaciones Móviles',
     shortDescription: 'Aplicaciones nativas e híbridas para iOS y Android con experiencias táctiles fluidas, notificaciones y conexión a APIs.',
     iconName: 'Smartphone',
-    imageSrc: '/src/assets/images/showcase_mobile_devices_1793236907272.jpg',
+    imageSrc: '/images/showcase_mobile_devices_1793236907272.jpg',
     slug: '/productos/aplicaciones-moviles',
     highlightBenefit: 'Interfaces limpias diseñadas para alto engagement y retención.',
     badgeText: 'iOS & Android',
@@ -74,7 +74,7 @@ export const HOME_OFFERINGS: CommercialOffering[] = [
     title: 'Posicionamiento SEO',
     shortDescription: 'Optimización técnica integral, palabras clave estratégicas y contenidos útiles para destacar en búsquedas orgánicas de Google.',
     iconName: 'TrendingUp',
-    imageSrc: '/src/assets/images/showcase_saas_platform_1793236907081.jpg',
+    imageSrc: '/images/showcase_saas_platform_1793236907081.jpg',
     slug: '/servicios/posicionamiento-seo',
     highlightBenefit: 'Auditoría profunda, estructura on-page y posicionamiento local.',
     badgeText: 'Servicio Clave',
@@ -85,7 +85,7 @@ export const HOME_OFFERINGS: CommercialOffering[] = [
     title: 'Google Ads',
     shortDescription: 'Gestión profesional de campañas publicitarias en red de búsqueda y display con segmentación precisa y medición de conversiones.',
     iconName: 'Target',
-    imageSrc: '/src/assets/images/hero_cinematic_landscape_1793236906104.jpg',
+    imageSrc: '/images/hero_cinematic_landscape_1793236906104.jpg',
     slug: '/servicios/google-ads',
     highlightBenefit: 'Control riguroso del presupuesto y enfoque en leads calificados.',
     badgeText: 'Publicidad Digital',
@@ -127,7 +127,7 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
     technologies: ['React', 'Tailwind CSS', 'TypeScript', 'Vite'],
     isDemo: false,
     statusLabel: 'Proyecto Real Verificado',
-    imageSrc: '/src/assets/images/hero_cinematic_landscape_1793236906104.jpg',
+    imageSrc: '/images/hero_cinematic_landscape_1793236906104.jpg',
     linkText: 'Solicitar propuesta similar',
   },
   {
@@ -138,7 +138,7 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
     technologies: ['E-Commerce Engine', 'Node.js', 'PostgreSQL', 'Webpay API'],
     isDemo: true,
     statusLabel: 'Solución Demostrativa de Referencia',
-    imageSrc: '/src/assets/images/showcase_ecommerce_store_1793236906545.jpg',
+    imageSrc: '/images/showcase_ecommerce_store_1793236906545.jpg',
     linkText: 'Ver arquitectura propuesta',
   },
   {
@@ -149,7 +149,7 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
     technologies: ['FastAPI', 'Python', 'React', 'Docker', 'Redis'],
     isDemo: true,
     statusLabel: 'Solución Demostrativa de Referencia',
-    imageSrc: '/src/assets/images/showcase_saas_platform_1793236907081.jpg',
+    imageSrc: '/images/showcase_saas_platform_1793236907081.jpg',
     linkText: 'Conocer alcance SaaS',
   },
   {
@@ -160,7 +160,7 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
     technologies: ['React Native', 'TypeScript', 'Node.js', 'REST API'],
     isDemo: true,
     statusLabel: 'Demostración de Desarrollo',
-    imageSrc: '/src/assets/images/showcase_mobile_devices_1793236907272.jpg',
+    imageSrc: '/images/showcase_mobile_devices_1793236907272.jpg',
     linkText: 'Cotizar desarrollo móvil',
   },
   {
@@ -171,7 +171,7 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
     technologies: ['Technical SEO', 'Schema.org', 'Google Search Console'],
     isDemo: false,
     statusLabel: 'Caso de Estudio Verificado',
-    imageSrc: '/src/assets/images/showcase_saas_platform_1793236907081.jpg',
+    imageSrc: '/images/showcase_saas_platform_1793236907081.jpg',
     linkText: 'Auditar mi sitio web',
   },
   {
@@ -182,7 +182,7 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
     technologies: ['Google Ads', 'GA4 Analytics', 'Conversion API'],
     isDemo: true,
     statusLabel: 'Plantilla de Estrategia Comercial',
-    imageSrc: '/src/assets/images/hero_cinematic_landscape_1793236906104.jpg',
+    imageSrc: '/images/hero_cinematic_landscape_1793236906104.jpg',
     linkText: 'Planificar campaña',
   },
 ];
@@ -243,7 +243,7 @@ export const LANDING_PAGES_DATA: Record<string, LandingPageContent> = {
     tagline: 'Diseño de páginas web en Chile · desde $49.990',
     headlineH1: 'Páginas web profesionales en Chile',
     heroParagraph: 'Creamos experiencias web claras, rápidas y orientadas a convertir visitas en oportunidades de negocio.',
-    heroImage: '/src/assets/images/hero_cinematic_landscape_1793236906104.jpg',
+    heroImage: '/images/hero_cinematic_landscape_1793236906104.jpg',
     trustPillars: [
       { title: 'Velocidad y Seguridad', desc: 'Certificado SSL incluido y tiempos de carga optimizados.' },
       { title: '100% Adaptable', desc: 'Diseño mobile-first pensado para pantallas de cualquier tamaño.' },
@@ -251,7 +251,7 @@ export const LANDING_PAGES_DATA: Record<string, LandingPageContent> = {
     ],
     editorialTitle: 'Tu negocio merece una presencia digital que inspire confianza',
     editorialText: 'Una página web no solo presenta tu negocio: permite explicar qué haces, responder dudas y facilitar que nuevos clientes te contacten. En Develisai comenzamos entendiendo tus objetivos, organizamos el contenido, diseñamos la experiencia y verificamos que la web sea fácil de usar en cualquier pantalla.',
-    editorialImage: '/src/assets/images/showcase_saas_platform_1793236907081.jpg',
+    editorialImage: '/images/showcase_saas_platform_1793236907081.jpg',
     benefits: [
       { title: 'Diseño web a medida', description: 'Un diseño alineado con tu marca y las necesidades del negocio.', icon: 'Palette' },
       { title: 'Páginas web para empresas', description: 'Secciones claras para mostrar servicios, diferenciales y vías de contacto.', icon: 'Building2' },
@@ -295,7 +295,7 @@ export const LANDING_PAGES_DATA: Record<string, LandingPageContent> = {
         summary: 'Sitio institucional con catálogo de soluciones y contacto rápido.',
         technologies: 'React, Tailwind CSS, Vite',
         isDemo: false,
-        imageSrc: '/src/assets/images/hero_cinematic_landscape_1793236906104.jpg',
+        imageSrc: '/images/hero_cinematic_landscape_1793236906104.jpg',
       },
       {
         title: 'Consultora Andes Legal',
@@ -303,7 +303,7 @@ export const LANDING_PAGES_DATA: Record<string, LandingPageContent> = {
         summary: 'Diseño sobrio y elegante enfocado en captación de clientes corporativos.',
         technologies: 'TypeScript, Tailwind CSS',
         isDemo: true,
-        imageSrc: '/src/assets/images/showcase_saas_platform_1793236907081.jpg',
+        imageSrc: '/images/showcase_saas_platform_1793236907081.jpg',
       },
     ],
     faqs: [
@@ -337,7 +337,7 @@ export const LANDING_PAGES_DATA: Record<string, LandingPageContent> = {
     tagline: 'Comercio electrónico para negocios que quieren crecer',
     headlineH1: 'Tu tienda online lista para vender con confianza',
     heroParagraph: 'Diseñamos tiendas donde descubrir productos, comprar y gestionar pedidos resulta simple.',
-    heroImage: '/src/assets/images/showcase_ecommerce_store_1793236906545.jpg',
+    heroImage: '/images/showcase_ecommerce_store_1793236906545.jpg',
     trustPillars: [
       { title: 'Pagos Locales', desc: 'Preparada para integrar Webpay Plus, Mercado Pago o transferencias.' },
       { title: 'Gestión Simple', desc: 'Panel de administración claro para tus productos, stock y ventas.' },
@@ -345,7 +345,7 @@ export const LANDING_PAGES_DATA: Record<string, LandingPageContent> = {
     ],
     editorialTitle: 'Una buena tienda acompaña cada decisión de compra',
     editorialText: 'Vender online requiere algo más que subir productos. Ordenamos categorías, facilitamos la búsqueda, simplificamos el carrito y diseñamos una experiencia de pago clara. Definimos contigo métodos de entrega, medios de pago e integraciones según el alcance de tu negocio.',
-    editorialImage: '/src/assets/images/showcase_ecommerce_store_1793236906545.jpg',
+    editorialImage: '/images/showcase_ecommerce_store_1793236906545.jpg',
     benefits: [
       { title: 'Catálogo organizado', description: 'Categorías, filtros y fichas para encontrar productos fácilmente.', icon: 'LayoutGrid' },
       { title: 'Carrito intuitivo', description: 'Cantidades, subtotales y resumen consistentes.', icon: 'ShoppingCart' },
@@ -375,7 +375,7 @@ export const LANDING_PAGES_DATA: Record<string, LandingPageContent> = {
         summary: 'Tienda de vestuario técnico con filtros avanzados y checkout optimizado.',
         technologies: 'Node.js, React, PostgreSQL',
         isDemo: true,
-        imageSrc: '/src/assets/images/showcase_ecommerce_store_1793236906545.jpg',
+        imageSrc: '/images/showcase_ecommerce_store_1793236906545.jpg',
       },
     ],
     faqs: [
@@ -409,7 +409,7 @@ export const LANDING_PAGES_DATA: Record<string, LandingPageContent> = {
     tagline: 'Soluciones SaaS a medida',
     headlineH1: 'Software que evoluciona junto a tu empresa',
     heroParagraph: 'Convertimos procesos complejos en plataformas accesibles, medibles y preparadas para crecer.',
-    heroImage: '/src/assets/images/showcase_saas_platform_1793236907081.jpg',
+    heroImage: '/images/showcase_saas_platform_1793236907081.jpg',
     trustPillars: [
       { title: 'Alta Disponibilidad', desc: 'Infraestructura cloud resiliente y segura.' },
       { title: 'Control de Accesos', desc: 'Roles y permisos granulares según el perfil de cada colaborador.' },
@@ -417,7 +417,7 @@ export const LANDING_PAGES_DATA: Record<string, LandingPageContent> = {
     ],
     editorialTitle: 'Menos tareas repetitivas, más tiempo para avanzar',
     editorialText: 'Cada empresa tiene procesos distintos. Analizamos el problema, definimos un producto mínimo útil, diseñamos los flujos esenciales y construimos una solución que pueda evolucionar por etapas sin perder claridad ni control.',
-    editorialImage: '/src/assets/images/showcase_saas_platform_1793236907081.jpg',
+    editorialImage: '/images/showcase_saas_platform_1793236907081.jpg',
     benefits: [
       { title: 'Soluciones a medida', description: 'Flujos adaptados al trabajo real de tu equipo.', icon: 'PanelsTopLeft' },
       { title: 'Accesos por rol', description: 'Permisos y responsabilidades según usuarios autorizados.', icon: 'UsersRound' },
@@ -447,7 +447,7 @@ export const LANDING_PAGES_DATA: Record<string, LandingPageContent> = {
         summary: 'Gestión de logística, órdenes y reportabilidad analítica para transporte.',
         technologies: 'FastAPI, PostgreSQL, React, Docker',
         isDemo: true,
-        imageSrc: '/src/assets/images/showcase_saas_platform_1793236907081.jpg',
+        imageSrc: '/images/showcase_saas_platform_1793236907081.jpg',
       },
     ],
     faqs: [
@@ -481,7 +481,7 @@ export const LANDING_PAGES_DATA: Record<string, LandingPageContent> = {
     tagline: 'Experiencias para iOS y Android',
     headlineH1: 'Aplicaciones móviles que simplifican la vida',
     heroParagraph: 'Diseñamos aplicaciones prácticas, atractivas y centradas en las personas que las utilizarán.',
-    heroImage: '/src/assets/images/showcase_mobile_devices_1793236907272.jpg',
+    heroImage: '/images/showcase_mobile_devices_1793236907272.jpg',
     trustPillars: [
       { title: 'Experiencia Nativa', desc: 'Rendimiento fluido y gestos intuitivos en cada dispositivo.' },
       { title: 'Soporte de Tiendas', desc: 'Orientación para el proceso de publicación en App Store y Google Play.' },
@@ -489,7 +489,7 @@ export const LANDING_PAGES_DATA: Record<string, LandingPageContent> = {
     ],
     editorialTitle: 'La mejor aplicación es la que resulta fácil de usar',
     editorialText: 'Antes de programar, comprendemos el problema, los recorridos de usuario y las funcionalidades imprescindibles. Luego prototipamos, desarrollamos y probamos la experiencia en dispositivos representativos, preparando su evolución y eventual publicación.',
-    editorialImage: '/src/assets/images/showcase_mobile_devices_1793236907272.jpg',
+    editorialImage: '/images/showcase_mobile_devices_1793236907272.jpg',
     benefits: [
       { title: 'Diseño centrado en usuarios', description: 'Pantallas claras y recorridos sencillos.', icon: 'MousePointerClick' },
       { title: 'iOS y Android', description: 'Evaluar desarrollo multiplataforma o nativo según necesidad.', icon: 'Smartphone' },
@@ -519,7 +519,7 @@ export const LANDING_PAGES_DATA: Record<string, LandingPageContent> = {
         summary: 'App de logística con rastreo de despachos y firma digital de recepción.',
         technologies: 'React Native, Node.js, WebSockets',
         isDemo: true,
-        imageSrc: '/src/assets/images/showcase_mobile_devices_1793236907272.jpg',
+        imageSrc: '/images/showcase_mobile_devices_1793236907272.jpg',
       },
     ],
     faqs: [
@@ -553,7 +553,7 @@ export const LANDING_PAGES_DATA: Record<string, LandingPageContent> = {
     tagline: 'Posicionamiento SEO para empresas en Chile',
     headlineH1: 'Haz que te encuentren cuando buscan lo que ofreces',
     heroParagraph: 'Mejoramos la base técnica, el contenido y la estructura de tu sitio para ganar visibilidad orgánica de forma sostenible.',
-    heroImage: '/src/assets/images/showcase_saas_platform_1793236907081.jpg',
+    heroImage: '/images/showcase_saas_platform_1793236907081.jpg',
     trustPillars: [
       { title: 'Auditoría Honesta', desc: 'Diagnóstico técnico sin falsas promesas de primer lugar garantizado.' },
       { title: 'Base Técnica Sólida', desc: 'Mejora de Core Web Vitals, metadatos y arquitectura de enlaces.' },
@@ -561,7 +561,7 @@ export const LANDING_PAGES_DATA: Record<string, LandingPageContent> = {
     ],
     editorialTitle: 'Estar en internet no basta: importa que te puedan encontrar',
     editorialText: 'El SEO requiere conocer la intención de búsqueda, solucionar barreras técnicas y ofrecer contenido valioso. Nuestro trabajo comienza con un diagnóstico para priorizar mejoras alcanzables, medir avances y ajustar la estrategia con evidencia.',
-    editorialImage: '/src/assets/images/hero_cinematic_landscape_1793236906104.jpg',
+    editorialImage: '/images/hero_cinematic_landscape_1793236906104.jpg',
     benefits: [
       { title: 'Auditoría técnica', description: 'Revisar indexabilidad, velocidad y estructura del sitio.', icon: 'ScanSearch' },
       { title: 'Estrategia de palabras clave', description: 'Identificar consultas relevantes para tu público.', icon: 'ListFilter' },
@@ -591,7 +591,7 @@ export const LANDING_PAGES_DATA: Record<string, LandingPageContent> = {
         summary: 'Reestructuración técnica y posicionamiento de servicios odontológicos locales.',
         technologies: 'Schema Markup, Core Web Vitals, Search Console',
         isDemo: false,
-        imageSrc: '/src/assets/images/showcase_saas_platform_1793236907081.jpg',
+        imageSrc: '/images/showcase_saas_platform_1793236907081.jpg',
       },
     ],
     faqs: [
@@ -625,7 +625,7 @@ export const LANDING_PAGES_DATA: Record<string, LandingPageContent> = {
     tagline: 'Gestión de campañas Google Ads',
     headlineH1: 'Campañas que conectan tu negocio con oportunidades',
     heroParagraph: 'Planificamos, configuramos y optimizamos anuncios con objetivos claros y medición útil para tu negocio.',
-    heroImage: '/src/assets/images/hero_cinematic_landscape_1793236906104.jpg',
+    heroImage: '/images/hero_cinematic_landscape_1793236906104.jpg',
     trustPillars: [
       { title: 'Inversión Transparente', desc: 'Tu presupuesto de anuncios es 100% tuyo; honorarios claros y separados.' },
       { title: 'Enfoque en Conversión', desc: 'Campañas orientadas a consultas reales, no a clics vacíos.' },
@@ -633,7 +633,7 @@ export const LANDING_PAGES_DATA: Record<string, LandingPageContent> = {
     ],
     editorialTitle: 'Cada clic debe responder a un objetivo',
     editorialText: 'La publicidad funciona mejor cuando se vincula a una meta comercial concreta. Definimos audiencias, búsquedas, anuncios, presupuesto y medición antes del lanzamiento. Después analizamos resultados y proponemos optimizaciones continuas.',
-    editorialImage: '/src/assets/images/showcase_saas_platform_1793236907081.jpg',
+    editorialImage: '/images/showcase_saas_platform_1793236907081.jpg',
     benefits: [
       { title: 'Estrategia de campañas', description: 'Objetivos y estructura alineados con el negocio.', icon: 'Target' },
       { title: 'Investigación de búsquedas', description: 'Términos relevantes y exclusiones cuando aplique.', icon: 'Search' },
@@ -663,7 +663,7 @@ export const LANDING_PAGES_DATA: Record<string, LandingPageContent> = {
         summary: 'Estructuración de campaña de búsqueda de alta intención para arriendo de equipos.',
         technologies: 'Google Ads, Google Tag Manager, GA4',
         isDemo: true,
-        imageSrc: '/src/assets/images/hero_cinematic_landscape_1793236906104.jpg',
+        imageSrc: '/images/hero_cinematic_landscape_1793236906104.jpg',
       },
     ],
     faqs: [
@@ -697,7 +697,7 @@ export const LANDING_PAGES_DATA: Record<string, LandingPageContent> = {
     tagline: 'Agenda online para negocios y profesionales',
     headlineH1: 'Tus reservas organizadas, tus clientes mejor atendidos',
     heroParagraph: 'Simplifica la reserva de horas y reduce la coordinación manual con una experiencia de agendamiento clara.',
-    heroImage: '/src/assets/images/showcase_mobile_devices_1793236907272.jpg',
+    heroImage: '/images/showcase_mobile_devices_1793236907272.jpg',
     trustPillars: [
       { title: 'Disponibilidad en Vivo', desc: 'Horarios reales sin cruces de citas ni sobrecupos.' },
       { title: 'Confirmación Inmediata', desc: 'Notificaciones automáticas por correo y WhatsApp.' },
@@ -705,7 +705,7 @@ export const LANDING_PAGES_DATA: Record<string, LandingPageContent> = {
     ],
     editorialTitle: 'Más tiempo para atender, menos mensajes para coordinar',
     editorialText: 'Una agenda bien configurada facilita que las personas encuentren horarios y conozcan las condiciones de atención. Analizamos los tipos de servicio, la disponibilidad, las confirmaciones y las políticas de modificación antes de implementar el flujo.',
-    editorialImage: '/src/assets/images/showcase_saas_platform_1793236907081.jpg',
+    editorialImage: '/images/showcase_saas_platform_1793236907081.jpg',
     benefits: [
       { title: 'Reservas desde cualquier dispositivo', description: 'Clientes seleccionan horarios de forma sencilla.', icon: 'CalendarDays' },
       { title: 'Disponibilidad organizada', description: 'Reglas por profesional, sede o servicio según alcance.', icon: 'CalendarCheck' },
@@ -735,7 +735,7 @@ export const LANDING_PAGES_DATA: Record<string, LandingPageContent> = {
         summary: 'Calendario multi-profesional con confirmación automática y recordatorio por WhatsApp.',
         technologies: 'React, Calendar Engine, WhatsApp API',
         isDemo: true,
-        imageSrc: '/src/assets/images/showcase_mobile_devices_1793236907272.jpg',
+        imageSrc: '/images/showcase_mobile_devices_1793236907272.jpg',
       },
     ],
     faqs: [

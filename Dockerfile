@@ -1,31 +1,29 @@
-# ==========================================
-# 1. Build Stage
-# ==========================================
-FROM node:20-alpine AS build
+# ============================================
+# Dockerfile — Build de la app React (Vite) servida con Nginx
+# ============================================
 
+# Etapa 1: compilar la app
+FROM node:22-alpine AS build
 WORKDIR /app
 
-# Install dependencies
+# Variables de EmailJS: se leen en el build (Vite las incrusta)
+ARG VITE_EMAILJS_SERVICE_ID
+ARG VITE_EMAILJS_TEMPLATE_ID
+ARG VITE_EMAILJS_PUBLIC_KEY
+ENV VITE_EMAILJS_SERVICE_ID=$VITE_EMAILJS_SERVICE_ID \
+    VITE_EMAILJS_TEMPLATE_ID=$VITE_EMAILJS_TEMPLATE_ID \
+    VITE_EMAILJS_PUBLIC_KEY=$VITE_EMAILJS_PUBLIC_KEY
+
 COPY package*.json ./
-RUN npm install --legacy-peer-deps
+RUN npm install --legacy-peer-deps --no-audit --no-fund
 
-# Copy application source code
 COPY . .
-
-# Build production bundle
 RUN npm run build
 
-# ==========================================
-# 2. Production Stage (Lightweight Nginx)
-# ==========================================
-FROM nginx:alpine AS runner
-
-# Copy custom Nginx configuration with SPA support
+# Etapa 2: servir los estáticos con Nginx
+FROM nginx:1.27-alpine
 COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-# Copy compiled assets from build stage
 COPY --from=build /app/dist /usr/share/nginx/html
 
 EXPOSE 80
-
 CMD ["nginx", "-g", "daemon off;"]

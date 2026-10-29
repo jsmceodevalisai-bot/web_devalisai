@@ -13,7 +13,7 @@ export const CinematicZoomHero: React.FC = () => {
       {/* Background Image Container with Continuous Breathing Zoom */}
       <div className="absolute inset-0 overflow-hidden">
         <img
-          src="/assets/aistudio/Imagen_de_ChatGPT_14_oct_2026__20_58_28-10_1400x834_4cd5356e.png"
+          src="/images/Imagen_de_ChatGPT_14_oct_2026__20_58_28-10_1400x834_4cd5356e.png"
           alt="Gran ola estilo cyberpunk con horizonte del Monte Fuji y metrópolis futurista en neón"
           className="h-full w-full object-cover object-center animate-breathing"
         />
