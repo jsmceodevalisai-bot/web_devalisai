@@ -85,10 +85,9 @@ export const SMEInteractiveHero: React.FC = () => {
       const rect = container.getBoundingClientRect();
       ctx.clearRect(0, 0, rect.width, rect.height);
 
-      const isLight = document.documentElement.classList.contains('light');
       ctx.lineWidth = 1.15;
-      // Blue mesh in light mode preserving clean elastic grid style, white luminous mesh in dark mode
-      ctx.strokeStyle = isLight ? 'rgba(14, 132, 230, 0.78)' : 'rgba(255, 255, 255, 0.52)';
+      // High-visibility dark/blue mesh in both light and night modes so it is clearly visible over the light background
+      ctx.strokeStyle = 'rgba(14, 132, 230, 0.80)';
 
       const rows = points.length;
       if (rows === 0) return;
@@ -148,13 +147,13 @@ export const SMEInteractiveHero: React.FC = () => {
         ctx.stroke();
       }
 
-      // Highlight subtle nodes - tech blue in light mode, white in dark mode
+      // Highlight subtle nodes - tech blue in all modes so they stand out over the light background
       for (let r = 0; r < rows; r += 2) {
         for (let c = 0; c < cols; c += 2) {
           const p = points[r][c];
           ctx.beginPath();
           ctx.arc(p.x, p.y, 1.8, 0, Math.PI * 2);
-          ctx.fillStyle = isLight ? 'rgba(2, 132, 199, 0.95)' : 'rgba(255, 255, 255, 0.82)';
+          ctx.fillStyle = 'rgba(2, 132, 199, 0.95)';
           ctx.fill();
         }
       }
@@ -176,9 +175,9 @@ export const SMEInteractiveHero: React.FC = () => {
     <section
       id="pymes"
       ref={containerRef}
-      className="relative min-h-[440px] py-20 bg-gradient-to-b from-[#F0F7FF] via-[#E6F0FC] to-[#F8FAFC] dark:from-[#182848] dark:via-[#1a2d54] dark:to-[#12203c] border-b border-slate-200 dark:border-[#2A3F66] overflow-hidden flex items-center"
+      className="relative min-h-[440px] py-20 bg-gradient-to-b from-[#F0F7FF] via-[#E6F0FC] to-[#F8FAFC] border-b border-slate-200 overflow-hidden flex items-center"
     >
-      {/* Interactive Elastic Canvas - blue in light mode, white in dark mode */}
+      {/* Interactive Elastic Canvas - dark blue high-visibility mesh over light background */}
       <canvas
         ref={canvasRef}
         className="pointer-events-none absolute inset-0 h-full w-full opacity-90"
@@ -186,24 +185,24 @@ export const SMEInteractiveHero: React.FC = () => {
       />
 
       {/* Luminous soft ambient lighting for clarity and depth */}
-      <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[380px] bg-blue-400/15 dark:bg-[#00f0ff]/10 blur-[130px] rounded-full" />
-      <div className="pointer-events-none absolute inset-0 bg-radial from-transparent via-blue-50/20 dark:via-[#1a2d54]/20 to-slate-100/40 dark:to-[#12203c]/45" />
+      <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[380px] bg-blue-400/15 blur-[130px] rounded-full" />
+      <div className="pointer-events-none absolute inset-0 bg-radial from-transparent via-blue-50/20 to-slate-100/40" />
 
       {/* Content Layer (non-obstructive to user interaction) */}
       <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center space-y-6">
         
-        <div className="inline-flex items-center gap-2 rounded-full border border-[#00838f]/30 dark:border-[#00f0ff]/30 bg-white/90 dark:bg-[#0C1527]/90 px-4 py-1.5 text-xs font-semibold text-[#00838f] dark:text-[#00f0ff] backdrop-blur-md shadow-sm">
+        <div className="inline-flex items-center gap-2 rounded-full border border-[#00838f]/30 bg-white/95 px-4 py-1.5 text-xs font-semibold text-[#00838f] backdrop-blur-md shadow-sm">
           <Rocket className="h-3.5 w-3.5" />
           <span>{t.smeHero.badge}</span>
         </div>
 
         {/* Exact Title from Document 01 Section 4.5 */}
-        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.06)] dark:drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]">
+        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 drop-shadow-[0_2px_12px_rgba(0,0,0,0.06)]">
           {t.smeHero.title}
         </h2>
 
         {/* Exact Description from Document 01 Section 4.5 */}
-        <p className="text-base sm:text-lg text-slate-600 dark:text-slate-200 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
           {t.smeHero.subtitle}
         </p>
 
@@ -211,7 +210,7 @@ export const SMEInteractiveHero: React.FC = () => {
         <div className="pt-2 flex justify-center">
           <button
             onClick={() => openModal({ product: 'Plan Pyme / Impulso Digital' })}
-            className="btn-interactive flex items-center gap-2.5 rounded-lg bg-[#00838f] dark:bg-[#00f0ff] px-8 py-3.5 text-xs font-bold text-white dark:text-[#060e20] shadow-[0_0_25px_rgba(0,240,255,0.3)] hover:bg-[#006b75] dark:hover:bg-[#7df4ff] cursor-pointer"
+            className="btn-interactive flex items-center gap-2.5 rounded-lg bg-[#00838f] px-8 py-3.5 text-xs font-bold text-white shadow-[0_0_25px_rgba(0,131,143,0.3)] hover:bg-[#006b75] cursor-pointer"
           >
             <span>{t.smeHero.cta}</span>
             <ArrowRight className="h-4 w-4" />
