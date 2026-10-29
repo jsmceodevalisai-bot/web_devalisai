@@ -461,6 +461,9 @@ export const ParticleHero: React.FC = () => {
       const sinX = Math.sin(rotX);
 
       // 4. Update & Render Particles with 3D projection
+      ctx.shadowBlur = 0;
+      ctx.globalCompositeOperation = isLight ? 'source-over' : 'lighter';
+
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i];
 
@@ -527,27 +530,23 @@ export const ParticleHero: React.FC = () => {
         const screenY = centerY + y2 * depthFactor;
         const renderSize = Math.max(0.6, p.baseSize * depthFactor);
 
-        const twinkle = 0.82 + 0.18 * Math.sin(now * 0.003 * p.twinkleSpeed + p.phase);
-
         ctx.beginPath();
         ctx.arc(screenX, screenY, renderSize, 0, Math.PI * 2);
-
-        if (isLight) {
-          ctx.fillStyle = p.lightColorHex;
-          ctx.shadowBlur = 0;
-        } else {
-          ctx.fillStyle = p.colorHex;
-          ctx.shadowColor = p.colorHex;
-          ctx.shadowBlur = 6;
-        }
+        ctx.fillStyle = isLight ? p.lightColorHex : p.colorHex;
         ctx.fill();
       }
 
       // 5. Connective Constellation Filaments between close particles
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.shadowBlur = 0;
       const connectDist = width < 640 ? 12 : 15;
       const stride = width < 640 ? 5 : 4;
       ctx.lineWidth = 0.5;
+      ctx.strokeStyle = isLight
+        ? 'rgba(8, 145, 178, 0.22)'
+        : 'rgba(98, 233, 224, 0.22)';
 
+      ctx.beginPath();
       for (let i = 0; i < particles.length; i += stride) {
         const p1 = particles[i];
         const screen1X = centerX + (p1.x + p1.repelX);
@@ -561,20 +560,12 @@ export const ParticleHero: React.FC = () => {
 
           const dist = Math.hypot(screen1X - screen2X, screen1Y - screen2Y);
           if (dist < connectDist) {
-            const lineAlpha = (1 - dist / connectDist) * 0.22;
-            ctx.beginPath();
             ctx.moveTo(screen1X, screen1Y);
             ctx.lineTo(screen2X, screen2Y);
-
-            if (isLight) {
-              ctx.strokeStyle = `rgba(8, 145, 178, ${lineAlpha * 1.2})`;
-            } else {
-              ctx.strokeStyle = `rgba(98, 233, 224, ${lineAlpha})`;
-            }
-            ctx.stroke();
           }
         }
       }
+      ctx.stroke();
 
       animationFrameId = requestAnimationFrame(render);
     };
