@@ -639,7 +639,7 @@ export const ParticleHero: React.FC = () => {
                 01
               </span>
               <span className="text-xs sm:text-sm font-bold text-[#F0F6FF] leading-snug uppercase tracking-wide">
-                Inteligencia<br />Artificial
+                {t.particleHero.caps01}
               </span>
             </li>
 
@@ -648,7 +648,7 @@ export const ParticleHero: React.FC = () => {
                 02
               </span>
               <span className="text-xs sm:text-sm font-bold text-[#F0F6FF] leading-snug uppercase tracking-wide">
-                Desarrollo<br />de software
+                {t.particleHero.caps02}
               </span>
             </li>
 
@@ -657,7 +657,7 @@ export const ParticleHero: React.FC = () => {
                 03
               </span>
               <span className="text-xs sm:text-sm font-bold text-[#F0F6FF] leading-snug uppercase tracking-wide">
-                Diseño web y<br />experiencias digitales
+                {t.particleHero.caps03}
               </span>
             </li>
 
@@ -666,7 +666,7 @@ export const ParticleHero: React.FC = () => {
                 04
               </span>
               <span className="text-xs sm:text-sm font-bold text-[#F0F6FF] leading-snug uppercase tracking-wide">
-                Automatización
+                {t.particleHero.caps04}
               </span>
             </li>
           </ul>

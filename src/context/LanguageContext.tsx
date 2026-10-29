@@ -103,6 +103,10 @@ export interface TranslationSchema {
     ctaSecondary: string;
     stripPartner: string;
     stripMotto: string;
+    caps01: string;
+    caps02: string;
+    caps03: string;
+    caps04: string;
   };
   cinematicHero: {
     badge: string;
@@ -374,6 +378,10 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
       ctaSecondary: 'Explorar Productos y Servicios',
       stripPartner: 'Tu partner tecnológico',
       stripMotto: 'Ideas + Tecnología + Futuro',
+      caps01: 'Inteligencia Artificial',
+      caps02: 'Desarrollo de software',
+      caps03: 'Diseño web y experiencias digitales',
+      caps04: 'Automatización',
     },
     cinematicHero: {
       badge: 'Visión & Excelencia Técnica',
@@ -931,6 +939,10 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
       ctaSecondary: 'Explore Products & Services',
       stripPartner: 'Your technology partner',
       stripMotto: 'Ideas + Technology + Future',
+      caps01: 'Artificial Intelligence',
+      caps02: 'Software Development',
+      caps03: 'Web Design & Digital Experiences',
+      caps04: 'Automation',
     },
     cinematicHero: {
       badge: 'Vision & Technical Excellence',
@@ -1488,6 +1500,10 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
       ctaSecondary: 'プロダクト＆サービスを見る',
       stripPartner: '貴社のテクノロジーパートナー',
       stripMotto: 'アイデア ＋ テクノロジー ＋ 未来',
+      caps01: '人工知能 (AI)',
+      caps02: 'ソフトウェア開発',
+      caps03: 'Webデザイン＆デジタル体験',
+      caps04: '業務自動化',
     },
     cinematicHero: {
       badge: 'ビジョン ＆ 技術的卓越性',
@@ -2015,6 +2031,10 @@ contact: {
       ctaSecondary: '浏览产品与服务',
       stripPartner: '您的全天候技术合作伙伴',
       stripMotto: '创意 ＋ 科技 ＋ 未来',
+      caps01: '人工智能 (AI)',
+      caps02: '软件定制研发',
+      caps03: '网页设计与数字体验',
+      caps04: '流程自动化',
     },
     cinematicHero: {
       badge: '愿景与卓越工程',
@@ -2542,6 +2562,10 @@ contact: {
       ctaSecondary: 'Produkte und Services erkunden',
       stripPartner: 'Ihr Technologiepartner',
       stripMotto: 'Ideen + Technologie + Zukunft',
+      caps01: 'Künstliche Intelligenz',
+      caps02: 'Softwareentwicklung',
+      caps03: 'Webdesign & Digitale Erlebnisse',
+      caps04: 'Automatisierung',
     },
     cinematicHero: {
       badge: 'Vision & Technische Exzellenz',
@@ -3069,6 +3093,10 @@ contact: {
       ctaSecondary: 'Explorar Produtos e Serviços',
       stripPartner: 'Seu parceiro tecnológico',
       stripMotto: 'Ideias + Tecnologia + Futuro',
+      caps01: 'Inteligência Artificial',
+      caps02: 'Desenvolvimento de Software',
+      caps03: 'Web Design e Experiências Digitais',
+      caps04: 'Automação',
     },
     cinematicHero: {
       badge: 'Visão & Excelência Técnica',
