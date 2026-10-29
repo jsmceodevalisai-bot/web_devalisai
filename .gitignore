@@ -1,14 +1,12 @@
-# Dependencies
 node_modules
-npm-debug.log
-
-# Python
-__pycache__
-*.pyc
+dist
+*.local
 .env
+.env.*
+!.env.example
+*.log
 
-# OS / editor
-.DS_Store
-Thumbs.db
-.vscode
-.idea
+# Artefactos de AI Studio (no forman parte del sitio)
+public/assets/aistudio/
+bun.lock
+metadata.json

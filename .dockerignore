@@ -1,19 +1,7 @@
-# Docker
-.git
-.gitignore
-.dockerignore
-Dockerfile
-docker-compose.yml
 node_modules
-npm-debug.log
-
-# OS / editor
-.DS_Store
-Thumbs.db
-.vscode
-.idea
-
-# Python (si alguna vez se usa)
-__pycache__
-*.pyc
+dist
+.git
 .env
+.env.*
+!.env.example
+*.log
