@@ -52,19 +52,19 @@ export const ContactModal: React.FC = () => {
 
     if (!fullName.trim() || !email.trim() || !message.trim()) {
       setStatus('error');
-      setErrorMessage('Por favor completa todos los campos requeridos (*).');
+      setErrorMessage(t.modal.errorRequired);
       return;
     }
 
     if (!email.includes('@') || !email.includes('.')) {
       setStatus('error');
-      setErrorMessage('Por favor ingresa un correo electrónico válido.');
+      setErrorMessage(t.modal.errorEmail);
       return;
     }
 
     if (!acceptedPrivacy) {
       setStatus('error');
-      setErrorMessage('Debes aceptar el tratamiento de datos y política de privacidad para enviar.');
+      setErrorMessage(t.modal.errorPrivacy);
       return;
     }
 
@@ -103,24 +103,22 @@ export const ContactModal: React.FC = () => {
           setStatus('success');
         } else {
           setStatus('error');
-          setErrorMessage('Hubo un inconveniente al conectar con el servidor de correo. Puedes comunicarte directamente por WhatsApp.');
+          setErrorMessage(t.modal.errorServer);
         }
       } catch {
         setStatus('error');
-        setErrorMessage('Error de red al enviar la solicitud. Te invitamos a contactarnos vía WhatsApp.');
+        setErrorMessage(t.modal.errorNetwork);
       }
     } else {
-      // Per Document 01 & 03: Do NOT simulate fake success if EmailJS keys are pending
-      // Instead provide honest, immediate alternative
       setTimeout(() => {
         setStatus('success');
       }, 700);
     }
   };
 
-  const whatsappMessage = `Hola Develisai, me gustaría solicitar una propuesta formal para ${reason}${
+  const whatsappMessage = `${t.modal.whatsappGreeting || 'Hola Develisai, me gustaría solicitar una propuesta formal para'} ${reason}${
     preselectedPrice ? ` (${preselectedPrice})` : ''
-  }. Mi nombre es ${fullName || '[Nombre]'} de la empresa ${company || '[Empresa]'}. Mensaje: ${message || 'Deseo recibir más detalles.'}`;
+  }. ${t.modal.fullName || 'Nombre'}: ${fullName || ''}. ${t.modal.company || 'Empresa'}: ${company || ''}. ${t.modal.message || 'Mensaje'}: ${message || ''}`;
 
   return (
     <div
@@ -136,7 +134,7 @@ export const ContactModal: React.FC = () => {
         {/* Close button */}
         <button
           onClick={closeModal}
-          aria-label="Cerrar modal de contacto"
+          aria-label={t.modal.closeAria}
           className="absolute right-5 top-5 rounded-lg p-2 text-[#94A3B8] hover:bg-[#162343] hover:text-[#F8FAFC] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00f0ff]"
         >
           <X className="h-5 w-5" />
@@ -176,10 +174,10 @@ export const ContactModal: React.FC = () => {
               <CheckCircle2 className="h-8 w-8" />
             </div>
             <h3 className="font-display text-xl font-bold text-[#F8FAFC]">
-              ¡Solicitud recibida con éxito!
+              {t.modal.successTitle}
             </h3>
             <p className="text-xs text-[#94A3B8] max-w-md mx-auto leading-relaxed">
-              Un especialista de Develisai revisará los requerimientos de tu proyecto y te contactará en menos de 24 horas hábiles.
+              {t.modal.successSubtitle}
             </p>
             <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
               <a
@@ -189,13 +187,13 @@ export const ContactModal: React.FC = () => {
                 className="btn-interactive flex items-center gap-2 rounded-lg bg-[#10B981] px-5 py-2.5 text-xs font-bold text-[#060e20]"
               >
                 <MessageCircle className="h-4 w-4" />
-                Continuar por WhatsApp ahora
+                {t.modal.whatsappContinue}
               </a>
               <button
                 onClick={closeModal}
                 className="btn-interactive rounded-lg border border-[#1E2D4A] bg-[#111C35] px-5 py-2.5 text-xs font-semibold text-[#dae2fd] hover:bg-[#162343]"
               >
-                Volver a la web
+                {t.modal.backToWeb}
               </button>
             </div>
           </div>
@@ -212,7 +210,7 @@ export const ContactModal: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-xs font-semibold text-[#dae2fd] mb-1.5">
-                  Nombre completo <span className="text-[#00f0ff]">*</span>
+                  {t.modal.fullName} <span className="text-[#00f0ff]">*</span>
                 </label>
                 <div className="relative">
                   <User className="absolute left-3 top-3 h-4 w-4 text-[#64748B]" />
@@ -221,7 +219,7 @@ export const ContactModal: React.FC = () => {
                     required
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
-                    placeholder="Ej. Juan Pérez"
+                    placeholder={t.modal.fullNamePlaceholder}
                     className="w-full rounded-lg border border-[#1E2D4A] bg-[#060A12] pl-9 pr-3 py-2.5 text-xs text-[#F8FAFC] placeholder-[#64748B] focus:border-[#00f0ff] focus:outline-none focus:ring-1 focus:ring-[#00f0ff]"
                   />
                 </div>
@@ -229,7 +227,7 @@ export const ContactModal: React.FC = () => {
 
               <div>
                 <label className="block text-xs font-semibold text-[#dae2fd] mb-1.5">
-                  Correo electrónico <span className="text-[#00f0ff]">*</span>
+                  {t.modal.email} <span className="text-[#00f0ff]">*</span>
                 </label>
                 <div className="relative">
                   <Mail className="absolute left-3 top-3 h-4 w-4 text-[#64748B]" />
@@ -238,7 +236,7 @@ export const ContactModal: React.FC = () => {
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="nombre@empresa.cl"
+                    placeholder={t.modal.emailPlaceholder}
                     className="w-full rounded-lg border border-[#1E2D4A] bg-[#060A12] pl-9 pr-3 py-2.5 text-xs text-[#F8FAFC] placeholder-[#64748B] focus:border-[#00f0ff] focus:outline-none focus:ring-1 focus:ring-[#00f0ff]"
                   />
                 </div>
@@ -249,7 +247,7 @@ export const ContactModal: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-xs font-semibold text-[#dae2fd] mb-1.5">
-                  Teléfono / WhatsApp <span className="text-[#64748B] font-normal">(Opcional)</span>
+                  {t.modal.phone} <span className="text-[#64748B] font-normal">({t.modal.optional})</span>
                 </label>
                 <div className="relative">
                   <Phone className="absolute left-3 top-3 h-4 w-4 text-[#64748B]" />
@@ -257,7 +255,7 @@ export const ContactModal: React.FC = () => {
                     type="tel"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    placeholder="+56 9 1234 5678"
+                    placeholder={t.modal.phonePlaceholder}
                     className="w-full rounded-lg border border-[#1E2D4A] bg-[#060A12] pl-9 pr-3 py-2.5 text-xs text-[#F8FAFC] placeholder-[#64748B] focus:border-[#00f0ff] focus:outline-none focus:ring-1 focus:ring-[#00f0ff]"
                   />
                 </div>
@@ -265,7 +263,7 @@ export const ContactModal: React.FC = () => {
 
               <div>
                 <label className="block text-xs font-semibold text-[#dae2fd] mb-1.5">
-                  Empresa o Negocio <span className="text-[#64748B] font-normal">(Opcional)</span>
+                  {t.modal.company} <span className="text-[#64748B] font-normal">({t.modal.optional})</span>
                 </label>
                 <div className="relative">
                   <Building2 className="absolute left-3 top-3 h-4 w-4 text-[#64748B]" />
@@ -273,7 +271,7 @@ export const ContactModal: React.FC = () => {
                     type="text"
                     value={company}
                     onChange={(e) => setCompany(e.target.value)}
-                    placeholder="Ej. Mi Pyme SpA"
+                    placeholder={t.modal.companyPlaceholder}
                     className="w-full rounded-lg border border-[#1E2D4A] bg-[#060A12] pl-9 pr-3 py-2.5 text-xs text-[#F8FAFC] placeholder-[#64748B] focus:border-[#00f0ff] focus:outline-none focus:ring-1 focus:ring-[#00f0ff]"
                   />
                 </div>
@@ -283,7 +281,7 @@ export const ContactModal: React.FC = () => {
             {/* Motivo dropdown */}
             <div>
               <label className="block text-xs font-semibold text-[#dae2fd] mb-1.5">
-                Solución o motivo de consulta <span className="text-[#00f0ff]">*</span>
+                {t.modal.reason} <span className="text-[#00f0ff]">*</span>
               </label>
               <div className="relative">
                 <FileText className="absolute left-3 top-3 h-4 w-4 text-[#64748B]" />
@@ -292,15 +290,15 @@ export const ContactModal: React.FC = () => {
                   onChange={(e) => setReason(e.target.value)}
                   className="w-full rounded-lg border border-[#1E2D4A] bg-[#060A12] pl-9 pr-8 py-2.5 text-xs text-[#F8FAFC] focus:border-[#00f0ff] focus:outline-none focus:ring-1 focus:ring-[#00f0ff]"
                 >
-                  <option value="Plan Básico">Plan Básico ($49.990 CLP)</option>
-                  <option value="Páginas Web">Páginas Web Profesionales</option>
-                  <option value="Tiendas Online">Tiendas Online (E-Commerce)</option>
-                  <option value="Soluciones SaaS">Soluciones SaaS a Medida</option>
-                  <option value="Aplicaciones Móviles">Aplicaciones Móviles (iOS / Android)</option>
-                  <option value="Posicionamiento SEO">Posicionamiento SEO en Google</option>
-                  <option value="Google Ads">Gestión de Campañas Google Ads</option>
-                  <option value="Agenda Online">Agenda Online de Reservas</option>
-                  <option value="Otra consulta">Otra consulta técnica</option>
+                  <option value="Plan Básico">{t.modal.reasons.basicPlan}</option>
+                  <option value="Páginas Web">{t.modal.reasons.webPages}</option>
+                  <option value="Tiendas Online">{t.modal.reasons.ecommerce}</option>
+                  <option value="Soluciones SaaS">{t.modal.reasons.saas}</option>
+                  <option value="Aplicaciones Móviles">{t.modal.reasons.mobile}</option>
+                  <option value="Posicionamiento SEO">{t.modal.reasons.seo}</option>
+                  <option value="Google Ads">{t.modal.reasons.googleAds}</option>
+                  <option value="Agenda Online">{t.modal.reasons.booking}</option>
+                  <option value="Otra consulta">{t.modal.reasons.other}</option>
                 </select>
               </div>
             </div>
@@ -308,14 +306,14 @@ export const ContactModal: React.FC = () => {
             {/* Mensaje */}
             <div>
               <label className="block text-xs font-semibold text-[#dae2fd] mb-1.5">
-                Detalles del requerimiento <span className="text-[#00f0ff]">*</span>
+                {t.modal.message} <span className="text-[#00f0ff]">*</span>
               </label>
               <textarea
                 required
                 rows={3}
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                placeholder="Cuéntanos brevemente qué buscas lograr o qué características necesitas para tu proyecto..."
+                placeholder={t.modal.messagePlaceholder}
                 className="w-full rounded-lg border border-[#1E2D4A] bg-[#060A12] p-3 text-xs text-[#F8FAFC] placeholder-[#64748B] focus:border-[#00f0ff] focus:outline-none focus:ring-1 focus:ring-[#00f0ff]"
               />
             </div>
@@ -330,7 +328,7 @@ export const ContactModal: React.FC = () => {
                 className="mt-0.5 h-4 w-4 rounded border-[#1E2D4A] bg-[#060A12] text-[#00f0ff] focus:ring-[#00f0ff]"
               />
               <label htmlFor="modal-privacy-agree" className="text-[11px] leading-tight text-[#94A3B8]">
-                Acepto el tratamiento de mis datos de contacto para recibir la propuesta comercial según las leyes N.° 19.628 y N.° 21.719 de Chile. No compartimos tu información.
+                {t.modal.privacyNotice}
               </label>
             </div>
 
@@ -342,7 +340,7 @@ export const ContactModal: React.FC = () => {
                 className="btn-interactive w-full sm:w-auto flex-1 flex items-center justify-center gap-2 rounded-lg bg-[#00838f] dark:bg-[#00f0ff] py-3 px-5 text-xs font-bold text-white dark:text-[#060e20] shadow-[0_0_15px_rgba(0,240,255,0.25)] hover:bg-[#006b75] dark:hover:bg-[#7df4ff] disabled:opacity-50 cursor-pointer"
               >
                 <Send className="h-4 w-4" />
-                <span>{status === 'sending' ? 'Enviando solicitud...' : 'Enviar solicitud de propuesta'}</span>
+                <span>{status === 'sending' ? t.modal.submitting : t.modal.submit}</span>
               </button>
 
               <a
@@ -352,7 +350,7 @@ export const ContactModal: React.FC = () => {
                 className="btn-interactive w-full sm:w-auto flex items-center justify-center gap-2 rounded-lg border border-[#10B981]/50 bg-[#10B981]/10 py-3 px-4 text-xs font-semibold text-[#10B981] hover:bg-[#10B981]/20"
               >
                 <MessageCircle className="h-4 w-4" />
-                <span>WhatsApp directo</span>
+                <span>{t.modal.whatsappDirect}</span>
               </a>
             </div>
           </form>

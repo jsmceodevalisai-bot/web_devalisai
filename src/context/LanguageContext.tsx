@@ -231,6 +231,44 @@ export interface TranslationSchema {
     subtitle: string;
     selectedProduct: string;
     cancel: string;
+    closeAria: string;
+    fullName: string;
+    fullNamePlaceholder: string;
+    email: string;
+    emailPlaceholder: string;
+    phone: string;
+    phonePlaceholder: string;
+    optional: string;
+    company: string;
+    companyPlaceholder: string;
+    reason: string;
+    reasons: {
+      basicPlan: string;
+      webPages: string;
+      ecommerce: string;
+      saas: string;
+      mobile: string;
+      seo: string;
+      googleAds: string;
+      booking: string;
+      other: string;
+    };
+    message: string;
+    messagePlaceholder: string;
+    privacyNotice: string;
+    submit: string;
+    submitting: string;
+    whatsappDirect: string;
+    successTitle: string;
+    successSubtitle: string;
+    whatsappContinue: string;
+    backToWeb: string;
+    errorRequired: string;
+    errorEmail: string;
+    errorPrivacy: string;
+    errorServer: string;
+    errorNetwork: string;
+    whatsappGreeting: string;
   };
   cookies: {
     title: string;
@@ -751,6 +789,44 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
       subtitle: 'Completa tus datos y nos pondremos en contacto contigo hoy mismo.',
       selectedProduct: 'Solución seleccionada:',
       cancel: 'Cancelar',
+      closeAria: 'Cerrar ventana de contacto',
+      fullName: 'Nombre completo',
+      fullNamePlaceholder: 'Ej. Juan Pérez',
+      email: 'Correo electrónico',
+      emailPlaceholder: 'nombre@empresa.cl',
+      phone: 'Teléfono / WhatsApp',
+      phonePlaceholder: '+56 9 1234 5678',
+      optional: 'Opcional',
+      company: 'Empresa o Negocio',
+      companyPlaceholder: 'Ej. Mi Empresa SpA',
+      reason: 'Solución o motivo de consulta',
+      reasons: {
+        basicPlan: 'Plan Básico ($49.990 CLP)',
+        webPages: 'Páginas Web Profesionales',
+        ecommerce: 'Tiendas Online (E-Commerce)',
+        saas: 'Soluciones SaaS a Medida',
+        mobile: 'Aplicaciones Móviles (iOS / Android)',
+        seo: 'Posicionamiento SEO en Google',
+        googleAds: 'Gestión de Campañas Google Ads',
+        booking: 'Agenda Online de Reservas',
+        other: 'Otra consulta técnica',
+      },
+      message: 'Detalles del requerimiento',
+      messagePlaceholder: 'Cuéntanos brevemente qué buscas lograr o qué características necesitas para tu proyecto...',
+      privacyNotice: 'Acepto el tratamiento de mis datos de contacto para recibir la propuesta comercial según las leyes de protección de datos. No compartimos tu información.',
+      submit: 'Enviar solicitud de propuesta',
+      submitting: 'Enviando solicitud...',
+      whatsappDirect: 'WhatsApp directo',
+      successTitle: '¡Solicitud recibida con éxito!',
+      successSubtitle: 'Un especialista de Develisai revisará los requerimientos de tu proyecto y te contactará en menos de 24 horas hábiles.',
+      whatsappContinue: 'Continuar por WhatsApp ahora',
+      backToWeb: 'Volver a la web',
+      errorRequired: 'Por favor completa todos los campos requeridos (*).',
+      errorEmail: 'Por favor ingresa un correo electrónico válido.',
+      errorPrivacy: 'Debes aceptar el tratamiento de datos y política de privacidad para enviar.',
+      errorServer: 'Hubo un inconveniente al conectar con el servidor de correo. Puedes comunicarte directamente por WhatsApp.',
+      errorNetwork: 'Error de red al enviar la solicitud. Te invitamos a contactarnos vía WhatsApp.',
+      whatsappGreeting: 'Hola Develisai, me gustaría solicitar una propuesta formal para',
     },
     cookies: {
       title: 'Valoramos tu Privacidad',
@@ -1270,6 +1346,44 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
       subtitle: 'Provide your details and we will get back to you today.',
       selectedProduct: 'Selected solution:',
       cancel: 'Cancel',
+      closeAria: 'Close contact modal',
+      fullName: 'Full Name',
+      fullNamePlaceholder: 'e.g. John Doe',
+      email: 'Email Address',
+      emailPlaceholder: 'name@company.com',
+      phone: 'Phone / WhatsApp',
+      phonePlaceholder: '+1 (555) 000-0000',
+      optional: 'Optional',
+      company: 'Company or Business',
+      companyPlaceholder: 'e.g. My Business Inc.',
+      reason: 'Solution or Reason for Inquiry',
+      reasons: {
+        basicPlan: 'Basic Web Plan ($49,990 CLP)',
+        webPages: 'Professional Websites',
+        ecommerce: 'Online Stores (E-Commerce)',
+        saas: 'Custom SaaS Solutions',
+        mobile: 'Mobile Apps (iOS / Android)',
+        seo: 'SEO Ranking on Google',
+        googleAds: 'Google Ads Campaign Management',
+        booking: 'Online Booking System',
+        other: 'Other Technical Inquiry',
+      },
+      message: 'Project Details & Requirements',
+      messagePlaceholder: 'Briefly tell us what you are looking to achieve or what features you need for your project...',
+      privacyNotice: 'I agree to the processing of my contact data to receive the commercial proposal in compliance with data privacy regulations. We never share your data.',
+      submit: 'Send Proposal Request',
+      submitting: 'Sending request...',
+      whatsappDirect: 'Direct WhatsApp',
+      successTitle: 'Request received successfully!',
+      successSubtitle: 'A Develisai specialist will review your project requirements and get in touch within 24 business hours.',
+      whatsappContinue: 'Continue on WhatsApp now',
+      backToWeb: 'Back to website',
+      errorRequired: 'Please complete all required fields (*).',
+      errorEmail: 'Please enter a valid email address.',
+      errorPrivacy: 'You must accept the data processing and privacy policy to submit.',
+      errorServer: 'There was an issue connecting to the mail server. You can reach out directly via WhatsApp.',
+      errorNetwork: 'Network error while sending the request. We invite you to contact us via WhatsApp.',
+      whatsappGreeting: 'Hello Develisai, I would like to request a formal proposal for',
     },
     cookies: {
       title: 'We Value Your Privacy',
@@ -1786,6 +1900,44 @@ contact: {
       subtitle: '必要事項をご記入いただければ、本日中にご連絡いたします。',
       selectedProduct: '選択中のソリューション:',
       cancel: 'キャンセル',
+      closeAria: 'お問い合わせモーダルを閉じる',
+      fullName: 'お名前',
+      fullNamePlaceholder: '例: 山田 太郎',
+      email: 'メールアドレス',
+      emailPlaceholder: 'name@company.jp',
+      phone: '電話番号 / WhatsApp',
+      phonePlaceholder: '+81 90 1234 5678',
+      optional: '任意',
+      company: '貴社名・組織名',
+      companyPlaceholder: '例: 株式会社Develis',
+      reason: 'ご相談内容・ご希望のソリューション',
+      reasons: {
+        basicPlan: 'ベーシックWebプラン (49,990 CLP)',
+        webPages: 'プロフェッショナルWebサイト制作',
+        ecommerce: 'オンラインストア (ECサイト)',
+        saas: 'カスタムSaaSソリューション',
+        mobile: 'モバイルアプリ開発 (iOS / Android)',
+        seo: 'Google SEO対策・検索上位化',
+        googleAds: 'Google広告運用代行',
+        booking: 'オンライン予約システム',
+        other: 'その他の技術相談',
+      },
+      message: 'ご要望・プロジェクトの詳細',
+      messagePlaceholder: 'プロジェクトの目的や必要な機能についてお気軽にご記入ください...',
+      privacyNotice: '技術・商業提案書受領のための個人情報取り扱いに同意します。第三者に提供されることはありません。',
+      submit: '提案書を依頼する',
+      submitting: '送信中...',
+      whatsappDirect: 'WhatsAppで直接相談',
+      successTitle: 'お問い合わせを正常に受け付けました！',
+      successSubtitle: '専任エンジニアがご要件を確認のうえ、24営業時間内にご連絡差し上げます。',
+      whatsappContinue: 'WhatsAppで今すぐ続ける',
+      backToWeb: 'サイトに戻る',
+      errorRequired: '必須項目 (*) をすべてご入力ください。',
+      errorEmail: '有効なメールアドレスをご入力ください。',
+      errorPrivacy: '送信するには個人情報保護方針に同意いただく必要があります。',
+      errorServer: 'メールサーバーとの接続で問題が発生しました。WhatsAppにてご連絡ください。',
+      errorNetwork: '送信中にネットワークエラーが発生しました。WhatsAppからもお問い合わせいただけます。',
+      whatsappGreeting: 'こんにちはDevelisai、以下の案件について正式な提案を希望します: ',
     },
     cookies: {
       title: 'プライバシーの尊重',
@@ -2275,6 +2427,44 @@ contact: {
       subtitle: '填写您的联络方式，我们将在今日为您提供初步技术评估。',
       selectedProduct: '您选择的方案:',
       cancel: '取消',
+      closeAria: '关闭联系窗口',
+      fullName: '姓名',
+      fullNamePlaceholder: '例如：张伟',
+      email: '电子邮箱',
+      emailPlaceholder: 'name@company.com',
+      phone: '电话 / WhatsApp',
+      phonePlaceholder: '+86 138 0000 0000',
+      optional: '选填',
+      company: '企业或机构名称',
+      companyPlaceholder: '例如：智胜科技有限公司',
+      reason: '咨询类别与所需方案',
+      reasons: {
+        basicPlan: '基础网站套餐 ($49,990 CLP)',
+        webPages: '专业企业官网定制',
+        ecommerce: '在线商城系统 (E-Commerce)',
+        saas: '定制化 SaaS 软件开发',
+        mobile: '移动应用开发 (iOS / Android)',
+        seo: 'Google 搜索引擎优化 (SEO)',
+        googleAds: 'Google Ads 广告投放管理',
+        booking: '在线预约与排期系统',
+        other: '其他技术咨询',
+      },
+      message: '项目需求与细节说明',
+      messagePlaceholder: '请简要描述您希望达成的业务目标或所需功能规格...',
+      privacyNotice: '我同意处理我的联络数据以接收商务技术方案，严格遵守数据隐私规范。我们绝不向第三方透露您的信息。',
+      submit: '提交方案申请',
+      submitting: '正在提交...',
+      whatsappDirect: 'WhatsApp 即时直联',
+      successTitle: '申请已成功送达！',
+      successSubtitle: 'Develisai 技术专家将审核您的项目需求，并在 24 个工作小时内与您联系。',
+      whatsappContinue: '立即通过 WhatsApp 继续沟通',
+      backToWeb: '返回网站首页',
+      errorRequired: '请完整填写所有必填字段 (*)。',
+      errorEmail: '请输入有效的电子邮箱地址。',
+      errorPrivacy: '您须同意数据隐私条款方可提交。',
+      errorServer: '连接邮件服务发生异常，您可以通过 WhatsApp 直联与我们取得联系。',
+      errorNetwork: '网络发送出现错误，建议直接通过 WhatsApp 沟通。',
+      whatsappGreeting: '您好 Develisai，我想咨询并索取以下方案的正式报价: ',
     },
     cookies: {
       title: '保护您的隐私',
@@ -2764,6 +2954,44 @@ contact: {
       subtitle: 'Hinterlassen Sie Ihre Kontaktdaten. Wir melden uns noch heute bei Ihnen.',
       selectedProduct: 'Ausgewählte Lösung:',
       cancel: 'Abbrechen',
+      closeAria: 'Kontaktfenster schließen',
+      fullName: 'Vollständiger Name',
+      fullNamePlaceholder: 'z. B. Max Mustermann',
+      email: 'E-Mail-Adresse',
+      emailPlaceholder: 'name@unternehmen.de',
+      phone: 'Telefon / WhatsApp',
+      phonePlaceholder: '+49 170 1234567',
+      optional: 'Optional',
+      company: 'Unternehmen oder Organisation',
+      companyPlaceholder: 'z. B. Mustermann GmbH',
+      reason: 'Gewünschte Lösung / Anliegen',
+      reasons: {
+        basicPlan: 'Basispaket Web ($49.990 CLP)',
+        webPages: 'Professionelle Webseiten',
+        ecommerce: 'Online-Shops (E-Commerce)',
+        saas: 'Maßgeschneiderte SaaS-Lösungen',
+        mobile: 'Mobile Apps (iOS / Android)',
+        seo: 'Google SEO-Optimierung',
+        googleAds: 'Google Ads Kampagnenmanagement',
+        booking: 'Online-Terminbuchungssystem',
+        other: 'Sonstige technische Anfrage',
+      },
+      message: 'Projektdetails & Anforderungen',
+      messagePlaceholder: 'Beschreiben Sie kurz Ihre Ziele und gewünschten Funktionen...',
+      privacyNotice: 'Ich stimme der Verarbeitung meiner Kontaktdaten zur Erstellung des Angebots gemäß Datenschutzbestimmungen zu. Keine Weitergabe an Dritte.',
+      submit: 'Angebot anfordern',
+      submitting: 'Wird gesendet...',
+      whatsappDirect: 'Direkt per WhatsApp',
+      successTitle: 'Anfrage erfolgreich eingegangen!',
+      successSubtitle: 'Ein Develisai-Spezialist prüft Ihre Anforderungen und meldet sich innerhalb von 24 Geschäftsstunden.',
+      whatsappContinue: 'Jetzt auf WhatsApp fortfahren',
+      backToWeb: 'Zurück zur Website',
+      errorRequired: 'Bitte füllen Sie alle Pflichtfelder (*) aus.',
+      errorEmail: 'Bitte geben Sie eine gültige E-Mail-Adresse ein.',
+      errorPrivacy: 'Bitte akzeptieren Sie die Datenschutzrichtlinien, um fortzufahren.',
+      errorServer: 'Verbindungsfehler zum Mailserver. Sie können uns direkt über WhatsApp kontaktieren.',
+      errorNetwork: 'Netzwerkfehler beim Senden. Bitte kontaktieren Sie uns über WhatsApp.',
+      whatsappGreeting: 'Hallo Develisai, ich möchte ein Angebot anfordern für',
     },
     cookies: {
       title: 'Wir respektieren Ihre Privatsphäre',
@@ -3253,6 +3481,44 @@ contact: {
       subtitle: 'Preencha seus dados e entraremos em contato ainda hoje.',
       selectedProduct: 'Solução selecionada:',
       cancel: 'Cancelar',
+      closeAria: 'Fechar janela de contato',
+      fullName: 'Nome completo',
+      fullNamePlaceholder: 'Ex: Carlos Silva',
+      email: 'E-mail corporativo',
+      emailPlaceholder: 'nome@empresa.com.br',
+      phone: 'Telefone / WhatsApp',
+      phonePlaceholder: '+55 11 91234-5678',
+      optional: 'Opcional',
+      company: 'Empresa ou Negócio',
+      companyPlaceholder: 'Ex: Minha Empresa Ltda',
+      reason: 'Solução ou motivo de consulta',
+      reasons: {
+        basicPlan: 'Plano Básico Web ($49.990 CLP)',
+        webPages: 'Sites Profissionais',
+        ecommerce: 'Lojas Virtuais (E-Commerce)',
+        saas: 'Soluções SaaS Sob Medida',
+        mobile: 'Aplicativos Móveis (iOS / Android)',
+        seo: 'Otimização SEO no Google',
+        googleAds: 'Gestão de Campanhas Google Ads',
+        booking: 'Sistema de Agendamento Online',
+        other: 'Outra consulta técnica',
+      },
+      message: 'Detalhes do projeto e requisitos',
+      messagePlaceholder: 'Conte-nos brevemente o que você busca alcançar ou quais recursos precisa para seu projeto...',
+      privacyNotice: 'Concordo com o tratamento dos meus dados de contato para recebimento da proposta comercial, de acordo com as leis de privacidade. Não compartilhamos suas informações.',
+      submit: 'Enviar solicitação de proposta',
+      submitting: 'Enviando solicitação...',
+      whatsappDirect: 'WhatsApp direto',
+      successTitle: 'Solicitação recebida com sucesso!',
+      successSubtitle: 'Um especialista da Develisai analisará os requisitos do seu projeto e entrará em contato em menos de 24 horas úteis.',
+      whatsappContinue: 'Continuar no WhatsApp agora',
+      backToWeb: 'Volver ao site',
+      errorRequired: 'Por favor, preencha todos os campos obrigatórios (*).',
+      errorEmail: 'Por favor, insira um endereço de e-mail válido.',
+      errorPrivacy: 'Você deve aceitar a política de privacidade e tratamento de dados para enviar.',
+      errorServer: 'Houve uma falha ao conectar com o servidor de e-mail. Você pode entrar em contato diretamente pelo WhatsApp.',
+      errorNetwork: 'Erro de rede ao enviar a solicitação. Convidamos você a nos contatar via WhatsApp.',
+      whatsappGreeting: 'Olá Develisai, gostaria de solicitar uma proposta formal para',
     },
     cookies: {
       title: 'Valorizamos sua Privacidade',
