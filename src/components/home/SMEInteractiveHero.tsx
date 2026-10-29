@@ -87,8 +87,8 @@ export const SMEInteractiveHero: React.FC = () => {
 
       const isLight = document.documentElement.classList.contains('light');
       ctx.lineWidth = 1.15;
-      // White, luminous elastic mesh lines as requested by the user
-      ctx.strokeStyle = isLight ? 'rgba(255, 255, 255, 0.75)' : 'rgba(255, 255, 255, 0.52)';
+      // Blue mesh in light mode preserving clean elastic grid style, white luminous mesh in dark mode
+      ctx.strokeStyle = isLight ? 'rgba(14, 132, 230, 0.78)' : 'rgba(255, 255, 255, 0.52)';
 
       const rows = points.length;
       if (rows === 0) return;
@@ -148,13 +148,13 @@ export const SMEInteractiveHero: React.FC = () => {
         ctx.stroke();
       }
 
-      // Highlight subtle nodes - whiter with luminous clarity
+      // Highlight subtle nodes - tech blue in light mode, white in dark mode
       for (let r = 0; r < rows; r += 2) {
         for (let c = 0; c < cols; c += 2) {
           const p = points[r][c];
           ctx.beginPath();
           ctx.arc(p.x, p.y, 1.8, 0, Math.PI * 2);
-          ctx.fillStyle = isLight ? 'rgba(255, 255, 255, 0.95)' : 'rgba(255, 255, 255, 0.82)';
+          ctx.fillStyle = isLight ? 'rgba(2, 132, 199, 0.95)' : 'rgba(255, 255, 255, 0.82)';
           ctx.fill();
         }
       }
@@ -176,9 +176,9 @@ export const SMEInteractiveHero: React.FC = () => {
     <section
       id="pymes"
       ref={containerRef}
-      className="relative min-h-[440px] py-20 bg-gradient-to-b from-[#182848] via-[#1a2d54] to-[#12203c] border-b border-[#2A3F66] overflow-hidden flex items-center"
+      className="relative min-h-[440px] py-20 bg-gradient-to-b from-[#F0F7FF] via-[#E6F0FC] to-[#F8FAFC] dark:from-[#182848] dark:via-[#1a2d54] dark:to-[#12203c] border-b border-slate-200 dark:border-[#2A3F66] overflow-hidden flex items-center"
     >
-      {/* Interactive Elastic Canvas - white luminous mesh */}
+      {/* Interactive Elastic Canvas - blue in light mode, white in dark mode */}
       <canvas
         ref={canvasRef}
         className="pointer-events-none absolute inset-0 h-full w-full opacity-90"
@@ -186,24 +186,24 @@ export const SMEInteractiveHero: React.FC = () => {
       />
 
       {/* Luminous soft ambient lighting for clarity and depth */}
-      <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[380px] bg-[#00f0ff]/10 blur-[130px] rounded-full" />
-      <div className="pointer-events-none absolute inset-0 bg-radial from-transparent via-[#1a2d54]/20 to-[#12203c]/45" />
+      <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[380px] bg-blue-400/15 dark:bg-[#00f0ff]/10 blur-[130px] rounded-full" />
+      <div className="pointer-events-none absolute inset-0 bg-radial from-transparent via-blue-50/20 dark:via-[#1a2d54]/20 to-slate-100/40 dark:to-[#12203c]/45" />
 
       {/* Content Layer (non-obstructive to user interaction) */}
       <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center space-y-6">
         
-        <div className="inline-flex items-center gap-2 rounded-full border border-[#00f0ff]/30 bg-[#0C1527]/90 px-4 py-1.5 text-xs font-semibold text-[#00f0ff] backdrop-blur-md">
+        <div className="inline-flex items-center gap-2 rounded-full border border-[#00838f]/30 dark:border-[#00f0ff]/30 bg-white/90 dark:bg-[#0C1527]/90 px-4 py-1.5 text-xs font-semibold text-[#00838f] dark:text-[#00f0ff] backdrop-blur-md shadow-sm">
           <Rocket className="h-3.5 w-3.5" />
           <span>{t.smeHero.badge}</span>
         </div>
 
         {/* Exact Title from Document 01 Section 4.5 */}
-        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]">
+        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.06)] dark:drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]">
           {t.smeHero.title}
         </h2>
 
         {/* Exact Description from Document 01 Section 4.5 */}
-        <p className="text-base sm:text-lg text-slate-200 max-w-2xl mx-auto leading-relaxed drop-shadow-[0_1px_6px_rgba(0,0,0,0.5)]">
+        <p className="text-base sm:text-lg text-slate-600 dark:text-slate-200 max-w-2xl mx-auto leading-relaxed">
           {t.smeHero.subtitle}
         </p>
 
