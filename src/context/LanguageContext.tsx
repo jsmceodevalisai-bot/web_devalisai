@@ -3294,23 +3294,203 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 const STORAGE_KEY = 'develisai_lang';
+const MANUAL_KEY = 'develisai_lang_manual';
+const CACHE_DETECTED_KEY = 'develisai_detected_lang';
+
+const SPANISH_COUNTRIES = new Set([
+  'CL', 'AR', 'PE', 'CO', 'MX', 'ES', 'UY', 'PY', 'BO', 'EC',
+  'VE', 'PA', 'CR', 'DO', 'GT', 'HN', 'SV', 'NI', 'CU', 'GQ', 'PR'
+]);
+
+const PORTUGUESE_COUNTRIES = new Set([
+  'BR', 'PT', 'AO', 'MZ', 'CV', 'GW', 'ST', 'TL'
+]);
+
+const GERMAN_COUNTRIES = new Set([
+  'DE', 'AT', 'CH', 'LI', 'LU'
+]);
+
+const CHINESE_COUNTRIES = new Set([
+  'CN', 'TW', 'HK', 'MO', 'SG'
+]);
+
+const JAPANESE_COUNTRIES = new Set(['JP']);
+
+function mapCountryToLanguage(countryCode?: string): Language | null {
+  if (!countryCode) return null;
+  const code = countryCode.toUpperCase().trim();
+  if (SPANISH_COUNTRIES.has(code)) return 'es';
+  if (PORTUGUESE_COUNTRIES.has(code)) return 'pt';
+  if (GERMAN_COUNTRIES.has(code)) return 'de';
+  if (CHINESE_COUNTRIES.has(code)) return 'ch';
+  if (JAPANESE_COUNTRIES.has(code)) return 'jp';
+  if (['US', 'GB', 'CA', 'AU', 'NZ', 'IE', 'ZA', 'IN', 'PH'].includes(code)) return 'en';
+  return null;
+}
+
+function detectLanguageSynchronously(): Language {
+  // 1. Timezone detection (reflects the physical geographical location of access)
+  try {
+    const tz = (typeof Intl !== 'undefined' && Intl.DateTimeFormat().resolvedOptions().timeZone) || '';
+    if (
+      tz.startsWith('America/Santiago') ||
+      tz.startsWith('Pacific/Easter') ||
+      tz.startsWith('America/Buenos_Aires') ||
+      tz.startsWith('America/Cordoba') ||
+      tz.startsWith('America/Rosario') ||
+      tz.startsWith('America/Mendoza') ||
+      tz.startsWith('America/Lima') ||
+      tz.startsWith('America/Bogota') ||
+      tz.startsWith('America/Mexico_City') ||
+      tz.startsWith('America/Cancun') ||
+      tz.startsWith('America/Monterrey') ||
+      tz.startsWith('America/Tijuana') ||
+      tz.startsWith('America/Caracas') ||
+      tz.startsWith('America/Montevideo') ||
+      tz.startsWith('America/Asuncion') ||
+      tz.startsWith('America/La_Paz') ||
+      tz.startsWith('America/Guayaquil') ||
+      tz.startsWith('America/Panama') ||
+      tz.startsWith('America/Costa_Rica') ||
+      tz.startsWith('America/Guatemala') ||
+      tz.startsWith('America/Tegucigalpa') ||
+      tz.startsWith('America/El_Salvador') ||
+      tz.startsWith('America/Managua') ||
+      tz.startsWith('America/Santo_Domingo') ||
+      tz.startsWith('America/Havana') ||
+      tz.startsWith('America/Puerto_Rico') ||
+      tz.startsWith('Europe/Madrid') ||
+      tz.startsWith('Atlantic/Canary')
+    ) {
+      return 'es';
+    }
+    if (
+      tz.startsWith('America/Sao_Paulo') ||
+      tz.startsWith('America/Fortaleza') ||
+      tz.startsWith('America/Belem') ||
+      tz.startsWith('America/Manaus') ||
+      tz.startsWith('America/Recife') ||
+      tz.startsWith('America/Cuiaba') ||
+      tz.startsWith('Europe/Lisbon') ||
+      tz.startsWith('Atlantic/Madeira') ||
+      tz.startsWith('Atlantic/Azores')
+    ) {
+      return 'pt';
+    }
+    if (
+      tz.startsWith('Europe/Berlin') ||
+      tz.startsWith('Europe/Vienna') ||
+      tz.startsWith('Europe/Zurich') ||
+      tz.startsWith('Europe/Busingen')
+    ) {
+      return 'de';
+    }
+    if (tz.startsWith('Asia/Tokyo')) {
+      return 'jp';
+    }
+    if (
+      tz.startsWith('Asia/Shanghai') ||
+      tz.startsWith('Asia/Chongqing') ||
+      tz.startsWith('Asia/Harbin') ||
+      tz.startsWith('Asia/Urumqi') ||
+      tz.startsWith('Asia/Taipei') ||
+      tz.startsWith('Asia/Hong_Kong') ||
+      tz.startsWith('Asia/Macau')
+    ) {
+      return 'ch';
+    }
+  } catch {
+    // Ignore timezone error
+  }
+
+  // 2. Browser Locale detection (navigator.language)
+  try {
+    const rawLang =
+      (typeof navigator !== 'undefined' &&
+        (navigator.language || (navigator.languages && navigator.languages[0]))) ||
+      '';
+    const norm = rawLang.toLowerCase();
+    if (norm.startsWith('es')) return 'es';
+    if (norm.startsWith('pt')) return 'pt';
+    if (norm.startsWith('de')) return 'de';
+    if (norm.startsWith('ja') || norm.startsWith('jp')) return 'jp';
+    if (norm.startsWith('zh')) return 'ch';
+    if (norm.startsWith('en')) return 'en';
+  } catch {
+    // Ignore navigator error
+  }
+
+  return 'es';
+}
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [language, setLanguageState] = useState<Language>(() => {
     try {
+      const isManual = localStorage.getItem(MANUAL_KEY) === 'true';
       const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved && (['es', 'en', 'jp', 'ch', 'de', 'pt'] as Language[]).includes(saved as Language)) {
+      if (isManual && saved && (['es', 'en', 'jp', 'ch', 'de', 'pt'] as Language[]).includes(saved as Language)) {
         return saved as Language;
+      }
+      const cached = sessionStorage.getItem(CACHE_DETECTED_KEY);
+      if (cached && (['es', 'en', 'jp', 'ch', 'de', 'pt'] as Language[]).includes(cached as Language)) {
+        return cached as Language;
       }
     } catch {
       // ignore localStorage errors in restricted environments
     }
-    return 'es';
+    return detectLanguageSynchronously();
   });
+
+  // High-accuracy background IP Geolocation detection
+  useEffect(() => {
+    let isCancelled = false;
+    try {
+      const isManual = localStorage.getItem(MANUAL_KEY) === 'true';
+      if (isManual) return; // Explicit user choice always wins
+    } catch {
+      // ignore
+    }
+
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 2500);
+
+    fetch('https://api.country.is/', { signal: controller.signal })
+      .then((res) => {
+        if (!res.ok) throw new Error('Network error');
+        return res.json();
+      })
+      .then((data: { country?: string }) => {
+        clearTimeout(timeoutId);
+        if (isCancelled || !data?.country) return;
+        const geoLang = mapCountryToLanguage(data.country);
+        if (geoLang) {
+          try {
+            sessionStorage.setItem(CACHE_DETECTED_KEY, geoLang);
+            const isManualNow = localStorage.getItem(MANUAL_KEY) === 'true';
+            if (!isManualNow) {
+              setLanguageState(geoLang);
+              document.documentElement.lang = geoLang === 'jp' ? 'ja' : geoLang === 'ch' ? 'zh' : geoLang;
+            }
+          } catch {
+            setLanguageState(geoLang);
+          }
+        }
+      })
+      .catch(() => {
+        // Fallback already synchronously active
+      });
+
+    return () => {
+      isCancelled = true;
+      clearTimeout(timeoutId);
+      controller.abort();
+    };
+  }, []);
 
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);
     try {
+      localStorage.setItem(MANUAL_KEY, 'true');
       localStorage.setItem(STORAGE_KEY, lang);
       document.documentElement.lang = lang === 'jp' ? 'ja' : lang === 'ch' ? 'zh' : lang;
     } catch {
