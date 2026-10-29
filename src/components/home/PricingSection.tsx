@@ -51,16 +51,16 @@ export const PricingSection: React.FC = () => {
             
             {/* Featured Badge */}
             <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-[#00838f] to-[#004d54] dark:from-[#00f0ff] dark:to-[#006970] px-4 py-1 text-[11px] font-extrabold uppercase tracking-wider text-white dark:text-[#060e20] shadow-md">
-              Plan Pyme
+              {t.pricing.planBadge || 'Plan Pyme'}
             </div>
 
             {/* Card Header */}
             <div className="text-center pb-6 border-b border-[#1E2D4A]">
               <h3 className="font-display text-2xl font-bold text-[#F8FAFC]">
-                {BASIC_PLAN_DATA.name}
+                {t.pricing.planName || BASIC_PLAN_DATA.name}
               </h3>
               <p className="text-xs text-[#00f0ff] font-medium mt-1">
-                {BASIC_PLAN_DATA.subtitle}
+                {t.pricing.planSubtitle || BASIC_PLAN_DATA.subtitle}
               </p>
 
               {/* Exact Price Display */}

@@ -30,11 +30,25 @@ export const FeaturedProjectsGrid: React.FC = () => {
 
         {/* 6 Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {FEATURED_PROJECTS.map((proj) => {
-            const trans = t.projects.items[proj.id];
+          {FEATURED_PROJECTS.map((proj, idx) => {
+            const legacyKeys = [
+              'web-corporativa',
+              'e-commerce-gourmet',
+              'portal-clinico',
+              'logistica-express',
+              'gestion-inventario',
+              'ia-atencion',
+            ];
+            const trans = t.projects.items[proj.id] || t.projects.items[legacyKeys[idx]];
             const title = trans?.title || proj.title;
             const category = trans?.category || proj.category;
             const description = trans?.description || proj.description;
+            const statusLabel = trans?.statusLabel || (
+              proj.isDemo
+                ? (t.projects.demoBadge || 'Solución Demostrativa de Referencia')
+                : (t.projects.verifiedBadge || 'Proyecto Real Verificado')
+            );
+            const technologies = trans?.technologies || proj.technologies;
 
             return (
               <article
@@ -62,7 +76,7 @@ export const FeaturedProjectsGrid: React.FC = () => {
                         }`}
                       >
                         {proj.isDemo ? <FlaskConical className="h-3 w-3" /> : <CheckCircle2 className="h-3 w-3" />}
-                        <span>{proj.statusLabel}</span>
+                        <span>{statusLabel}</span>
                       </span>
                     </div>
                   </div>
@@ -81,9 +95,9 @@ export const FeaturedProjectsGrid: React.FC = () => {
 
                     {/* Tech Stack Tags */}
                     <div className="flex flex-wrap gap-1.5 pt-1">
-                      {proj.technologies.map((tech, idx) => (
+                      {technologies.map((tech, techIdx) => (
                         <span
-                          key={idx}
+                          key={techIdx}
                           className="rounded border border-[#1E2D4A] bg-[#111C35] px-2 py-0.5 text-[10px] font-mono text-[#dae2fd]"
                         >
                           {tech}

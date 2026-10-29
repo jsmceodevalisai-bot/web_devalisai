@@ -16,11 +16,12 @@ export const TestimonialsCarousel: React.FC = () => {
   };
 
   const current = TESTIMONIALS[currentIndex];
-  const trans = t.testimonials.items[current.id];
+  const trans = t.testimonials.items[current.id] || t.testimonials.items[current.id.replace('t-', '')];
   const quote = trans?.quote || current.quote;
   const authorName = trans?.name || current.author;
   const authorRole = trans?.role || current.role;
   const authorCompany = trans?.company || current.company;
+  const verifiedStatus = trans ? (t.testimonials.verifiedBadge || 'Cliente verificado') : current.verifiedStatus;
 
   return (
     <section id="testimonios" className="py-20 bg-[#060A12] border-b border-[#1E2D4A] relative">
@@ -73,7 +74,7 @@ export const TestimonialsCarousel: React.FC = () => {
                 </div>
                 <div className="mt-1 inline-flex items-center gap-1.5 text-[10px] text-[#10B981]">
                   <ShieldCheck className="h-3 w-3" />
-                  <span>{current.verifiedStatus}</span>
+                  <span>{verifiedStatus}</span>
                 </div>
               </div>
 
@@ -81,14 +82,14 @@ export const TestimonialsCarousel: React.FC = () => {
               <div className="flex items-center gap-2">
                 <button
                   onClick={prev}
-                  aria-label="Testimonio anterior"
+                  aria-label={t.testimonials.prev || "Testimonio anterior"}
                   className="btn-interactive flex h-10 w-10 items-center justify-center rounded-lg border border-[#1E2D4A] bg-[#111C35] text-[#dae2fd] hover:border-[#00f0ff]/50 hover:text-[#00f0ff]"
                 >
                   <ChevronLeft className="h-5 w-5" />
                 </button>
                 <button
                   onClick={next}
-                  aria-label="Siguiente testimonio"
+                  aria-label={t.testimonials.next || "Siguiente testimonio"}
                   className="btn-interactive flex h-10 w-10 items-center justify-center rounded-lg border border-[#1E2D4A] bg-[#111C35] text-[#dae2fd] hover:border-[#00f0ff]/50 hover:text-[#00f0ff]"
                 >
                   <ChevronRight className="h-5 w-5" />

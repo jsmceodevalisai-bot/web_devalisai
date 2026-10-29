@@ -31,10 +31,12 @@ export interface OfferingTranslation {
 export interface ProjectTranslation {
   id: string;
   title: string;
-  client: string;
+  client?: string;
   category: string;
   description: string;
-  impact: string;
+  impact?: string;
+  statusLabel?: string;
+  technologies?: string[];
 }
 
 export interface MetricTranslation {
@@ -50,6 +52,7 @@ export interface TestimonialTranslation {
   name: string;
   role: string;
   company: string;
+  verifiedStatus?: string;
 }
 
 export interface TranslationSchema {
@@ -134,6 +137,8 @@ export interface TranslationSchema {
     title: string;
     subtitle: string;
     similarCta: string;
+    verifiedBadge?: string;
+    demoBadge?: string;
     items: Record<string, ProjectTranslation>;
   };
   metrics: {
@@ -149,6 +154,9 @@ export interface TranslationSchema {
     badge: string;
     title: string;
     subtitle: string;
+    planBadge?: string;
+    planName?: string;
+    planSubtitle?: string;
     priceAmount: string;
     priceNote: string;
     includedTitle: string;
@@ -162,7 +170,16 @@ export interface TranslationSchema {
     subtitle: string;
     prev: string;
     next: string;
+    verifiedBadge?: string;
     items: Record<string, TestimonialTranslation>;
+  };
+  techStack?: {
+    badge: string;
+    title: string;
+    subtitle: string;
+    frontendBadge: string;
+    backendBadge: string;
+    cloudBadge: string;
   };
   contact: {
     badge: string;
@@ -350,6 +367,8 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
       title: 'Proyectos que Transforman Negocios',
       subtitle: 'Soluciones reales implementadas con estándares de alta ingeniería y retorno de inversión medible.',
       similarCta: 'Cotizar solución similar',
+      verifiedBadge: 'Proyecto Real Verificado',
+      demoBadge: 'Solución Demostrativa de Referencia',
       items: {
         'e-commerce-gourmet': {
           id: 'e-commerce-gourmet',
@@ -439,6 +458,9 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
       badge: 'Transparencia Total',
       title: 'Plan Básico Web para Pymes',
       subtitle: 'Todo lo que tu empresa necesita para tener presencia digital profesional, segura y con alta conversión.',
+      planBadge: 'Plan Pyme',
+      planName: 'Plan Básico',
+      planSubtitle: 'Diseño web estándar',
       priceAmount: '$49.990 CLP',
       priceNote: 'Pago único de puesta en marcha + soporte continuo',
       includedTitle: '14 Características Incluidas:',
@@ -467,6 +489,7 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
       subtitle: 'Empresas y pymes que confían en Develisai para sus plataformas tecnológicas.',
       prev: 'Anterior',
       next: 'Siguiente',
+      verifiedBadge: 'Cliente verificado',
       items: {
         '1': {
           id: '1',
@@ -504,6 +527,14 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
           company: 'Ferreterías Unidas',
         },
       },
+    },
+    techStack: {
+      badge: 'Stack Tecnológico Integral',
+      title: 'Tecnologías modernas para soluciones de alto impacto',
+      subtitle: 'Construimos arquitecturas modulares, escalables y seguras utilizando los estándares y herramientas más demandados por la industria.',
+      frontendBadge: 'Frontend & Web',
+      backendBadge: 'Backend, Datos & APIs',
+      cloudBadge: 'Cloud, DevOps & IA',
     },
     contact: {
       badge: 'Hablemos',
@@ -690,6 +721,8 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
       title: 'Projects that Transform Business',
       subtitle: 'Real-world solutions built with rigorous engineering standards and proven return on investment.',
       similarCta: 'Request similar solution',
+      verifiedBadge: 'Verified Live Project',
+      demoBadge: 'Reference Demo Solution',
       items: {
         'e-commerce-gourmet': {
           id: 'e-commerce-gourmet',
@@ -779,6 +812,9 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
       badge: 'Total Transparency',
       title: 'Basic Web Plan for SMEs',
       subtitle: 'Everything your business needs to establish a high-converting, secure, and professional digital presence.',
+      planBadge: 'SME Plan',
+      planName: 'Basic Plan',
+      planSubtitle: 'Standard Web Design',
       priceAmount: '$49,990 CLP',
       priceNote: 'One-time setup fee + continuous technical support',
       includedTitle: '14 Included Features:',
@@ -807,6 +843,7 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
       subtitle: 'Companies and businesses that trust Develisai for their digital engineering.',
       prev: 'Previous',
       next: 'Next',
+      verifiedBadge: 'Verified Client',
       items: {
         '1': {
           id: '1',
@@ -844,6 +881,14 @@ export const TRANSLATIONS: Record<Language, TranslationSchema> = {
           company: 'Ferreterías Unidas',
         },
       },
+    },
+    techStack: {
+      badge: 'Full-Stack Technology Ecosystem',
+      title: 'Modern technologies for high-impact software solutions',
+      subtitle: 'We engineer modular, scalable, and secure architectures using modern industry-standard toolsets.',
+      frontendBadge: 'Frontend & Web',
+      backendBadge: 'Backend, Data & APIs',
+      cloudBadge: 'Cloud, DevOps & AI',
     },
     contact: {
       badge: 'Let’s Talk',

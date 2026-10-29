@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLanguage } from '../../context/LanguageContext';
 import { Code2, Database, Cpu } from 'lucide-react';
 
 const FRONTEND_TECHS = [
@@ -35,17 +36,19 @@ const CLOUD_AI_TECHS = [
 ];
 
 export const TechnologyMarquees: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="py-16 bg-[#0B1326] border-b border-[#1E2D4A] overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-8 text-center">
         <div className="text-xs font-bold uppercase tracking-wider text-[#00f0ff] mb-1">
-          Stack Tecnológico Integral
+          {t.techStack?.badge || 'Stack Tecnológico Integral'}
         </div>
         <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#F8FAFC]">
-          Tecnologías modernas para soluciones de alto impacto
+          {t.techStack?.title || 'Tecnologías modernas para soluciones de alto impacto'}
         </h2>
         <p className="text-xs text-[#94A3B8] max-w-xl mx-auto mt-2">
-          Construimos arquitecturas modulares, escalables y seguras utilizando los estándares y herramientas más demandados por la industria.
+          {t.techStack?.subtitle || 'Construimos arquitecturas modulares, escalables y seguras utilizando los estándares y herramientas más demandados por la industria.'}
         </p>
       </div>
 
@@ -55,7 +58,7 @@ export const TechnologyMarquees: React.FC = () => {
         <div className="marquee-container relative flex overflow-hidden py-1">
           <div className="absolute left-4 top-1/2 -translate-y-1/2 z-10 hidden md:flex items-center gap-1.5 rounded-md bg-[#0C1527]/90 px-3 py-1 text-[11px] font-bold text-[#00f0ff] border border-[#2A3F66] backdrop-blur-md">
             <Code2 className="h-3.5 w-3.5" />
-            <span>Frontend & Web</span>
+            <span>{t.techStack?.frontendBadge || 'Frontend & Web'}</span>
           </div>
 
           <div className="animate-marquee-left flex items-center gap-4">
@@ -76,7 +79,7 @@ export const TechnologyMarquees: React.FC = () => {
         <div className="marquee-container relative flex overflow-hidden py-1">
           <div className="absolute right-4 top-1/2 -translate-y-1/2 z-10 hidden md:flex items-center gap-1.5 rounded-md bg-[#0C1527]/90 px-3 py-1 text-[11px] font-bold text-[#38BDF8] border border-[#2A3F66] backdrop-blur-md">
             <Database className="h-3.5 w-3.5" />
-            <span>Backend, Datos & APIs</span>
+            <span>{t.techStack?.backendBadge || 'Backend, Datos & APIs'}</span>
           </div>
 
           <div className="animate-marquee-right flex items-center gap-4">
@@ -97,7 +100,7 @@ export const TechnologyMarquees: React.FC = () => {
         <div className="marquee-container relative flex overflow-hidden py-1">
           <div className="absolute left-4 top-1/2 -translate-y-1/2 z-10 hidden md:flex items-center gap-1.5 rounded-md bg-[#0C1527]/90 px-3 py-1 text-[11px] font-bold text-[#10B981] border border-[#2A3F66] backdrop-blur-md">
             <Cpu className="h-3.5 w-3.5" />
-            <span>Cloud, DevOps & IA</span>
+            <span>{t.techStack?.cloudBadge || 'Cloud, DevOps & IA'}</span>
           </div>
 
           <div className="animate-marquee-left animate-marquee-slow flex items-center gap-4">
